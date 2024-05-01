@@ -1,2 +1,4 @@
 # Database
-Ece NTUA | Databases Project
+ECE NTUA | Databases Project
+Professor: D. Tsoumakos
+Contributors: K. Michou, A.Ntalapera,J. Polychronopoulos
