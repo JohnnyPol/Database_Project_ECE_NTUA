@@ -58,3 +58,17 @@ BEGIN
 END$$
 DELIMITER;
 
+
+-- Procedure that stores outputs 
+DELIMITER $$
+
+CREATE PROCEDURE GetMultipleValues(IN param1 INT, OUT val1 VARCHAR(100), OUT val2 VARCHAR(100))
+BEGIN
+    SELECT column1 INTO val1 FROM table1 WHERE id = param1;
+    SELECT column2 INTO val2 FROM table2 WHERE id = param1;
+END$$
+
+DELIMITER ;
+CALL GetMultipleValues(1, @output1, @output2);
+SELECT @output1, @output2;
+
