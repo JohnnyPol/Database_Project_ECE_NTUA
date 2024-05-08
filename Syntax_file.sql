@@ -20,7 +20,7 @@ FLUSH PRIVILEGES;
 DROP USER 'newusername'@'localhost';
 
 -- Define a function
-DELIMITER $$
+DELIMITER$$
 CREATE FUNCTION Function_Name
 (
   Parameter_1 Data_Type,
@@ -33,4 +33,28 @@ BEGIN
   Function_body
   Return Return_Value
 END$$
+DELIMITER;
+
+--Create Procedure
+DELIMITER $$
+CREATE PROCEDURE procedure_name ([parameter[, ...]])
+    [characteristic ...]
+BEGIN
+    -- SQL statements
+    -- ...
+END$$
 DELIMITER ;
+
+
+-- Create a Trigger
+DELIMITER$$
+CREATE TRIGGER trigger_name
+{BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+ON table_name FOR EACH ROW
+[trigger_order]
+BEGIN
+    -- trigger_body;
+    -- SQL statements to be executed when the trigger is fired
+END$$
+DELIMITER;
+
