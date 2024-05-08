@@ -13,8 +13,24 @@ GRANT INSERT, SELECT ON databasename.* TO 'newusername'@'localhost';
 -- Revoke a Privilege:
 REVOKE INSERT ON databasename.* FROM 'newusername'@'localhost';
 
--- Apply the privilages
+-- Apply the privileges
 FLUSH PRIVILEGES;
 
 --Delete a User:
 DROP USER 'newusername'@'localhost';
+
+-- Define a function
+DELIMITER $$
+CREATE FUNCTION Function_Name
+(
+  Parameter_1 Data_Type,
+  Parameter_2 Data_Type,
+  ...
+  Parameter_n Data_Type
+)
+RETURNS Return_Datatype
+BEGIN
+  Function_body
+  Return Return_Value
+END$$
+DELIMITER ;
