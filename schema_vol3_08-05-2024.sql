@@ -42,6 +42,25 @@ primary_ingredient VARCHAR(255),
 FOREIGN KEY(cuisine_name) REFERENCES cuisine(cuisine_name)
 );
 
+DELIMITER $$
+
+CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
+BEGIN
+    -- Check if the cuisine exists in the cuisine table
+    DECLARE cuisineExists INT;
+    
+    -- Check existence
+    SELECT COUNT(*) INTO cuisineExists FROM cuisine WHERE cuisine_name = NEW.cuisine_name;
+    
+    -- If it does not exist, insert it
+    IF cuisineExists = 0 THEN
+        INSERT INTO cuisine (cuisine_name) VALUES (NEW.cuisine_name);
+    END IF;
+END$$
+  
+-- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
+DELIMITER ;
+
 CREATE TABLE chefs(
 chef_name VARCHAR(255),
 chef_surname VARCHAR(255),
