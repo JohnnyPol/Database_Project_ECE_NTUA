@@ -13,7 +13,7 @@ GRANT INSERT, SELECT ON databasename.* TO 'newusername'@'localhost';
 -- Revoke a Privilege:
 REVOKE INSERT ON databasename.* FROM 'newusername'@'localhost';
 
--- Apply the privileges
+-- Apply the privilege
 FLUSH PRIVILEGES;
 
 --Delete a User:
