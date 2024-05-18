@@ -1,5 +1,5 @@
 {
-    "MYSQL_USER": "",
+    "MYSQL_USER": "ntua",
     "MYSQL_PASSWORD": "ece!@#$",
     "MYSQL_DB": "masterchef_ntua_edition",
     "MYSQL_HOST": "localhost"
