@@ -7,3 +7,8 @@ import json
 app = Flask(__name__)
 
 app.config.from_file("config.json", load=json.load)
+
+## initialize database connection object
+db = MySQL(app)
+
+from Masterchef_DB import routes
