@@ -32,6 +32,10 @@ DROP TABLE IF EXISTS dietary_info;
 DROP TABLE IF EXISTS expertise_in;
 DROP TABLE IF EXISTS Winner;
 
+-- -----------------------------------------
+-- Tables --
+-- -----------------------------------------
+
 CREATE TABLE cuisine(
 cuisine_name VARCHAR(255) PRIMARY KEY
 );
@@ -274,6 +278,10 @@ FOREIGN KEY (episode_num, season) REFERENCES episodes(number_of_episode, season)
 FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname)
 );
 
+-- -----------------------------------------
+-- Functions --
+-- -----------------------------------------
+
 DELIMITER //
 create function get_a_sane_amount(
 	t_ingredient_name VARCHAR(255), original_amount int, possibly_grandma_unit VARCHAR(255))
@@ -342,3 +350,22 @@ create function get_a_sane_amount(
 		
     end //
     DELIMITER ;
+
+	DELIMITER $$
+
+CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
+BEGIN
+    -- Check if the cuisine exists in the cuisine table
+    DECLARE cuisineExists INT;
+
+    -- Check existence
+    SELECT COUNT(*) INTO cuisineExists FROM cuisine WHERE cuisine_name = NEW.cuisine_name;
+
+    -- If it does not exist, insert it
+    IF cuisineExists = 0 THEN
+        INSERT INTO cuisine (cuisine_name) VALUES (NEW.cuisine_name);
+    END IF;
+END$$
+
+-- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
+DELIMITER ;
