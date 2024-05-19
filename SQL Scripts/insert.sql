@@ -1,4 +1,3 @@
------------- RECIPES ------------
 INSERT INTO recipes VALUES ('Sunny Breakfast', 'cooking', 'American', 2, 'A delightful start to your day with sunny side up eggs and toast.', 'Serve immediately.', 'Add herbs for enhanced flavor.', NULL, '00:10:00', '00:05:00', 1, 'Eggs');
 INSERT INTO recipes VALUES ('Chocolate Cake', 'baking', 'French', 3, 'Rich chocolate cake with layers of dark chocolate ganache.', 'Use high-quality cocoa.', NULL, NULL, '00:20:00', '00:45:00', 8, 'Cocoa powder');
 INSERT INTO recipes VALUES ('Vegetable Stir Fry', 'cooking', 'Chinese', 2, 'Quick and healthy vegetable stir fry with soy sauce.', 'Can add chicken or beef.', 'Use fresh vegetables.', NULL, '00:15:00', '00:10:00', 2, 'Bell peppers');

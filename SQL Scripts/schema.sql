@@ -122,24 +122,24 @@ cuisine_8 VARCHAR(255),
 cuisine_9 VARCHAR(255), 
 cuisine_10 VARCHAR(255), 
 chef_1_name VARCHAR(255),
-chef_2_name VARCHAR(255),
-chef_3_name VARCHAR(255),
-chef_4_name VARCHAR(255),
-chef_5_name VARCHAR(255),
-chef_6_name VARCHAR(255),
-chef_7_name VARCHAR(255),
-chef_8_name VARCHAR(255),
-chef_9_name VARCHAR(255),
-chef_10_name VARCHAR(255),
 chef_1_surname VARCHAR(255),
+chef_2_name VARCHAR(255),
 chef_2_surname VARCHAR(255),
+chef_3_name VARCHAR(255),
 chef_3_surname VARCHAR(255),
+chef_4_name VARCHAR(255),
 chef_4_surname VARCHAR(255),
+chef_5_name VARCHAR(255),
 chef_5_surname VARCHAR(255),
+chef_6_name VARCHAR(255),
 chef_6_surname VARCHAR(255),
+chef_7_name VARCHAR(255),
 chef_7_surname VARCHAR(255),
+chef_8_name VARCHAR(255),
 chef_8_surname VARCHAR(255),
+chef_9_name VARCHAR(255),
 chef_9_surname VARCHAR(255),
+chef_10_name VARCHAR(255),
 chef_10_surname VARCHAR(255),
 recipe_1 VARCHAR(255),
 recipe_2 VARCHAR(255),
@@ -152,10 +152,10 @@ recipe_8 VARCHAR(255),
 recipe_9 VARCHAR(255),
 recipe_10 VARCHAR(255),
 judge_name_1 VARCHAR(255),
-judge_name_2 VARCHAR(255),
-judge_name_3 VARCHAR(255),
 judge_surname_1 VARCHAR(255),
+judge_name_2 VARCHAR(255),
 judge_surname_2 VARCHAR(255),
+judge_name_3 VARCHAR(255),
 judge_surname_3 VARCHAR(255),
 PRIMARY KEY(number_of_episode, season),
 FOREIGN KEY(cuisine_1) REFERENCES cuisine(cuisine_name),
@@ -349,9 +349,13 @@ create function get_a_sane_amount(
     
 		
     end //
-    DELIMITER ;
+DELIMITER ;
 
-	DELIMITER $$
+-- -----------------------------------------
+-- Triggers --
+-- -----------------------------------------
+
+DELIMITER $$
 
 CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
 BEGIN

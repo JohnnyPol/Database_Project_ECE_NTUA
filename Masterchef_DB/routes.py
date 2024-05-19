@@ -10,11 +10,7 @@ def index():
         action = request.args.get("action")
 
         if action == "create_database":
-            # Construct the path to the SQL script
-            sql_file_path = os.path.join(
-                os.path.dirname(__file__), "..", "SQL Scripts", "schema.sql"
-            )
-            with open(sql_file_path, "r") as file:
+            with open("SQL Scripts/test_schema.sql", "r") as file:
                 sql_script = file.read()
 
             cursor = db.connection.cursor()
@@ -24,7 +20,6 @@ def index():
 
             # Commit the changes to the database to ensure they are saved
             db.connection.commit()
-
             cursor.close()
 
             return (
@@ -32,20 +27,11 @@ def index():
                 200,
             )
         elif action == "insert":
-            # Construct the path to the SQL script
-            sql_file_path = os.path.join(
-                os.path.dirname(__file__), "..", "SQL Scripts", "insert.sql"
-            )
-            with open(sql_file_path, "r") as file:
+            with open("SQL Scripts/test_insert.sql", "r") as file:
                 sql_script = file.read()
 
             cursor = db.connection.cursor()
-
-            # Execute the SQL script
-            for statement in sql_script.split(";"):
-                if statement.strip():
-                    print(statement)
-                    cursor.execute(statement)
+            cursor.execute(sql_script)
 
             # Commit the changes to the database to ensure they are saved
             db.connection.commit()
@@ -77,13 +63,7 @@ def index():
             return jsonify(results=serialized_results), 200
 
         else:
-            query = """
-            INSERT INTO recipes VALUES ('Sunny Breakfast', 'cooking', 'American', 2, 'A delightful start to your day with sunny side up eggs and toast.', 'Serve immediately.', 'Add herbs for enhanced flavor.', NULL, '00:10:00', '00:05:00', 1, 'Eggs')
-"""
-            cursor = db.connection.cursor()
-            cursor.execute(query)
-            result = cursor.fetchall()
-            # return jsonify(status="Connection is established")
-            return jsonify(status=result)
+            return jsonify(status="Connection is established")
+
     except Exception as e:
         return jsonify(error_message="{}".format(str(e))), 500
