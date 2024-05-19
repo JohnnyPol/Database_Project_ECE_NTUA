@@ -1,4 +1,4 @@
-CREATE DATABASE Masterchef_NTUA_Edition;
+CREATE DATABASE IF NOT EXISTS Masterchef_NTUA_Edition;
 USE Masterchef_NTUA_Edition;
 
 DROP TABLE IF EXISTS scores;
