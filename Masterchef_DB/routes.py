@@ -20,9 +20,7 @@ def index():
             cursor = db.connection.cursor()
 
             # Execute the SQL script
-            for statement in sql_script.split(";"):
-                if statement.strip():
-                    cursor.execute(statement)
+            cursor.execute(sql_script)
 
             # Commit the changes to the database to ensure they are saved
             db.connection.commit()
@@ -46,6 +44,7 @@ def index():
             # Execute the SQL script
             for statement in sql_script.split(";"):
                 if statement.strip():
+                    print(statement)
                     cursor.execute(statement)
 
             # Commit the changes to the database to ensure they are saved
@@ -78,6 +77,13 @@ def index():
             return jsonify(results=serialized_results), 200
 
         else:
-            return jsonify(status="Connection is established")
+            query = """
+            INSERT INTO recipes VALUES ('Sunny Breakfast', 'cooking', 'American', 2, 'A delightful start to your day with sunny side up eggs and toast.', 'Serve immediately.', 'Add herbs for enhanced flavor.', NULL, '00:10:00', '00:05:00', 1, 'Eggs')
+"""
+            cursor = db.connection.cursor()
+            cursor.execute(query)
+            result = cursor.fetchall()
+            # return jsonify(status="Connection is established")
+            return jsonify(status=result)
     except Exception as e:
-        return jsonify(message="Error: {}".format(str(e))), 500
+        return jsonify(error_message="{}".format(str(e))), 500
