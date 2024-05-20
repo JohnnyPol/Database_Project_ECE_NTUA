@@ -1,23 +1,19 @@
 CREATE DATABASE IF NOT EXISTS Masterchef_NTUA_Edition;
 USE Masterchef_NTUA_Edition;
 
-DROP TABLE IF EXISTS scores;
+DROP TABLE IF EXISTS participate_in_episode_as_chef;
+DROP TABLE IF EXISTS participate_in_episode_as_judge;
 DROP TABLE IF EXISTS Winner;
-DROP TABLE IF EXISTS episodes;
 DROP TABLE IF EXISTS belongs_to_mealtype;
 DROP TABLE IF EXISTS belongs_to_tag;
 DROP TABLE IF EXISTS needs_equipment;
 DROP TABLE IF EXISTS has_ingredient;
 DROP TABLE IF EXISTS dietary_info;
-DROP TABLE IF EXISTS recipes;
 DROP TABLE IF EXISTS expertise_in;
-DROP TABLE IF EXISTS chefs;
-DROP TABLE IF EXISTS cuisine;
 DROP TABLE IF EXISTS steps;
 DROP TABLE IF EXISTS theme;
 DROP TABLE IF EXISTS meal_type;
 DROP TABLE IF EXISTS belongs_to_foodgroup;
-DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS food_groups;
 DROP TABLE IF EXISTS equipment;
@@ -31,6 +27,10 @@ DROP TABLE IF EXISTS belongs_to_foodgroup;
 DROP TABLE IF EXISTS dietary_info;
 DROP TABLE IF EXISTS expertise_in;
 DROP TABLE IF EXISTS Winner;
+DROP TABLE IF EXISTS chefs;
+DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS ingredients;
+DROP TABLE IF EXISTS cuisine;
 
 -- -----------------------------------------
 -- Tables --
@@ -45,9 +45,7 @@ ingredient_name VARCHAR(255) PRIMARY KEY,
 fats_per_fund_SI FLOAT,
 protein_per_fund_SI FLOAT,
 carbs_per_fund_SI FLOAT,
-calories_per_fund_SI INT,
-fundamental_SI_unit enum("gram", "ml", "piece"),
-fundamental_culinary_unit enum("Non", "Tablespoon", "Teaspoon", "Cup", "Pinch")
+calories_per_fund_SI INT
 );
 
 CREATE TABLE recipes(
@@ -67,16 +65,6 @@ FOREIGN KEY(cuisine_name) REFERENCES cuisine(cuisine_name),
 FOREIGN KEY(primary_ingredient) REFERENCES ingredients(ingredient_name)
 );
 
-CREATE TABLE chefs(
-chef_name VARCHAR(255),
-chef_surname VARCHAR(255),
-phone_number NUMERIC(10,0), 
-date_of_birth DATE,
-age INT,
-experience INT,
-experience_level ENUM("3rd cook","2nd cook","1st cook","sous chef","chef"),
-PRIMARY KEY(chef_name, chef_surname)
-);
 
 CREATE TABLE steps(
 recipe VARCHAR(255),
@@ -100,7 +88,8 @@ tag_name VARCHAR(255) PRIMARY KEY
 
 CREATE TABLE food_groups(
 food_group_name VARCHAR(255) PRIMARY KEY,
-food_group_description VARCHAR(255)
+food_group_description VARCHAR(255),
+dietary_analogy VARCHAR(255)
 );
 
 CREATE TABLE equipment(
@@ -108,119 +97,68 @@ equipment_name VARCHAR(255) PRIMARY KEY,
 instructions VARCHAR(255)
 );
 
-CREATE TABLE episodes(
-number_of_episode INT,
-season INT,
-cuisine_1 VARCHAR(255), 
-cuisine_2 VARCHAR(255), 
-cuisine_3 VARCHAR(255), 
-cuisine_4 VARCHAR(255), 
-cuisine_5 VARCHAR(255), 
-cuisine_6 VARCHAR(255), 
-cuisine_7 VARCHAR(255), 
-cuisine_8 VARCHAR(255), 
-cuisine_9 VARCHAR(255), 
-cuisine_10 VARCHAR(255), 
-chef_1_name VARCHAR(255),
-chef_1_surname VARCHAR(255),
-chef_2_name VARCHAR(255),
-chef_2_surname VARCHAR(255),
-chef_3_name VARCHAR(255),
-chef_3_surname VARCHAR(255),
-chef_4_name VARCHAR(255),
-chef_4_surname VARCHAR(255),
-chef_5_name VARCHAR(255),
-chef_5_surname VARCHAR(255),
-chef_6_name VARCHAR(255),
-chef_6_surname VARCHAR(255),
-chef_7_name VARCHAR(255),
-chef_7_surname VARCHAR(255),
-chef_8_name VARCHAR(255),
-chef_8_surname VARCHAR(255),
-chef_9_name VARCHAR(255),
-chef_9_surname VARCHAR(255),
-chef_10_name VARCHAR(255),
-chef_10_surname VARCHAR(255),
-recipe_1 VARCHAR(255),
-recipe_2 VARCHAR(255),
-recipe_3 VARCHAR(255),
-recipe_4 VARCHAR(255),
-recipe_5 VARCHAR(255),
-recipe_6 VARCHAR(255),
-recipe_7 VARCHAR(255),
-recipe_8 VARCHAR(255),
-recipe_9 VARCHAR(255),
-recipe_10 VARCHAR(255),
-judge_name_1 VARCHAR(255),
-judge_surname_1 VARCHAR(255),
-judge_name_2 VARCHAR(255),
-judge_surname_2 VARCHAR(255),
-judge_name_3 VARCHAR(255),
-judge_surname_3 VARCHAR(255),
-PRIMARY KEY(number_of_episode, season),
-FOREIGN KEY(cuisine_1) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_2) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_3) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_4) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_5) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_6) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_7) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_8) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_9) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(cuisine_10) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY(chef_1_name, chef_1_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_2_name, chef_2_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_3_name, chef_3_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_4_name, chef_4_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_5_name, chef_5_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_6_name, chef_6_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_7_name, chef_7_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_8_name, chef_8_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_9_name, chef_9_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(chef_10_name, chef_10_surname) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(recipe_1) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_2) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_3) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_4) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_5) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_6) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_7) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_8) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_9) REFERENCES recipes(recipe_name),
-FOREIGN KEY(recipe_10) REFERENCES recipes(recipe_name),
-FOREIGN KEY(judge_name_1, judge_surname_1) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(judge_name_2, judge_surname_2) REFERENCES chefs(chef_name, chef_surname),
-FOREIGN KEY(judge_name_3, judge_surname_3) REFERENCES chefs(chef_name, chef_surname)
+CREATE TABLE chefs(
+chef_name VARCHAR(50),
+chef_surname VARCHAR(50),
+phone_number NUMERIC(10,0), 
+date_of_birth DATE,
+age INT,
+experience INT,
+experience_level ENUM("3rd cook","2nd cook","1st cook","sous chef","chef"),
+PRIMARY KEY(chef_name, chef_surname)
 );
 
+CREATE TABLE participate_in_episode_as_chef(
+episode_no INT,
+season INT,
+chef_name VARCHAR(50),
+chef_surname VARCHAR(50),
+cuisine_name VARCHAR(255),
+recipe_name VARCHAR(255),
+FOREIGN KEY(chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname),
+FOREIGN KEY(recipe_name) REFERENCES recipes(recipe_name),
+FOREIGN KEY(cuisine_name) REFERENCES cuisine(cuisine_name),
+PRIMARY KEY(episode_no, season, chef_name, chef_surname)
+);
+
+CREATE TABLE participate_in_episode_as_judge(
+episode_no INT,
+season INT,
+judge_name VARCHAR(50),
+judge_surname VARCHAR(50),
+FOREIGN KEY(judge_name, judge_surname) REFERENCES chefs(chef_name, chef_surname),
+PRIMARY KEY(episode_no, season, judge_name, judge_surname)
+);
+
+
 CREATE TABLE scores(
-score INT PRIMARY KEY,
+score INT,
 episode_number INT,
 season INT,
-chef_name VARCHAR(255),
-chef_surname VARCHAR(255),
-judge_name VARCHAR(255),
-judge_surname VARCHAR(255),
-FOREIGN KEY(episode_number, season) REFERENCES episodes(number_of_episode, season),
+chef_name VARCHAR(50),
+chef_surname VARCHAR(50),
+judge_name VARCHAR(50),
+judge_surname VARCHAR(50),
+PRIMARY KEY(episode_number, season, chef_name, chef_surname, judge_name, judge_surname),
 FOREIGN KEY(chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname),
 FOREIGN KEY(judge_name, judge_surname) REFERENCES chefs(chef_name, chef_surname),
 CHECK(score BETWEEN 1 AND 5)
 );
 
 CREATE TABLE belongs_to_mealtype(
-bm_id INT AUTO_INCREMENT PRIMARY KEY,
 recipe VARCHAR(255) NOT NULL,
 mealtype VARCHAR(255) NOT NULL,
 FOREIGN KEY (recipe) REFERENCES recipes(recipe_name),
-FOREIGN KEY (mealtype) REFERENCES meal_type(mealtype_name)
+FOREIGN KEY (mealtype) REFERENCES meal_type(mealtype_name),
+PRIMARY KEY (recipe, mealtype)
 );
 
 CREATE TABLE belongs_to_tag(
-bt_id INT AUTO_INCREMENT PRIMARY KEY,
 recipe VARCHAR(255) NOT NULL,
 tag VARCHAR(255) NOT NULL,
 FOREIGN KEY (recipe) REFERENCES recipes(recipe_name),
-FOREIGN KEY (tag) REFERENCES tags(tag_name)
+FOREIGN KEY (tag) REFERENCES tags(tag_name),
+PRIMARY KEY (recipe, tag)
 );
 
 CREATE TABLE needs_equipment(
@@ -235,8 +173,8 @@ FOREIGN KEY (equipment_name) REFERENCES equipment(equipment_name)
 CREATE TABLE has_ingredient(
 recipe VARCHAR(255),
 ingredient VARCHAR(255),
-amount INT DEFAULT 0,
 fundamental_unit VARCHAR(255),
+amount INT DEFAULT 0,
 PRIMARY KEY (recipe, ingredient),
 FOREIGN KEY (recipe) REFERENCES recipes(recipe_name),
 FOREIGN KEY (ingredient) REFERENCES ingredients(ingredient_name)
@@ -260,21 +198,20 @@ FOREIGN KEY (recipe) REFERENCES recipes(recipe_name)
 );
 
 CREATE TABLE expertise_in(
-ei_id INT AUTO_INCREMENT PRIMARY KEY,
-chef_name VARCHAR(255) NOT NULL,
-chef_surname VARCHAR(255) NOT NULL,
+chef_name VARCHAR(50) NOT NULL,
+chef_surname VARCHAR(50) NOT NULL,
 cuisine_name VARCHAR(255) NOT NULL,
 FOREIGN KEY (cuisine_name) REFERENCES cuisine(cuisine_name),
-FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname)
+FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname),
+PRIMARY KEY (chef_name, chef_surname, cuisine_name)
 );
 
 CREATE TABLE Winner(
 episode_num INT,
 season INT,
-chef_surname VARCHAR(255) NOT NULL,
-chef_name VARCHAR(255) NOT NULL,
+chef_surname VARCHAR(50) NOT NULL,
+chef_name VARCHAR(50) NOT NULL,
 PRIMARY KEY (episode_num, season), 
-FOREIGN KEY (episode_num, season) REFERENCES episodes(number_of_episode, season),
 FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname)
 );
 
@@ -282,80 +219,14 @@ FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs(chef_name, chef_surname)
 -- Functions --
 -- -----------------------------------------
 
-DELIMITER //
-create function get_a_sane_amount(
-	t_ingredient_name VARCHAR(255), original_amount int, possibly_grandma_unit VARCHAR(255))
-    returns float
-    
-    deterministic 
-    begin 
-		declare Sane_amount float;
-		declare amount_in_culinary_unit int;
-        declare ing_cul enum("Non", "Tablespoon", "Teaspoon", "Cup", "Pinch");
-        declare ing_SI enum("gram", "ml", "piece");
-        declare test_unit enum("Non", "Tablespoon", "Teaspoon", "Cup", "Pinch");
-        set sane_amount = 0.0;
-		set amount_in_culinary_unit = 0;
-        select fundamental_culinary_unit into ing_cul
-			from ingredients
-            where ingredient_name = t_ingredient_name;
-		select fundamental_SI_unit into ing_SI
-			from ingredients
-            where ingredient_name = t_ingredient_name;
-        
-		if possibly_grandma_unit in ("gram", "ml", "piece")
-			then set sane_amount = original_amount; return sane_amount;
-		elseif possibly_grandma_unit in ("kilo", "litre")
-			then set sane_amount = 1000 * original_amout; return sane_amount;
-		elseif possibly_grandma_unit in ("A bit of")
-			then set amount_in_culinary_unit = 1; set test_unit = ing_cul;
-		elseif possibly_grandma_unit in ("Just Eyeball it")
-			then set amount_in_culinary_unit = 2; set test_unit = ing_cul;
-		elseif possibly_grandma_unit in ("As much as you can get")
-			then set amount_in_culinary_unit = 100; set test_unit = ing_cul;
-		elseif possibly_grandma_unit in ("Tablespoon", "Teaspoon", "Cup", "Pinch")
-			then set amount_in_culinary_unit = original_amount; set test_unit = possibly_grandma_unit;
-		else 
-				 set sane_amount = 0.0; return sane_amount;
-        end if;
-        
-        if ing_SI in ("piece") and test_unit not in ("piece")
-			then set sane_amount = 0.0; return sane_amount;
-		end if;
-        
-        if test_unit in ("Non")
-			then set sane_amount = 0.0; 
-		elseif test_unit in ("Tablespoon") and ing_SI in ("gram")
-			then set sane_amount = 14.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Teaspoon") and ing_SI in ("gram")
-			then set sane_amount = 6.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Cup") and ing_SI in ("gram")
-			then set sane_amount = 250.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Pinch") and ing_SI in ("gram")
-			then set sane_amount = 1.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Tablespoon") and ing_SI in ("ml")
-			then set sane_amount = 15.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Teaspoon") and ing_SI in ("ml")
-			then set sane_amount = 5.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Cup") and ing_SI in ("ml")
-			then set sane_amount = 237.0 * amount_in_culinary_unit;
-        elseif test_unit in ("Pinch") and ing_SI in ("ml")
-			then set sane_amount = 1.0 * amount_in_culinary_unit;
-        else set sane_amount = 0.0;
-        end if;
-        
-        return sane_amount;
-        
-    
-		
-    end //
-DELIMITER ;
 
 -- -----------------------------------------
 -- Triggers --
 -- -----------------------------------------
 
 DELIMITER $$
+
+-- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
 
 CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
 BEGIN
@@ -371,5 +242,75 @@ BEGIN
     END IF;
 END$$
 
--- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
+-- Create a trigger when we insert the recipe to insert a new row on dietary_info
+CREATE TRIGGER GetDietaryCat AFTER INSERT ON recipes FOR EACH ROW
+BEGIN
+	DECLARE recipe VARCHAR(255);
+    DECLARE ing VARCHAR(255);
+    DECLARE cat VARCHAR(255);
+    DECLARE Diet VARCHAR(255);
+    SET recipe = NEW.recipe_name;
+    SET ing = NEW.primary_ingredient;
+    
+    SELECT food_group
+    INTO cat
+    FROM belongs_to_foodgroup
+    WHERE ingredient = ing;
+    
+    SELECT dietary_analogy
+    INTO Diet
+    FROM food_groups
+    WHERE food_group_name = cat;
+    
+    INSERT INTO dietary_info VALUES (recipe, Diet, 0, 0, 0, 0); 
+END$$
+
+-- Create a trigger when we insert an new row to recipe has ingredient
+CREATE TRIGGER GetDietaryInfo AFTER INSERT ON has_ingredient FOR EACH ROW
+BEGIN
+	DECLARE fat FLOAT;
+    DECLARE carbs FLOAT;
+    DECLARE protein FLOAT;
+    DECLARE cal INT;
+    DECLARE amount INT;
+    
+    DECLARE fat_i FLOAT;
+    DECLARE carbs_i FLOAT;
+    DECLARE protein_i FLOAT;
+    DECLARE cal_i INT;
+    
+    SET amount = new.amount;
+    
+    IF new.fundamental_unit in ("Kilo", "Litre") THEN
+		SET amount = 1000 * amount;
+	END IF;
+		
+    IF new.fundamental_unit in ("Kilo", "Litre", "Gram", "Ml", "Piece") THEN
+		SELECT total_carbs, total_protein, total_fats, total_calories
+        INTO carbs, protein, fat, cal
+        FROM dietary_info
+        WHERE recipe = new.recipe;
+        
+        SELECT fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI
+        INTO fat_i, protein_i, carbs_i, cal_i
+        FROM ingredients
+        WHERE ingredient_name = new.ingredient;
+        
+        SET fat = fat + amount * fat_i;
+        SET carbs = carbs + amount * carbs_i;
+        SET protein = protein + amount * protein_i;
+        SET cal = cal + amount * cal_i;
+        
+        UPDATE dietary_info
+        SET total_carbs = carbs, total_protein = protein, total_fats = fat, total_cal = cal
+        WHERE recipe = new.recipe;
+	END IF;
+
+    
+	 
+END$$
 DELIMITER ;
+
+-- -----------------------------------------
+-- INDICES --
+-- -----------------------------------------
