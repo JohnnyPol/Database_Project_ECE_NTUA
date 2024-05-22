@@ -27,13 +27,43 @@ def competition():
                 LIMIT 1;
             """
             cursor.execute(query_chef, (cuisine,))
-            chef = cursor.fetchall()
+            chef = cursor.fetchone()
             if (chef in all_chefs):
                 continue
             else:
                 all_chefs.extend(chef)
                 break
 
+    all_recipes = []
+    for cuisine in cuisines:
+            query_recipe = """
+                SELECT recipe_name
+                FROM recipes
+                WHERE cuisine_name = %s
+                ORDER BY RAND()
+                LIMIT 1;
+            """
+            cursor.execute(query_recipe, (cuisine,))
+            recipe = cursor.fetchall()
+            all_recipes.extend(recipe)
+
+    all_judges = []
+    for _ in range(3):
+        while(True):
+
+            query_chef = """
+                SELECT chef_name, chef_surname
+                FROM chefs
+                ORDER BY RAND()
+                LIMIT 1;
+            """
+            cursor.execute(query_chef)
+            judge = cursor.fetchall()
+            if ((judge in all_judges) or (judge in all_chefs)):
+                continue
+            else:
+                all_judges.extend(judge)
+                break
 
     return all_chefs
 

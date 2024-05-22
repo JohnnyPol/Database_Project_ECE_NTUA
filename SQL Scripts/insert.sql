@@ -62,5 +62,17 @@ INSERT INTO chefs VALUES("Dimitris", "Fotakis", 6969696969, '1950-12-12', 60, 1,
 INSERT INTO expertise_in VALUES("Dimitris", "Tsoumakos", "Thai");
 INSERT INTO expertise_in VALUES("Marios", "Koniaris", "Greek");
 INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Italian");
+INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Thai");
 
 DELETE FROM expertise_in;
+
+-- Dummy inserts -- 
+INSERT INTO recipes VALUES ('Pad Thai', 'cooking', 'Thai', 3, 'Traditional Pad Thai with shrimp and tamarind sauce.', 'Use flat rice noodles.', 'Top with crushed peanuts.', NULL, '00:25:00', '00:15:00', 2, 'Shrimp');
+INSERT INTO recipes VALUES ('Spaghetti Carbonara', 'cooking', 'Italian', 3, 'Classic Italian pasta with eggs, cheese, and pancetta.', 'Do not overcook the eggs.', NULL, NULL, '00:10:00', '00:20:00', 2, 'Spaghetti');
+INSERT INTO recipes VALUES ('Moussaka', 'cooking', 'Greek', 5, 'Eggplant and potato-based dish, often including ground meat.', 'Layer the ingredients like a lasagna.', NULL, NULL, '00:30:00', '01:10:00', 6, 'Eggplant');
+
+
+-- Ingredients --
+INSERT INTO ingredients VALUES("Shrimp", 0.1, 6, 0.5, 30);
+INSERT INTO ingredients VALUES("Spaghetti", 0.09, 6, 0.5, 3);
+INSERT INTO ingredients VALUES("Eggplant", 0.02, 2, 0.5, 1);
