@@ -8,6 +8,190 @@ INSERT INTO food_groups (food_group_name, food_group_description, dietary_analog
 ('Meats', 'Meats are animal products that are rich sources of protein and other nutrients.', 'Carnivorous'),
 ('Seafood', 'Seafood includes various types of fish and shellfish, rich in omega-3 fatty acids and protein.', 'Pescetarian');
 
+
+
+--new recipes--
+-- Insert into recipes table
+INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, tips1, tips2, tips3, prep_time, cooking_time, servings, primary_ingredient) VALUES
+    ('Classic Cheeseburger', 'cooking', 'American', 2, 'A juicy cheeseburger with all the classic fixings.', 'Use high-quality beef for best results.', 'Toast the buns for extra flavor.', 'Melt the cheese over the patty in the pan.', '00:15:00', '00:10:00', 4, 'Ground Beef'),
+    ('Coq au Vin', 'cooking', 'French', 4, 'Classic French chicken braised in wine.', 'Use a good quality red wine.', 'Cook slowly for best results.', 'Serve with mashed potatoes.', '00:20:00', '01:00:00', 4, 'Chicken'),
+    ('Sweet and Sour Pork', 'cooking', 'Chinese', 3, 'Popular Chinese dish with sweet and sour sauce.', 'Cut pork into even pieces.', 'Balance the sweetness and sourness.', 'Serve with steamed rice.', '00:20:00', '00:30:00', 4, 'Pork'),
+    ('Spaghetti Carbonara', 'cooking', 'Italian', 3, 'Classic Italian pasta with creamy sauce.', 'Use fresh eggs for best results.', 'Add pasta water to adjust sauce consistency.', 'Grate fresh Parmesan on top.', '00:10:00', '00:15:00', 4, 'Spaghetti'),
+    ('Tacos', 'cooking', 'Mexican', 2, 'Traditional Mexican tacos with beef filling.', 'Use fresh tortillas.', 'Add a squeeze of lime.', 'Serve with salsa.', '00:10:00', '00:20:00', 4, 'Ground Beef'),
+    ('Pad Thai', 'cooking', 'Thai', 3, 'Stir-fried rice noodle dish.', 'Soak noodles before cooking.', 'Balance sweet, sour, and salty flavors.', 'Serve with lime wedges.', '00:15:00', '00:10:00', 4, 'Rice Noodles'),
+    ('Fish and Chips', 'cooking', 'British', 3, 'Classic British fried fish with chips.', 'Use fresh fish.', 'Fry chips twice for crispiness.', 'Serve with tartar sauce.', '00:20:00', '00:30:00', 4, 'Cod'),
+    ('Sushi Rolls', 'cooking', 'Japanese', 4, 'Traditional Japanese sushi rolls.', 'Use sushi-grade fish.', 'Wet your hands to prevent rice from sticking.', 'Serve with soy sauce and wasabi.', '00:30:00', '00:20:00', 4, 'Sushi Rice'),
+    ('Chicken Curry', 'cooking', 'Indian', 3, 'Spicy Indian chicken curry.', 'Marinate chicken for better flavor.', 'Use fresh spices.', 'Serve with naan bread.', '00:20:00', '00:40:00', 4, 'Chicken'),
+    ('Hummus', 'cooking', 'Middle Eastern', 2, 'Creamy chickpea dip.', 'Use tahini for a richer flavor.', 'Blend until smooth.', 'Serve with pita bread.', '00:10:00', '00:00:00', 4, 'Chickpeas'),
+    -- Add additional entries for remaining cuisines here
+    ('Gravlax', 'cooking', 'Scandinavian', 3, 'Cured salmon with dill and spices.', 'Use fresh salmon.', 'Refrigerate for at least 48 hours.', 'Serve with mustard sauce.', '00:20:00', '00:00:00', 4, 'Salmon'),
+    ('Beef Stroganoff', 'cooking', 'Russian', 3, 'Beef in a creamy mushroom sauce.', 'Use tender beef cuts.', 'Cook mushrooms until browned.', 'Serve with egg noodles.', '00:15:00', '00:30:00', 4, 'Beef'),
+    ('Paella', 'cooking', 'Spanish', 4, 'Traditional Spanish rice dish with seafood.', 'Use saffron for authentic flavor.', 'Cook rice without stirring.', 'Serve with lemon wedges.', '00:20:00', '00:40:00', 4, 'Rice'),
+    ('Moussaka', 'baking', 'Greek', 4, 'Layered eggplant and meat casserole.', 'Use lamb for traditional flavor.', 'Let it rest before serving.', 'Top with béchamel sauce.', '00:30:00', '01:00:00', 4, 'Eggplant'),
+    ('Ceviche', 'cooking', 'Peruvian', 2, 'Fresh fish marinated in lime juice.', 'Use very fresh fish.', 'Marinate briefly to avoid overcooking.', 'Serve with corn and sweet potatoes.', '00:15:00', '00:00:00', 4, 'Fish'),
+    ('Asado', 'cooking', 'Argentinian', 3, 'Traditional Argentinian barbecue.', 'Use various cuts of beef.', 'Cook slowly over wood fire.', 'Serve with chimichurri sauce.', '00:30:00', '01:30:00', 4, 'Beef'),
+    ('Tagine', 'cooking', 'Moroccan', 3, 'Slow-cooked stew with meat and vegetables.', 'Use a traditional tagine pot.', 'Add dried fruits for sweetness.', 'Serve with couscous.', '00:20:00', '01:00:00', 4, 'Lamb'),
+    ('Jambalaya', 'cooking', 'Cajun', 3, 'Spicy rice dish with meat and seafood.', 'Use Andouille sausage.', 'Cook rice until tender.', 'Serve with hot sauce.', '00:20:00', '00:40:00', 4, 'Rice'),
+    ('Sauerbraten', 'cooking', 'German', 4, 'German pot roast marinated in vinegar.', 'Marinate for several days.', 'Cook slowly for tender meat.', 'Serve with red cabbage.', '00:30:00', '02:00:00', 4, 'Beef'),
+    ('Bibimbap', 'cooking', 'Korean', 3, 'Mixed rice with vegetables and meat.', 'Use a hot stone bowl.', 'Mix thoroughly before eating.', 'Top with a fried egg.', '00:20:00', '00:10:00', 4, 'Rice'),
+    ('Pho', 'cooking', 'Vietnamese', 4, 'Vietnamese noodle soup.', 'Use beef bones for broth.', 'Simmer broth for several hours.', 'Serve with fresh herbs.', '00:30:00', '02:00:00', 4, 'Rice Noodles'),
+    ('Feijoada', 'cooking', 'Brazilian', 4, 'Black bean stew with pork.', 'Use various cuts of pork.', 'Cook slowly for rich flavor.', 'Serve with rice and orange slices.', '00:30:00', '01:30:00', 4, 'Black Beans'),
+    ('Kebabs', 'cooking', 'Turkish', 3, 'Grilled meat skewers.', 'Use lamb or chicken.', 'Marinate meat beforehand.', 'Serve with flatbread.', '00:15:00', '00:20:00', 4, 'Lamb'),
+    ('Grilled Barramundi', 'cooking', 'Australian', 2, 'Grilled fish with lemon and herbs.', 'Use fresh barramundi.', 'Grill over medium heat.', 'Serve with a side salad.', '00:10:00', '00:15:00', 4, 'Barramundi'),
+    ('Grilled Vegetables', 'cooking', 'Mediterranean', 2, 'Mixed grilled vegetables.', 'Use a variety of vegetables.', 'Brush with olive oil.', 'Season with herbs.', '00:10:00', '00:15:00', 4, 'Mixed Vegetables'),
+    ('Jerk Chicken', 'cooking', 'Caribbean', 3, 'Spicy marinated chicken.', 'Use a mix of spices.', 'Grill over charcoal.', 'Serve with rice and peas.', '00:20:00', '00:40:00', 4, 'Chicken'),
+    ('Irish Stew', 'cooking', 'Irish', 3, 'Hearty lamb and vegetable stew.', 'Use lamb shoulder.', 'Cook slowly for tender meat.', 'Serve with crusty bread.', '00:20:00', '02:00:00', 4, 'Lamb'),
+    ('Swedish Meatballs', 'cooking', 'Swedish', 3, 'Meatballs with creamy sauce.', 'Use a mix of beef and pork.', 'Serve with lingonberry jam.', 'Serve with mashed potatoes.', '00:20:00', '00:30:00', 4, 'Beef'),
+    ('Bacalhau à Brás', 'cooking', 'Portuguese', 3, 'Shredded cod with potatoes and eggs.', 'Use salted cod.', 'Soak cod before cooking.', 'Garnish with olives.', '00:20:00', '00:15:00', 4, 'Cod'),
+    ('Jollof Rice', 'cooking', 'African', 3, 'Spicy rice dish with tomatoes.', 'Use long-grain rice.', 'Cook rice until tender.', 'Serve with fried plantains.', '00:20:00', '00:40:00', 4, 'Rice'),
+    ('Shakshuka', 'cooking', 'Israeli', 2, 'Poached eggs in spicy tomato sauce.', 'Use fresh tomatoes.', 'Cook eggs until just set.', 'Serve with crusty bread.', '00:15:00', '00:20:00', 4, 'Tomatoes'),
+    ('Adobo', 'cooking', 'Filipino', 3, 'Pork or chicken stew with vinegar and soy sauce.', 'Use a mix of pork and chicken.', 'Simmer until tender.', 'Serve with steamed rice.', '00:20:00', '00:40:00', 4, 'Pork'),
+    ('Nasi Goreng', 'cooking', 'Indonesian', 3, 'Indonesian fried rice.', 'Use day-old rice.', 'Add a fried egg on top.', 'Serve with shrimp crackers.', '00:15:00', '00:10:00', 4, 'Rice'),
+    ('Laksa', 'cooking', 'Malaysian', 4, 'Spicy noodle soup with coconut milk.', 'Use fresh herbs.', 'Simmer broth for rich flavor.', 'Serve with lime wedges.', '00:20:00', '00:30:00', 4, 'Rice Noodles'),
+    ('Fondue', 'cooking', 'Swiss', 3, 'Melted cheese dip.', 'Use a mix of cheeses.', 'Stir constantly.', 'Serve with bread cubes.', '00:10:00', '00:20:00', 4, 'Cheese'),
+    ('Tom Yum Soup', 'cooking', 'Thai', 3, 'Spicy and sour Thai soup.', 'Use fresh shrimp.', 'Balance the flavors well.', 'Serve with jasmine rice.', '00:15:00', '00:20:00', 4, 'Shrimp'),
+    ('Tabbouleh', 'cooking', 'Lebanese', 2, 'Parsley and bulgur salad.', 'Use fresh parsley.', 'Chop ingredients finely.', 'Serve chilled.', '00:15:00', '00:00:00', 4, 'Parsley'),
+    ('Pierogi', 'cooking', 'Polish', 3, 'Dumplings with various fillings.', 'Use a mix of fillings.', 'Boil then fry for best results.', 'Serve with sour cream.', '00:30:00', '00:20:00', 4, 'Flour'),
+    ('Doro Wat', 'cooking', 'Ethiopian', 4, 'Spicy chicken stew.', 'Use berbere spice mix.', 'Simmer until thick.', 'Serve with injera.', '00:30:00', '01:00:00', 4, 'Chicken'),
+    ('Ropa Vieja', 'cooking', 'Cuban', 3, 'Shredded beef in tomato sauce.', 'Use flank steak.', 'Simmer until tender.', 'Serve with rice and beans.', '00:20:00', '01:00:00', 4, 'Beef'),
+    ('Karjalanpaisti', 'cooking', 'Finnish', 3, 'Traditional Finnish meat stew.', 'Use a mix of meats.', 'Cook slowly for best flavor.', 'Serve with potatoes.', '00:20:00', '02:00:00', 4, 'Beef'),
+    ('Ackee and Saltfish', 'cooking', 'Jamaican', 3, 'Salted fish with ackee fruit.', 'Soak saltfish before cooking.', 'Add ackee at the end.', 'Serve with fried dumplings.', '00:20:00', '00:15:00', 4, 'Saltfish'),
+    ('Momo', 'cooking', 'Tibetan', 3, 'Steamed dumplings with meat or vegetables.', 'Use a mix of meats.', 'Steam until cooked through.', 'Serve with spicy sauce.', '00:30:00', '00:20:00', 4, 'Flour'),
+    ('Poke Bowl', 'cooking', 'Hawaiian', 2, 'Marinated raw fish salad.', 'Use sushi-grade fish.', 'Marinate fish briefly.', 'Serve with rice and vegetables.', '00:15:00', '00:00:00', 4, 'Fish'),
+    ('Rabbit Stew', 'cooking', 'Maltese', 4, 'Slow-cooked rabbit with wine and herbs.', 'Use fresh rabbit.', 'Cook slowly for tender meat.', 'Serve with crusty bread.', '00:30:00', '01:30:00', 4, 'Rabbit'),
+    ('Chilli Crab', 'cooking', 'Singaporean', 4, 'Spicy crab dish.', 'Use fresh crab.', 'Balance the spice and sweetness.', 'Serve with mantou buns.', '00:20:00', '00:30:00', 4, 'Crab'),
+    ('Moules-Frites', 'cooking', 'Belgian', 3, 'Mussels with fries.', 'Use fresh mussels.', 'Cook fries until crispy.', 'Serve with mayonnaise.', '00:15:00', '00:20:00', 4, 'Mussels'),
+    ('Jollof Rice', 'cooking', 'Nigerian', 3, 'Spicy rice dish with tomatoes.', 'Use long-grain rice.', 'Cook rice until tender.', 'Serve with fried plantains.', '00:20:00', '00:40:00', 4, 'Rice'),
+    ('Khachapuri', 'baking', 'Georgian', 3, 'Cheese-filled bread.', 'Use a mix of cheeses.', 'Bake until golden.', 'Serve warm.', '00:15:00', '00:30:00', 4, 'Cheese'),
+    ('Borscht', 'cooking', 'Ukrainian', 3, 'Beet soup with sour cream.', 'Use fresh beets.', 'Simmer until beets are tender.', 'Serve with dill.', '00:20:00', '00:30:00', 4, 'Beetroot'),
+    ('Chicken Korma', 'cooking', 'Bangladeshi', 3, 'Creamy chicken curry.', 'Use fresh spices.', 'Simmer until thick.', 'Serve with basmati rice.', '00:20:00', '00:40:00', 4, 'Chicken'),
+    ('Amok', 'cooking', 'Cambodian', 3, 'Fish curry steamed in banana leaves.', 'Use fresh fish.', 'Steam until cooked through.', 'Serve with jasmine rice.', '00:20:00', '00:30:00', 4, 'Fish'),
+    ('Sri Lankan Fish Curry', 'cooking', 'Sri Lankan', 3, 'Spicy fish curry.', 'Use fresh fish.', 'Simmer until thick.', 'Serve with coconut rice.', '00:20:00', '00:30:00', 4, 'Fish'),
+    ('Brik', 'cooking', 'Tunisian', 3, 'Fried pastry with egg filling.', 'Use fresh eggs.', 'Fry until crispy.', 'Serve with lemon wedges.', '00:10:00', '00:05:00', 4, 'Egg');
+
+-- new ingredients
+
+
+INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
+VALUES
+    ('Ground Beef', 20, 26, 0, 250, 'Meat'),
+    ('Chicken', 12, 25, 0, 239, 'Meat'),
+    ('Pork', 9, 25, 0, 212, 'Meat'),
+    ('Spaghetti', 1.5, 6, 30, 150, 'Grains'),
+    ('Chicken', 10, 26, 0, 239, 'Meat'),
+    ('Rice Noodles', 0.6, 2.5, 20, 96, 'Grains'),
+    ('Cod', 0.6, 17, 0, 82, 'Fish'),
+    ('Sushi Rice', 0.1, 2.2, 28, 130, 'Grains'),
+    ('Lamb', 14, 25, 0, 210, 'Meat'),
+    ('Chickpeas', 2.6, 8.9, 27, 164, 'Legumes'),
+    -- Add additional entries for remaining cuisines here
+    ('Salmon', 13, 20, 0, 208, 'Fish'),
+    ('Beef', 18, 26, 0, 250, 'Meat'),
+    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
+    ('Eggplant', 0.2, 0.8, 6, 25, 'Vegetables'),
+    ('Fish', 13, 20, 0, 208, 'Fish'),
+    ('Black Beans', 0.9, 8.9, 23, 132, 'Legumes'),
+    ('Lamb', 14, 25, 0, 210, 'Meat'),
+    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
+    ('Barramundi', 1.8, 20, 0, 92, 'Fish'),
+    ('Mixed Vegetables', 0.2, 1.6, 4, 22, 'Vegetables'),
+    ('Chicken', 12, 25, 0, 239, 'Meat'),
+    ('Lamb', 14, 25, 0, 210, 'Meat'),
+    ('Beef', 18, 26, 0, 250, 'Meat'),
+    ('Cod', 0.6, 17, 0, 82, 'Fish'),
+    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
+    ('Parsley', 0.5, 2.9, 6, 36, 'Herbs'),
+    ('Flour', 1.2, 9, 73, 364, 'Grains'),
+    ('Chicken', 12, 25, 0, 239, 'Meat'),
+    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
+    ('Rice Noodles', 0.6, 2.5, 20, 96, 'Grains'),
+    ('Cheese', 34, 25, 1, 402, 'Dairy'),
+    ('Tomatoes', 0.2, 0.9, 3.9, 18, 'Vegetables'),
+    ('Beetroot', 0.2, 1.6, 9, 43, 'Vegetables'),
+    ('Chicken', 12, 25, 0, 239, 'Meat'),
+    ('Fish', 13, 20, 0, 208, 'Fish'),
+    ('Egg', 11, 13, 1.1, 143, 'Dairy');
+
+
+
+--new has ingredients
+
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount) VALUES
+    ('Classic Cheeseburger', 'Ground Beef', 'Gram', 500),
+    ('Coq au Vin', 'Chicken', 'Gram', 600),
+    ('Sweet and Sour Pork', 'Pork', 'Gram', 500),
+    ('Spaghetti Carbonara', 'Spaghetti', 'Gram', 400),
+    ('Tacos', 'Ground Beef', 'Gram', 500),
+    ('Pad Thai', 'Rice Noodles', 'Gram', 300),
+    ('Fish and Chips', 'Cod', 'Gram', 400),
+    ('Sushi Rolls', 'Sushi Rice', 'Gram', 500),
+    ('Chicken Curry', 'Chicken', 'Gram', 600),
+    ('Hummus', 'Chickpeas', 'Gram', 400),
+    -- Add additional entries for remaining cuisines here
+    ('Gravlax', 'Salmon', 'Gram', 500),
+    ('Beef Stroganoff', 'Beef', 'Gram', 500),
+    ('Paella', 'Rice', 'Gram', 300),
+    ('Moussaka', 'Eggplant', 'Gram', 500),
+    ('Ceviche', 'Fish', 'Gram', 400),
+    ('Asado', 'Beef', 'Gram', 600),
+    ('Tagine', 'Lamb', 'Gram', 500),
+    ('Jambalaya', 'Rice', 'Gram', 400),
+    ('Sauerbraten', 'Beef', 'Gram', 800),
+    ('Bibimbap', 'Rice', 'Gram', 300),
+    ('Pho', 'Rice Noodles', 'Gram', 300),
+    ('Feijoada', 'Black Beans', 'Gram', 400),
+    ('Kebabs', 'Lamb', 'Gram', 600),
+    ('Grilled Barramundi', 'Barramundi', 'Gram', 600),
+    ('Grilled Vegetables', 'Mixed Vegetables', 'Gram', 500),
+    ('Jerk Chicken', 'Chicken', 'Gram', 600),
+    ('Irish Stew', 'Lamb', 'Gram', 800),
+    ('Swedish Meatballs', 'Beef', 'Gram', 600),
+    ('Bacalhau à Brás', 'Cod', 'Gram', 500),
+    ('Jollof Rice', 'Rice', 'Gram', 400),
+    ('Shakshuka', 'Tomatoes', 'Piece', 4),
+    ('Adobo', 'Chicken', 'Gram', 600),
+    ('Nasi Goreng', 'Rice', 'Gram', 400),
+    ('Laksa', 'Rice Noodles', 'Gram', 300),
+    ('Fondue', 'Cheese', 'Gram', 500),
+    ('Tom Yum Soup', 'Shrimp', 'Gram', 400),
+    ('Tabbouleh', 'Parsley', 'Gram', 200),
+    ('Pierogi', 'Flour', 'Gram', 300),
+    ('Pierogi', 'Chicken', 'Gram', 500),
+    ('Doro Wat', 'Chicken', 'Gram', 600),
+    ('Ropa Vieja', 'Beef', 'Gram', 600),
+    ('Karjalanpaisti', 'Beef', 'Gram', 600),
+    ('Ackee and Saltfish', 'Saltfish', 'Piece', 1),
+    ('Ackee and Saltfish', 'Ackee', 'Piece', 10),
+    ('Momo', 'Flour', 'Gram', 300),
+    ('Momo', 'Chicken', 'Gram', 500),
+    ('Poke Bowl', 'Fish', 'Gram', 400),
+    ('Rabbit Stew', 'Rabbit', 'Gram', 800),
+    ('Chilli Crab', 'Crab', 'Gram', 600),
+    ('Moules-Frites', 'Mussels', 'Gram', 800),
+    ('Jollof Rice', 'Rice', 'Gram', 400),
+    ('Khachapuri', 'Cheese', 'Gram', 500),
+    ('Khachapuri', 'Flour', 'Gram', 300),
+    ('Borscht', 'Beetroot', 'Gram', 400),
+    ('Borscht', 'Chicken', 'Gram', 600),
+    ('Chicken Korma', 'Chicken', 'Gram', 600),
+    ('Chicken Korma', 'Rice', 'Gram', 400),
+    ('Amok', 'Fish', 'Gram', 400),
+    ('Amok', 'Coconut Milk', 'Ml', 400),
+    ('Sri Lankan Fish Curry', 'Fish', 'Gram', 400),
+    ('Sri Lankan Fish Curry', 'Coconut Milk', 'Ml', 400),
+    ('Brik', 'Egg', 'Piece', 2);
+
+
+
+
+
+
+
+
+
+
+
+
 -- Ingredients
 INSERT INTO ingredients VALUES
 ('Eggs', 10.0, 12.6, 1.1, 155, 'Proteins'),
