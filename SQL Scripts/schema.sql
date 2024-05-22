@@ -75,7 +75,7 @@ CREATE TABLE ingredients (
     carbs_per_fund_SI FLOAT,
     calories_per_fund_SI INT,
     food_group_name VARCHAR(255),
-    FOREIGN KEY (food_group_name) REFERENCES food_gropus(food_group_name)
+    FOREIGN KEY (food_group_name) REFERENCES food_groups(food_group_name)
 );
 
 CREATE TABLE recipes (

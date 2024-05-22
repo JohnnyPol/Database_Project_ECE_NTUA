@@ -5,9 +5,36 @@ INSERT INTO food_groups (food_group_name, food_group_description, dietary_analog
 ('Grains', 'Grains are important sources of carbohydrates, which provide energy for the body.', 'Grains-only'),
 ('Proteins', 'Protein-rich foods are essential for building and repairing tissues in the body.', 'Protein-rich'),
 ('Dairy', 'Dairy products are rich in calcium and vitamin D, important for bone health.', 'Lacto-vegetarian'),
-('Meats', 'Meats are animal products that are rich sources of protein and other nutrients.', 'Carnivorous'),
-('Seafood', 'Seafood includes various types of fish and shellfish, rich in omega-3 fatty acids and protein.', 'Pescetarian');
+('Meat', 'Meat are animal products that are rich sources of protein and other nutrients.', 'Carnivorous'),
+('Fish', 'Seafood includes various types of fish and shellfish, rich in omega-3 fatty acids and protein.', 'Pescetarian');
 
+-- new ingredients
+
+INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
+VALUES
+    ('Ground Beef', 20, 26, 0, 250, 'Meat'),
+    ('Chicken', 12, 25, 0, 239, 'Meat'),
+    ('Pork', 9, 25, 0, 212, 'Meat'),
+    ('Spaghetti', 1.5, 6, 30, 150, 'Grains'),
+    ('Cod', 0.6, 17, 0, 82, 'Fish'),
+    ('Sushi Rice', 0.1, 2.2, 28, 130, 'Grains'),
+    ('Lamb', 14, 25, 0, 210, 'Meat'),
+    ('Chickpeas', 2.6, 8.9, 27, 164, 'Vegetables'),
+    ('Salmon', 13, 20, 0, 208, 'Fish'),
+    ('Beef', 18, 26, 0, 250, 'Meat'),
+    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
+    ('Eggplant', 0.2, 0.8, 6, 25, 'Vegetables'),
+    ('Fish', 13, 20, 0, 208, 'Fish'),
+    ('Black Beans', 0.9, 8.9, 23, 132, 'Vegetables'),
+    ('Barramundi', 1.8, 20, 0, 92, 'Fish'),
+    ('Mixed Vegetables', 0.2, 1.6, 4, 22, 'Vegetables'),
+    ('Parsley', 0.5, 2.9, 6, 36, 'Grains'),
+    ('Flour', 1.2, 9, 73, 364, 'Grains'),
+    ('Rice Noodles', 0.6, 2.5, 20, 96, 'Grains'),
+    ('Cheese', 34, 25, 1, 402, 'Dairy'),
+    ('Tomatoes', 0.2, 0.9, 3.9, 18, 'Vegetables'),
+    ('Beetroot', 0.2, 1.6, 9, 43, 'Vegetables'),
+    ('Egg', 11, 13, 1.1, 143, 'Dairy');
 
 
 --new recipes--
@@ -23,7 +50,6 @@ INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, 
     ('Sushi Rolls', 'cooking', 'Japanese', 4, 'Traditional Japanese sushi rolls.', 'Use sushi-grade fish.', 'Wet your hands to prevent rice from sticking.', 'Serve with soy sauce and wasabi.', '00:30:00', '00:20:00', 4, 'Sushi Rice'),
     ('Chicken Curry', 'cooking', 'Indian', 3, 'Spicy Indian chicken curry.', 'Marinate chicken for better flavor.', 'Use fresh spices.', 'Serve with naan bread.', '00:20:00', '00:40:00', 4, 'Chicken'),
     ('Hummus', 'cooking', 'Middle Eastern', 2, 'Creamy chickpea dip.', 'Use tahini for a richer flavor.', 'Blend until smooth.', 'Serve with pita bread.', '00:10:00', '00:00:00', 4, 'Chickpeas'),
-    -- Add additional entries for remaining cuisines here
     ('Gravlax', 'cooking', 'Scandinavian', 3, 'Cured salmon with dill and spices.', 'Use fresh salmon.', 'Refrigerate for at least 48 hours.', 'Serve with mustard sauce.', '00:20:00', '00:00:00', 4, 'Salmon'),
     ('Beef Stroganoff', 'cooking', 'Russian', 3, 'Beef in a creamy mushroom sauce.', 'Use tender beef cuts.', 'Cook mushrooms until browned.', 'Serve with egg noodles.', '00:15:00', '00:30:00', 4, 'Beef'),
     ('Paella', 'cooking', 'Spanish', 4, 'Traditional Spanish rice dish with seafood.', 'Use saffron for authentic flavor.', 'Cook rice without stirring.', 'Serve with lemon wedges.', '00:20:00', '00:40:00', 4, 'Rice'),
@@ -68,49 +94,6 @@ INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, 
     ('Amok', 'cooking', 'Cambodian', 3, 'Fish curry steamed in banana leaves.', 'Use fresh fish.', 'Steam until cooked through.', 'Serve with jasmine rice.', '00:20:00', '00:30:00', 4, 'Fish'),
     ('Sri Lankan Fish Curry', 'cooking', 'Sri Lankan', 3, 'Spicy fish curry.', 'Use fresh fish.', 'Simmer until thick.', 'Serve with coconut rice.', '00:20:00', '00:30:00', 4, 'Fish'),
     ('Brik', 'cooking', 'Tunisian', 3, 'Fried pastry with egg filling.', 'Use fresh eggs.', 'Fry until crispy.', 'Serve with lemon wedges.', '00:10:00', '00:05:00', 4, 'Egg');
-
--- new ingredients
-
-
-INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
-VALUES
-    ('Ground Beef', 20, 26, 0, 250, 'Meat'),
-    ('Chicken', 12, 25, 0, 239, 'Meat'),
-    ('Pork', 9, 25, 0, 212, 'Meat'),
-    ('Spaghetti', 1.5, 6, 30, 150, 'Grains'),
-    ('Chicken', 10, 26, 0, 239, 'Meat'),
-    ('Rice Noodles', 0.6, 2.5, 20, 96, 'Grains'),
-    ('Cod', 0.6, 17, 0, 82, 'Fish'),
-    ('Sushi Rice', 0.1, 2.2, 28, 130, 'Grains'),
-    ('Lamb', 14, 25, 0, 210, 'Meat'),
-    ('Chickpeas', 2.6, 8.9, 27, 164, 'Legumes'),
-    -- Add additional entries for remaining cuisines here
-    ('Salmon', 13, 20, 0, 208, 'Fish'),
-    ('Beef', 18, 26, 0, 250, 'Meat'),
-    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
-    ('Eggplant', 0.2, 0.8, 6, 25, 'Vegetables'),
-    ('Fish', 13, 20, 0, 208, 'Fish'),
-    ('Black Beans', 0.9, 8.9, 23, 132, 'Legumes'),
-    ('Lamb', 14, 25, 0, 210, 'Meat'),
-    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
-    ('Barramundi', 1.8, 20, 0, 92, 'Fish'),
-    ('Mixed Vegetables', 0.2, 1.6, 4, 22, 'Vegetables'),
-    ('Chicken', 12, 25, 0, 239, 'Meat'),
-    ('Lamb', 14, 25, 0, 210, 'Meat'),
-    ('Beef', 18, 26, 0, 250, 'Meat'),
-    ('Cod', 0.6, 17, 0, 82, 'Fish'),
-    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
-    ('Parsley', 0.5, 2.9, 6, 36, 'Herbs'),
-    ('Flour', 1.2, 9, 73, 364, 'Grains'),
-    ('Chicken', 12, 25, 0, 239, 'Meat'),
-    ('Rice', 0.3, 2.7, 28, 130, 'Grains'),
-    ('Rice Noodles', 0.6, 2.5, 20, 96, 'Grains'),
-    ('Cheese', 34, 25, 1, 402, 'Dairy'),
-    ('Tomatoes', 0.2, 0.9, 3.9, 18, 'Vegetables'),
-    ('Beetroot', 0.2, 1.6, 9, 43, 'Vegetables'),
-    ('Chicken', 12, 25, 0, 239, 'Meat'),
-    ('Fish', 13, 20, 0, 208, 'Fish'),
-    ('Egg', 11, 13, 1.1, 143, 'Dairy');
 
 
 
