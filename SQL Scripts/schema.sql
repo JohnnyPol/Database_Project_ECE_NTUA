@@ -224,12 +224,6 @@ CREATE TABLE has_ingredient (
     FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient_name)
 );
 
-CREATE TABLE belongs_to_foodgroup (
-    ingredient VARCHAR(255) PRIMARY KEY,
-    food_group VARCHAR(255) NOT NULL,
-    FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient_name),
-    FOREIGN KEY (food_group) REFERENCES food_groups (food_group_name)
-);
 
 CREATE TABLE dietary_info (
     recipe VARCHAR(255) PRIMARY KEY,
