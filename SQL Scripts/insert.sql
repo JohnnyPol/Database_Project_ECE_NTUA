@@ -46,3 +46,11 @@ INSERT INTO recipes VALUES ('Chimichurri Steak', 'cooking', 'Argentinian', 3, 'G
 INSERT INTO recipes VALUES ('Thai Green Curry', 'cooking', 'Thai', 3, 'Spicy and aromatic green curry with chicken and Thai eggplants.', 'Use homemade green curry paste for best results.', NULL, NULL, '00:20:00', '00:25:00', 4, 'Chicken');
 INSERT INTO recipes VALUES ('Moroccan Tagine', 'cooking', 'Moroccan', 4, 'Slow-cooked savory stew made with lamb, dried apricots, almonds, and spices.', 'Serve with couscous.', 'Use a traditional clay tagine for cooking.', NULL, '00:30:00', '02:00:00', 6, 'Lamb');
 INSERT INTO recipes VALUES ('Pulled Pork Sandwich', 'cooking', 'American', 2, 'Slow-cooked pork shoulder shredded and mixed with BBQ sauce, served on a bun.', 'Cook the pork shoulder for at least 6 hours.', 'Top with coleslaw.', NULL, '00:30:00', '06:00:00', 4, 'Pork shoulder');
+
+
+-- Cuisine --
+insert into cuisine VALUES('Thai');
+
+-- Chefs --
+INSERT INTO chefs VALUES("Dimitris", "Tsoumakos", 6969696969, '1950-12-12', 60, 1, "3rd cook");
+INSERT INTO chefs VALUES("Marios", "Koniaris", 6969696969, '1950-12-12', 60, 1, "3rd cook");

@@ -4,6 +4,28 @@ from datetime import timedelta
 import os
 
 
+def competition():
+    cursor = db.connection.cursor()
+    query = """
+    SELECT cuisine_name
+            FROM cuisine
+            ORDER BY RAND()
+            LIMIT 2; 
+"""  # change to 10
+    cursor.execute(query)
+    cuisines = cursor.fetchall()
+    for cuisine in cuisines:
+        query_chef = f"""
+            SELECT chef_name, chef_surname
+            FROM expertise_in
+            WHERE cuisine_name = "{cuisine}"
+            ORDER BY RAND()
+            LIMIT 1;
+        """
+        cursor.execute(query_chef)
+    return cuisines
+
+
 @app.route("/")
 def index():
     try:
@@ -61,13 +83,10 @@ def index():
             cursor.close()
 
             return jsonify(results=serialized_results), 200
+
         elif action == "competition":
-            cursor = db.connection.cursor()
-            query = """
-            
-"""
-            cursor.execute(query)
-            return jsonify(status="Competition")
+            return jsonify(status=competition())
+
         else:
             return jsonify(status="Connection is established")
 
