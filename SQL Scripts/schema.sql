@@ -22,8 +22,6 @@ DROP TABLE IF EXISTS expertise_in;
 
 DROP TABLE IF EXISTS steps;
 
-DROP TABLE IF EXISTS theme;
-
 DROP TABLE IF EXISTS meal_type;
 
 DROP TABLE IF EXISTS tags;
@@ -37,6 +35,10 @@ DROP TABLE IF EXISTS episodes;
 DROP TABLE IF EXISTS belongs_to_mealtype;
 
 DROP TABLE IF EXISTS belongs_to_tag;
+
+DROP TABLE IF EXISTS belongs_to_theme;
+
+DROP TABLE IF EXISTS theme;
 
 DROP TABLE IF EXISTS needs_equipment;
 

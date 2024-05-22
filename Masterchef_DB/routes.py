@@ -165,7 +165,7 @@ def competition(season):
 
         insert_score_query = f"""
         INSERT INTO scores
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
         winner = 0
         max_score = 0
@@ -181,6 +181,7 @@ def competition(season):
                         int(season),
                         all_chefs[number_of_cuisines * i + k][0],
                         all_chefs[number_of_cuisines * i + k][1],
+                        all_cuisines[number_of_cuisines * i +k][0],
                         all_judges[number_of_judges * i + j][0],
                         all_judges[number_of_judges * i + j][1],
                     ),
