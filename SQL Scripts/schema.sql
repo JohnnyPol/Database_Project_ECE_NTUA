@@ -204,6 +204,14 @@ CREATE TABLE belongs_to_tag (
     PRIMARY KEY (recipe, tag)
 );
 
+CREATE TABLE belongs_to_theme (
+    recipe VARCHAR(255) NOT NULL,
+    theme VARCHAR(255) NOT NULL,
+    FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
+    FOREIGN KEY (theme) REFERENCES theme (theme_name),
+    PRIMARY KEY (recipe, theme)
+);
+
 CREATE TABLE needs_equipment (
     recipe VARCHAR(255),
     equipment_name VARCHAR(255),
