@@ -258,6 +258,66 @@ SELECT season,
 FROM RankedEpisodes
 WHERE my_rank = 1;
 
+
+WITH EpisodeCumulativeExperience AS (
+    SELECT 
+        p.season,
+        p.episode_no,
+        COALESCE(SUM(p_chef.experience), 0) + COALESCE(SUM(p_judge.experience), 0) AS cumulative_experience
+    FROM 
+        participate_in_episode_as_chef p
+    LEFT JOIN 
+        (
+            SELECT 
+                episode_no,
+                season,
+                chef_name,
+                chef_surname,
+                SUM(experience) AS experience
+            FROM 
+                chefs
+            GROUP BY 
+                episode_no, season, chef_name, chef_surname
+        ) p_chef ON p.episode_no = p_chef.episode_no 
+                  AND p.season = p_chef.season 
+                  AND p.chef_name = p_chef.chef_name 
+                  AND p.chef_surname = p_chef.chef_surname
+    LEFT JOIN 
+        (
+            SELECT 
+                episode_no,
+                season,
+                judge_name,
+                judge_surname,
+                SUM(experience) AS experience
+            FROM 
+                chefs
+            GROUP BY 
+                episode_no, season, judge_name, judge_surname
+        ) p_judge ON p.episode_no = p_judge.episode_no 
+                  AND p.season = p_judge.season 
+                  AND p.judge_name = p_judge.judge_name 
+                  AND p.judge_surname = p_judge.judge_surname
+    GROUP BY 
+        p.season, p.episode_no
+),
+RankedEpisodes AS (
+    SELECT 
+        season,
+        episode_no,
+        cumulative_experience,
+        ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS my_rank
+    FROM 
+        EpisodeCumulativeExperience
+)
+SELECT 
+    season,
+    episode_no,
+    cumulative_experience
+FROM 
+    RankedEpisodes
+WHERE 
+    my_rank = 1;
 -- Question 3.14 --
 
 SELECT b.theme, COUNT(*) AS appearance_count
