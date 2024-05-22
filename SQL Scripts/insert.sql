@@ -272,11 +272,61 @@ INSERT INTO chefs VALUES ('Nikos', 'Petros', 2108902345, '1982-12-15', 41, 19, '
 
 
 -- Expertise_in --
-INSERT INTO expertise_in VALUES("Dimitris", "Tsoumakos", "Thai");
-INSERT INTO expertise_in VALUES("Marios", "Koniaris", "Greek");
-INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Italian");
-INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Thai");
-INSERT INTO expertise_in VALUES("Ioanna", "Roussaki", "Italian");
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Dimitris', 'Tsoumakos', 'American'),
+('Dimitris', 'Fotakis', 'French'),
+('Marios', 'Koniaris', 'Chinese'),
+('Aris', 'Pagourtzis', 'Italian'),
+('Ioanna', 'Roussaki', 'Mexican'),
+('Stathis', 'Zachos', 'Thai'),
+('Antonis', 'Papavassileiou', 'British'),
+('Symeon', 'Papavassileiou', 'Japanese'),
+('Antonis', 'Kladas', 'Indian'),
+('Aris', 'Koziris', 'Middle Eastern'),
+('John', 'Tsinias', 'Scandinavian'),
+('Nikolaos', 'Giannakakis', 'Russian'),
+('Michail', 'Loulakis', 'Spanish'),
+('Georgios', 'Koletsos', 'Greek'),
+('Ioannis', 'Raptis', 'Peruvian'),
+('Giannis', 'polychronopoulos', 'Argentinian'),
+('Katerina', 'Michou', 'Moroccan'),
+('Angeliki', 'Ntalapera', 'Cajun'),
+('Dora', 'Souliou', 'German'),
+('Verena', 'Kantere', 'Korean'),
+('Gordon', 'Ransey', 'Vietnamese'),
+('Jaime', 'Lannister', 'Brazilian'),
+('Daenerys', 'Targaryen', 'Turkish'),
+('Jon', 'Snow', 'Australian'),
+('Beth', 'March', 'Mediterranean'),
+('Beth', 'March', 'Caribbean'),
+('Olga', 'Michou', 'Irish'),
+('Christos', 'Michos', 'Swedish'),
+('Eleni', 'Ntalapera', 'Portuguese'),
+('Miltiades', 'Anagnostou', 'African'),
+('Antonios', 'Antonopoulos', 'Israeli'),
+('Dimitrios', 'Askounis', 'Filipino'),
+('Hercules', 'Avramopoulos', 'Indonesian'),
+('Christos', 'Capsalis', 'Malaysian'),
+('Christos', 'Christodoulou', 'Swiss'),
+('Aris', 'Dimeas', 'Thai'),
+('Haris', 'Doukas', 'Lebanese'),
+('George', 'Fikioris', 'Polish'),
+('George', 'Karybakas', 'Ethiopian'),
+('Dimitris', 'Kalamatianos', 'Cuban'),
+('Nikolaos', 'Karakostas', 'Finnish'),
+('Sofia', 'Papadopoulou', 'Jamaican'),
+('Maria', 'Koutsou', 'Tibetan'),
+('Athanasios', 'Mitilineos', 'Hawaiian'),
+('Anastasia', 'Petropoulou', 'Maltese'),
+('Vasilios', 'Voulgaris', 'Singaporean'),
+('Ioannis', 'Anastasiou', 'Belgian'),
+('Katerina', 'Mavromati', 'Nigerian'),
+('Eleni', 'Spanou', 'Georgian'),
+('Kostas', 'Stamatiou', 'Ukrainian'),
+('Petros', 'Gavrilis', 'Bangladeshi'),
+('Yiannis', 'Tzavellas', 'Cambodian'),
+('Dimitris', 'Papageorgiou', 'Sri Lankan'),
+('Eleni', 'Panagiotopoulou', 'Tunisian');
 
 
 -- Dummy inserts -- 
