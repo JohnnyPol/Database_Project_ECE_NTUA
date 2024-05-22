@@ -350,7 +350,7 @@ BEGIN
         SET cal = cal + amount * cal_i;
         
         UPDATE dietary_info
-        SET total_carbs = carbs, total_protein = protein, total_fats = fat, total_cal = cal
+        SET total_carbs = carbs, total_protein = protein, total_fats = fat, total_calories = cal
         WHERE recipe = new.recipe;
 	END IF;
 
@@ -364,3 +364,4 @@ DELIMITER;
 -- INDICES --
 -- -----------------------------------------
 create index cuisine_expertise_in on expertise_in (cuisine_name);
+drop Trigger `GetDietaryInfo`

@@ -3,7 +3,7 @@ INSERT INTO recipes VALUES ('Chocolate Cake', 'baking', 'French', 3, 'Rich choco
 INSERT INTO recipes VALUES ('Vegetable Stir Fry', 'cooking', 'Chinese', 2, 'Quick and healthy vegetable stir fry with soy sauce.', 'Can add chicken or beef.', 'Use fresh vegetables.', NULL, '00:15:00', '00:10:00', 2, 'Bell peppers');
 INSERT INTO recipes VALUES ('BBQ Ribs', 'cooking', 'American', 4, 'Slow-cooked ribs with a homemade BBQ sauce.', 'Marinate overnight for best flavor.', 'Serve with coleslaw.', NULL, '00:30:00', '03:00:00', 4, 'Pork ribs');
 INSERT INTO recipes VALUES ('Classic Margherita Pizza', 'baking', 'Italian', 2, 'Simple pizza with tomatoes, mozzarella, and basil.', 'Use fresh mozzarella.', NULL, NULL, '00:15:00', '00:20:00', 2, 'Pizza dough');
-INSERT INTO recipes VALUES ('Lemon Chicken', 'cooking', 'French', 3, 'Tender chicken in a creamy lemon sauce.', 'Add capers for extra taste.', NULL, NULL, '00:20:00', '00:30:00', 4, 'Chicken breast');
+INSERT INTO recipes VALUES ('Lemon Chicken', 'cooking', 'French', 3, 'Tender chicken in a creamy lemon sauce.', 'Add capers for extra taste.', NULL, NULL, '00:20:00', '00:30:00', 4, 'Chicken');
 INSERT INTO recipes VALUES ('Beef Tacos', 'cooking', 'Mexican', 2, 'Spicy ground beef tacos with salsa and cheese.', 'Serve with lime wedges.', NULL, NULL, '00:20:00', '00:15:00', 3, 'Ground beef');
 INSERT INTO recipes VALUES ('Pad Thai', 'cooking', 'Thai', 3, 'Traditional Pad Thai with shrimp and tamarind sauce.', 'Use flat rice noodles.', 'Top with crushed peanuts.', NULL, '00:25:00', '00:15:00', 2, 'Shrimp');
 INSERT INTO recipes VALUES ('Raspberry Cheesecake', 'baking', 'American', 4, 'Creamy cheesecake with a raspberry swirl.', 'Chill overnight before serving.', NULL, NULL, '00:30:00', '01:00:00', 8, 'Cream cheese');
@@ -54,7 +54,8 @@ INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI,
 ('Bell peppers', 0.2, 1.0, 6.0, 31),
 ('Pork ribs', 28.0, 21.0, 0.0, 349),
 ('Pizza dough', 1.5, 7.0, 50.0, 266),
-('Chicken breast', 3.6, 31.0, 0.0, 165),
+('Chicken', 3.6, 31.0, 0.0, 165),
+('Chicken Breast', 3.6, 31.0, 0.0, 165),
 ('Ground beef', 20.0, 26.0, 0.0, 250),
 ('Shrimp', 1.7, 24.0, 0.0, 99),
 ('Cream cheese', 34.0, 7.2, 3.2, 342),
@@ -162,7 +163,6 @@ INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Italian");
 INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Thai");
 INSERT INTO expertise_in VALUES("Ioanna", "Roussaki", "Italian");
 
-DELETE FROM expertise_in;
 
 -- Dummy inserts -- 
 INSERT INTO recipes VALUES ('Pad Thai', 'cooking', 'Thai', 3, 'Traditional Pad Thai with shrimp and tamarind sauce.', 'Use flat rice noodles.', 'Top with crushed peanuts.', NULL, '00:25:00', '00:15:00', 2, 'Shrimp');
