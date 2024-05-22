@@ -41,6 +41,62 @@ VALUES
     ('Crab', 0.11, 0.13, 0.1, 7, 'Fish'),
     ('Mussels', 0.11, 0.13, 0.1, 7, 'Fish');
 
+-- Cuisine --
+INSERT INTO cuisine (cuisine_name) VALUES
+('American'),
+('French'),
+('Chinese'),
+('Italian'),
+('Mexican'),
+('Thai'),
+('British'),
+('Japanese'),
+('Indian'),
+('Middle Eastern'),
+('Scandinavian'),
+('Russian'),
+('Spanish'),
+('Greek'),
+('Peruvian'),
+('Argentinian'),
+('Moroccan'),
+('Cajun'),
+('German'),
+('Korean'),
+('Vietnamese'),
+('Brazilian'),
+('Turkish'),
+('Australian'),
+('Mediterranean'),
+('Caribbean'),
+('Irish'),
+('Swedish'),
+('Portuguese'),
+('African'),
+('Israeli'),
+('Filipino'),
+('Indonesian'),
+('Malaysian'),
+('Swiss'),
+('Thai'),
+('Lebanese'),
+('Polish'),
+('Ethiopian'),
+('Cuban'),
+('Finnish'),
+('Jamaican'),
+('Tibetan'),
+('Hawaiian'),
+('Maltese'),
+('Singaporean'),
+('Belgian'),
+('Nigerian'),
+('Georgian'),
+('Ukrainian'),
+('Bangladeshi'),
+('Cambodian'),
+('Sri Lankan'),
+('Tunisian');
 
 --new recipes--
 -- Insert into recipes table
@@ -101,287 +157,277 @@ INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, 
     ('Brik', 'cooking', 'Tunisian', 3, 'Fried pastry with egg filling.', 'Use fresh eggs.', 'Fry until crispy.', 'Serve with lemon wedges.', '00:10:00', '00:05:00', 4, 'Egg');
 
 
+--has_ingredients--
+-- Classic Cheeseburger
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Classic Cheeseburger', 'Ground Beef', 'Gram', 200),
+       ('Classic Cheeseburger', 'Flour', 'Gram', 100);
 
---new has ingredients
+-- Coq au Vin
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Coq au Vin', 'Chicken', 'Piece', 2),
+       ('Coq au Vin', 'Cheese', 'Gram', 100);
 
-INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount) VALUES
-    ('Classic Cheeseburger', 'Ground Beef', 'Gram', 500),
-    ('Coq au Vin', 'Chicken', 'Gram', 600),
-    ('Sweet and Sour Pork', 'Pork', 'Gram', 500),
-    ('Spaghetti Carbonara', 'Spaghetti', 'Gram', 400),
-    ('Tacos', 'Ground Beef', 'Gram', 500),
-    ('Pad Thai', 'Rice Noodles', 'Gram', 300),
-    ('Fish and Chips', 'Cod', 'Gram', 400),
-    ('Sushi Rolls', 'Sushi Rice', 'Gram', 500),
-    ('Chicken Curry', 'Chicken', 'Gram', 600),
-    ('Hummus', 'Chickpeas', 'Gram', 400),
-    -- Add additional entries for remaining cuisines here
-    ('Gravlax', 'Salmon', 'Gram', 500),
-    ('Beef Stroganoff', 'Beef', 'Gram', 500),
-    ('Paella', 'Rice', 'Gram', 300),
-    ('Moussaka', 'Eggplant', 'Gram', 500),
-    ('Ceviche', 'Fish', 'Gram', 400),
-    ('Asado', 'Beef', 'Gram', 600),
-    ('Tagine', 'Lamb', 'Gram', 500),
-    ('Jambalaya', 'Rice', 'Gram', 400),
-    ('Sauerbraten', 'Beef', 'Gram', 800),
-    ('Bibimbap', 'Rice', 'Gram', 300),
-    ('Pho', 'Rice Noodles', 'Gram', 300),
-    ('Feijoada', 'Black Beans', 'Gram', 400),
-    ('Kebabs', 'Lamb', 'Gram', 600),
-    ('Grilled Barramundi', 'Barramundi', 'Gram', 600),
-    ('Grilled Vegetables', 'Mixed Vegetables', 'Gram', 500),
-    ('Jerk Chicken', 'Chicken', 'Gram', 600),
-    ('Irish Stew', 'Lamb', 'Gram', 800),
-    ('Swedish Meatballs', 'Beef', 'Gram', 600),
-    ('Bacalhau à Brás', 'Cod', 'Gram', 500),
-    ('Jollof Rice', 'Rice', 'Gram', 400),
-    ('Shakshuka', 'Tomatoes', 'Piece', 4),
-    ('Adobo', 'Chicken', 'Gram', 600),
-    ('Nasi Goreng', 'Rice', 'Gram', 400),
-    ('Laksa', 'Rice Noodles', 'Gram', 300),
-    ('Fondue', 'Cheese', 'Gram', 500),
-    ('Tom Yum Soup', 'Shrimp', 'Gram', 400),
-    ('Tabbouleh', 'Parsley', 'Gram', 200),
-    ('Pierogi', 'Flour', 'Gram', 300),
-    ('Pierogi', 'Chicken', 'Gram', 500),
-    ('Doro Wat', 'Chicken', 'Gram', 600),
-    ('Ropa Vieja', 'Beef', 'Gram', 600),
-    ('Karjalanpaisti', 'Beef', 'Gram', 600),
-    ('Ackee and Saltfish', 'Saltfish', 'Piece', 1),
-    ('Ackee and Saltfish', 'Ackee', 'Piece', 10),
-    ('Momo', 'Flour', 'Gram', 300),
-    ('Momo', 'Chicken', 'Gram', 500),
-    ('Poke Bowl', 'Fish', 'Gram', 400),
-    ('Rabbit Stew', 'Rabbit', 'Gram', 800),
-    ('Chilli Crab', 'Crab', 'Gram', 600),
-    ('Moules-Frites', 'Mussels', 'Gram', 800),
-    ('Jollof Rice', 'Rice', 'Gram', 400),
-    ('Khachapuri', 'Cheese', 'Gram', 500),
-    ('Khachapuri', 'Flour', 'Gram', 300),
-    ('Borscht', 'Beetroot', 'Gram', 400),
-    ('Borscht', 'Chicken', 'Gram', 600),
-    ('Chicken Korma', 'Chicken', 'Gram', 600),
-    ('Chicken Korma', 'Rice', 'Gram', 400),
-    ('Amok', 'Fish', 'Gram', 400),
-    ('Amok', 'Coconut Milk', 'Ml', 400),
-    ('Sri Lankan Fish Curry', 'Fish', 'Gram', 400),
-    ('Sri Lankan Fish Curry', 'Coconut Milk', 'Ml', 400),
-    ('Brik', 'Egg', 'Piece', 2);
+-- Sweet and Sour Pork
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Sweet and Sour Pork', 'Pork', 'Gram', 300),
+       ('Sweet and Sour Pork', 'Rice', 'Gram', 200);
+
+-- Spaghetti Carbonara
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Spaghetti Carbonara', 'Spaghetti', 'Gram', 300),
+       ('Spaghetti Carbonara', 'Black Beans', 'Gram', 150);
+
+-- Tacos
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Tacos', 'Ground Beef', 'Gram', 250),
+       ('Tacos', 'Salmon', 'Gram', 200);
+
+-- Pad Thai
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Pad Thai', 'Rice Noodles', 'Gram', 200),
+       ('Pad Thai', 'Cheese', 'Gram', 100);
+
+-- Fish and Chips
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Fish and Chips', 'Cod', 'Gram', 300),
+       ('Fish and Chips', 'Chickpeas', 'Gram', 200);
+
+-- Sushi Rolls
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Sushi Rolls', 'Sushi Rice', 'Gram', 200),
+       ('Sushi Rolls', 'Egg', 'Piece', 2);
+
+-- Chicken Curry
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Chicken Curry', 'Chicken', 'Piece', 2),
+       ('Chicken Curry', 'Mussels', 'Gram', 200);
+
+-- Hummus
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Hummus', 'Chickpeas', 'Gram', 300),
+       ('Hummus', 'Beef', 'Gram', 200);
+
+-- Gravlax
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Gravlax', 'Salmon', 'Gram', 300),
+       ('Gravlax', 'Rice Noodles', 'Gram', 200);
+
+-- Beef Stroganoff
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Beef Stroganoff', 'Beef', 'Gram', 300),
+       ('Beef Stroganoff', 'Cod', 'Gram', 200);
+
+-- Paella
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Paella', 'Rice', 'Gram', 300),
+       ('Paella', 'Parsley', 'Gram', 200);
+
+-- Moussaka
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Moussaka', 'Eggplant', 'Piece', 2),
+       ('Moussaka', 'Cheese', 'Gram', 200);
+
+-- Ceviche
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Ceviche', 'Fish', 'Gram', 300),
+       ('Ceviche', 'Tomatoes', 'Gram', 200);
+
+-- Asado
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Asado', 'Beef', 'Gram', 300),
+       ('Asado', 'Rice Noodles', 'Gram', 200);
+
+-- Tagine
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Tagine', 'Lamb', 'Gram', 300),
+       ('Tagine', 'Parsley', 'Gram', 200);
+
+-- Jambalaya
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Jambalaya', 'Rice', 'Gram', 300),
+       ('Jambalaya', 'Beef', 'Gram', 200);
+
+-- Sauerbraten
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Sauerbraten', 'Beef', 'Gram', 300),
+       ('Sauerbraten', 'Beetroot', 'Gram', 200);
+
+-- Bibimbap
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Bibimbap', 'Rice', 'Gram', 300),
+       ('Bibimbap', 'Eggplant', 'Gram', 200);
+
+-- Pho
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Pho', 'Rice Noodles', 'Gram', 300),
+       ('Pho', 'Cheese', 'Gram', 200);
+-- Feijoada
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Feijoada', 'Black Beans', 'Gram', 300),
+       ('Feijoada', 'Beef', 'Gram', 200);
+
+-- Kebabs
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Kebabs', 'Lamb', 'Gram', 300),
+       ('Kebabs', 'Parsley', 'Gram', 200);
+
+-- Grilled Barramundi
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Grilled Barramundi', 'Barramundi', 'Gram', 300),
+       ('Grilled Barramundi', 'Flour', 'Gram', 200);
+
+-- Grilled Vegetables
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Grilled Vegetables', 'Mixed Vegetables', 'Gram', 300),
+       ('Grilled Vegetables', 'Egg', 'Piece', 2);
+
+-- Jerk Chicken
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Jerk Chicken', 'Chicken', 'Piece', 2),
+       ('Jerk Chicken', 'Ground Beef', 'Gram', 200);
+
+-- Irish Stew
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Irish Stew', 'Lamb', 'Gram', 300),
+       ('Irish Stew', 'Rice Noodles', 'Gram', 200);
+
+-- Swedish Meatballs
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Swedish Meatballs', 'Beef', 'Gram', 300),
+       ('Swedish Meatballs', 'Cheese', 'Gram', 200);
+
+-- Bacalhau à Brás
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Bacalhau à Brás', 'Saltfish', 'Gram', 300),
+       ('Bacalhau à Brás', 'Beef', 'Gram', 200);
+-- Jollof Rice
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Jollof Rice', 'Rice', 'Gram', 300),
+       ('Jollof Rice', 'Beef', 'Gram', 200);
+
+-- Shakshuka
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Shakshuka', 'Tomatoes', 'Gram', 300),
+       ('Shakshuka', 'Rice Noodles', 'Gram', 200);
+
+-- Adobo
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Adobo', 'Pork', 'Gram', 300),
+       ('Adobo', 'Lamb', 'Gram', 200);
+
+-- Nasi Goreng
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Nasi Goreng', 'Rice', 'Gram', 300),
+       ('Nasi Goreng', 'Chickpeas', 'Gram', 200);
+
+-- Laksa
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Laksa', 'Rice Noodles', 'Gram', 300),
+       ('Laksa', 'Fish', 'Gram', 200);
+
+-- Fondue
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Fondue', 'Cheese', 'Gram', 300),
+       ('Fondue', 'Chicken', 'Piece', 2);
+
+-- Tom Yum Soup
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Tom Yum Soup', 'Shrimp', 'Gram', 300),
+       ('Tom Yum Soup', 'Parsley', 'Gram', 200);
+
+-- Tabbouleh
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Tabbouleh', 'Parsley', 'Gram', 300),
+       ('Tabbouleh', 'Beef', 'Gram', 200);
+
+-- Pierogi
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Pierogi', 'Flour', 'Gram', 300),
+       ('Pierogi', 'Fish', 'Gram', 200);
+
+-- Doro Wat
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Doro Wat', 'Chicken', 'Piece', 2),
+       ('Doro Wat', 'Mussels', 'Gram', 200);
+
+-- Ropa Vieja
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Ropa Vieja', 'Beef', 'Gram', 300),
+       ('Ropa Vieja', 'Chickpeas', 'Gram', 200);
+
+-- Karjalanpaisti
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Karjalanpaisti', 'Beef', 'Gram', 300),
+       ('Karjalanpaisti', 'Rice', 'Gram', 200);
+
+-- Ackee and Saltfish
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Ackee and Saltfish', 'Saltfish', 'Gram', 300),
+       ('Ackee and Saltfish', 'Black Beans', 'Gram', 200);
+
+-- Momo
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Momo', 'Flour', 'Gram', 300),
+       ('Momo', 'Cheese', 'Gram', 200);
+
+-- Poke Bowl
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Poke Bowl', 'Fish', 'Gram', 300),
+       ('Poke Bowl', 'Rice', 'Gram', 200);
+
+-- Rabbit Stew
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Rabbit Stew', 'Rabbit', 'Piece', 2),
+       ('Rabbit Stew', 'Beef', 'Gram', 200);
+
+-- Chilli Crab
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Chilli Crab', 'Crab', 'Gram', 300),
+       ('Chilli Crab', 'Chicken', 'Piece', 2);
+
+-- Moules-Frites
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Moules-Frites', 'Mussels', 'Gram', 300),
+       ('Moules-Frites', 'Egg', 'Piece', 2);
+
+-- Jollof Rice Nigerian
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Jollof Rice Nigerian', 'Rice', 'Gram', 300),
+       ('Jollof Rice Nigerian', 'Beef', 'Gram', 200);
+
+-- Khachapuri
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Khachapuri', 'Cheese', 'Gram', 300),
+       ('Khachapuri', 'Rice', 'Gram', 200);
+
+-- Borscht
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Borscht', 'Beetroot', 'Gram', 300),
+       ('Borscht', 'Parsley', 'Gram', 200);
+
+-- Chicken Korma
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Chicken Korma', 'Chicken', 'Piece', 2),
+       ('Chicken Korma', 'Beef', 'Gram', 200);
+
+-- Amok
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Amok', 'Fish', 'Gram', 300),
+       ('Amok', 'Beef', 'Gram', 200);
+
+-- Sri Lankan Fish Curry
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Sri Lankan Fish Curry', 'Fish', 'Gram', 300),
+       ('Sri Lankan Fish Curry', 'Rice', 'Gram', 200);
+
+-- Brik
+INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
+VALUES ('Brik', 'Egg', 'Piece', 2),
+       ('Brik', 'Flour', 'Gram', 200);
 
 
 
-
-
-
-
-
-
-
-
-
--- Ingredients
-INSERT INTO ingredients VALUES
-('Eggs', 10.0, 12.6, 1.1, 155, 'Proteins'),
-('Cocoa powder', 11.0, 19.6, 57.9, 229, 'Grains'),
-('Bell peppers', 0.2, 1.0, 6.0, 31, 'Vegetables'),
-('Pork ribs', 28.0, 21.0, 0.0, 349, 'Meats'),
-('Pizza dough', 1.5, 7.0, 50.0, 266, 'Grains'),
-('Chicken', 3.6, 31.0, 0.0, 165, 'Meats'),
-('Chicken Breast', 3.6, 31.0, 0.0, 165, 'Meats'),
-('Ground beef', 20.0, 26.0, 0.0, 250, 'Meats'),
-('Shrimp', 1.7, 24.0, 0.0, 99, 'Seafood'),
-('Cream cheese', 34.0, 7.2, 3.2, 342, 'Dairy'),
-('Spaghetti', 1.5, 5.0, 31.0, 157, 'Grains'),
-('Tomatoes', 0.2, 0.9, 3.9, 18, 'Fruits'),
-('Cod', 0.7, 17.9, 0.0, 82, 'Seafood'),
-('Sushi rice', 0.3, 6.7, 28.7, 130, 'Grains'),
-('Apples', 0.3, 0.3, 13.8, 52, 'Fruits'),
-('Romaine lettuce', 0.2, 1.2, 3.3, 17, 'Vegetables'),
-('Arborio rice', 0.3, 2.4, 28.0, 130, 'Grains'),
-('Pumpkin', 0.1, 1.0, 7.0, 26, 'Vegetables'),
-('Onions', 0.1, 1.1, 9.3, 40, 'Vegetables'),
-('Bread', 1.0, 9.0, 50.0, 265, 'Grains'),
-('Bananas', 0.3, 1.3, 22.8, 96, 'Fruits'),
-('Chickpeas', 6.0, 19.0, 61.0, 364, 'Grains'),
-('Coconut milk', 24.0, 2.3, 6.0, 230, 'Dairy'),
-('Pasta', 1.5, 5.0, 31.0, 157, 'Grains'),
-('Clams', 1.0, 14.0, 2.0, 74, 'Seafood'),
-('Beef', 20.0, 26.0, 0.0, 250, 'Meats'),
-('Lamb', 21.0, 25.0, 0.0, 294, 'Meats'),
-('Mascarpone', 44.0, 4.4, 1.5, 450, 'Dairy'),
-('Rice', 0.3, 2.4, 28.0, 130, 'Grains'),
-('Butternut squash', 0.1, 1.0, 12.0, 45, 'Vegetables'),
-('Salmon', 13.0, 20.0, 0.0, 208, 'Seafood'),
-('Potatoes', 0.1, 2.0, 17.0, 77, 'Vegetables'),
-('Eggplant', 0.2, 1.0, 6.0, 25, 'Vegetables'),
-('Steak', 25.0, 26.0, 0.0, 271, 'Meats'),
-('White fish', 1.0, 20.0, 0.0, 97, 'Seafood'),
-('Lobster', 1.5, 19.0, 0.0, 89, 'Seafood'),
-('Filo dough', 10.0, 6.0, 68.0, 350, 'Grains'),
-('Fettuccine', 1.5, 5.0, 31.0, 157, 'Grains'),
-('Bacon', 42.0, 37.0, 1.4, 541, 'Meats'),
-('Pork shoulder', 21.0, 21.0, 0.0, 294, 'Meats');
-
-
--- Recipes --
-INSERT INTO recipes VALUES ('Sunny Breakfast', 'cooking', 'American', 2, 'A delightful start to your day with sunny side up eggs and toast.', 'Serve immediately.', 'Add herbs for enhanced flavor.', NULL, '00:10:00', '00:05:00', 1, 'Eggs');
-INSERT INTO recipes VALUES ('Chocolate Cake', 'baking', 'French', 3, 'Rich chocolate cake with layers of dark chocolate ganache.', 'Use high-quality cocoa.', NULL, NULL, '00:20:00', '00:45:00', 8, 'Cocoa powder');
-INSERT INTO recipes VALUES ('Vegetable Stir Fry', 'cooking', 'Chinese', 2, 'Quick and healthy vegetable stir fry with soy sauce.', 'Can add chicken or beef.', 'Use fresh vegetables.', NULL, '00:15:00', '00:10:00', 2, 'Bell peppers');
-INSERT INTO recipes VALUES ('BBQ Ribs', 'cooking', 'American', 4, 'Slow-cooked ribs with a homemade BBQ sauce.', 'Marinate overnight for best flavor.', 'Serve with coleslaw.', NULL, '00:30:00', '03:00:00', 4, 'Pork ribs');
-INSERT INTO recipes VALUES ('Classic Margherita Pizza', 'baking', 'Italian', 2, 'Simple pizza with tomatoes, mozzarella, and basil.', 'Use fresh mozzarella.', NULL, NULL, '00:15:00', '00:20:00', 2, 'Pizza dough');
-INSERT INTO recipes VALUES ('Lemon Chicken', 'cooking', 'French', 3, 'Tender chicken in a creamy lemon sauce.', 'Add capers for extra taste.', NULL, NULL, '00:20:00', '00:30:00', 4, 'Chicken');
-INSERT INTO recipes VALUES ('Beef Tacos', 'cooking', 'Mexican', 2, 'Spicy ground beef tacos with salsa and cheese.', 'Serve with lime wedges.', NULL, NULL, '00:20:00', '00:15:00', 3, 'Ground beef');
-INSERT INTO recipes VALUES ('Pad Thai', 'cooking', 'Thai', 3, 'Traditional Pad Thai with shrimp and tamarind sauce.', 'Use flat rice noodles.', 'Top with crushed peanuts.', NULL, '00:25:00', '00:15:00', 2, 'Shrimp');
-INSERT INTO recipes VALUES ('Raspberry Cheesecake', 'baking', 'American', 4, 'Creamy cheesecake with a raspberry swirl.', 'Chill overnight before serving.', NULL, NULL, '00:30:00', '01:00:00', 8, 'Cream cheese');
-INSERT INTO recipes VALUES ('Spaghetti Carbonara', 'cooking', 'Italian', 3, 'Classic Italian pasta with eggs, cheese, and pancetta.', 'Do not overcook the eggs.', NULL, NULL, '00:10:00', '00:20:00', 2, 'Spaghetti');
-INSERT INTO recipes VALUES ('Tomato Soup', 'cooking', 'American', 1, 'A warm, comforting tomato soup.', 'Serve with grilled cheese sandwiches.', NULL, NULL, '00:10:00', '00:30:00', 4, 'Tomatoes');
-INSERT INTO recipes VALUES ('Fish and Chips', 'cooking', 'British', 3, 'Crispy battered fish with thick-cut fries.', 'Use beer in the batter for crispiness.', NULL, NULL, '00:20:00', '00:25:00', 2, 'Cod');
-INSERT INTO recipes VALUES ('Sushi Rolls', 'cooking', 'Japanese', 5, 'Homemade sushi rolls with fresh fish and vegetables.', 'Use sushi-grade fish.', 'Serve with soy sauce and wasabi.', NULL, '00:45:00', '00:20:00', 4, 'Sushi rice');
-INSERT INTO recipes VALUES ('Apple Pie', 'baking', 'American', 3, 'Classic apple pie with a flaky crust.', 'Use tart apples for best results.', 'Serve with vanilla ice cream.', NULL, '00:30:00', '01:00:00', 8, 'Apples');
-INSERT INTO recipes VALUES ('Caesar Salad', 'cooking', 'Italian', 1, 'Crisp lettuce with Caesar dressing and croutons.', 'Add anchovies for authentic flavor.', NULL, NULL, '00:10:00', '00:00:00', 2, 'Romaine lettuce');
-INSERT INTO recipes VALUES ('Mushroom Risotto', 'cooking', 'Italian', 4, 'Creamy risotto with wild mushrooms and Parmesan.', 'Stir continuously for creaminess.', NULL, NULL, '00:10:00', '00:40:00', 2, 'Arborio rice');
-INSERT INTO recipes VALUES ('Pumpkin Soup', 'cooking', 'American', 2, 'Smooth pumpkin soup with a hint of nutmeg.', 'Serve with a dollop of cream.', NULL, NULL, '00:15:00', '00:35:00', 4, 'Pumpkin');
-INSERT INTO recipes VALUES ('Chicken Tikka Masala', 'cooking', 'Indian', 4, 'Spicy and creamy chicken tikka masala.', 'Marinate the chicken overnight.', 'Serve with basmati rice.', NULL, '00:40:00', '00:50:00', 4, 'Chicken');
-INSERT INTO recipes VALUES ('French Onion Soup', 'cooking', 'French', 3, 'Rich onion soup topped with toasted bread and cheese.', 'Use a variety of onions for depth of flavor.', NULL, NULL, '00:15:00', '01:25:00', 4, 'Onions');
-INSERT INTO recipes VALUES ('Grilled Cheese Sandwich', 'cooking', 'American', 1, 'Golden, buttery, and crispy grilled cheese sandwich.', 'Use a blend of cheeses for best melt.', NULL, NULL, '00:05:00', '00:10:00', 1, 'Bread');
-INSERT INTO recipes VALUES ('Banana Bread', 'baking', 'American', 2, 'Moist and flavorful banana bread perfect for breakfast.', 'Use overripe bananas for best flavor.', NULL, NULL, '00:15:00', '01:10:00', 4, 'Bananas');
-INSERT INTO recipes VALUES ('Falafel Wrap', 'cooking', 'Middle Eastern', 3, 'Crispy homemade falafel with fresh vegetables wrapped in a pita.', 'Serve with tahini sauce.', NULL, NULL, '00:20:00', '00:30:00', 2, 'Chickpeas');
-INSERT INTO recipes VALUES ('Vegan Curry', 'cooking', 'Indian', 2, 'Rich and creamy vegan curry with coconut milk and spices.', 'Use fresh vegetables for better taste.', NULL, NULL, '00:15:00', '00:40:00', 3, 'Coconut milk');
-INSERT INTO recipes VALUES ('Pasta Primavera', 'cooking', 'Italian', 2, 'Pasta with a colorful medley of spring vegetables.', 'Add grated Parmesan before serving.', NULL, NULL, '00:10:00', '00:20:00', 4, 'Pasta');
-INSERT INTO recipes VALUES ('Clam Chowder', 'cooking', 'American', 4, 'Hearty New England clam chowder rich with potatoes and clams.', 'Serve with fresh bread.', NULL, NULL, '00:20:00', '00:50:00', 4, 'Clams');
-INSERT INTO recipes VALUES ('Beef Stroganoff', 'cooking', 'Russian', 3, 'Creamy beef stroganoff with mushrooms and a touch of mustard.', 'Serve over egg noodles.', NULL, NULL, '00:15:00', '00:30:00', 4, 'Beef');
-INSERT INTO recipes VALUES ('Chicken Parmesan', 'cooking', 'Italian', 3, 'Crispy chicken breast topped with marinara and melted cheese.', 'Use homemade marinara sauce for better taste.', NULL, NULL, '00:20:00', '00:35:00', 2, 'Chicken breast');
-INSERT INTO recipes VALUES ('Lamb Kebabs', 'cooking', 'Middle Eastern', 4, 'Grilled lamb kebabs marinated in spices and herbs.', 'Serve with yogurt sauce.', NULL, NULL, '00:24:00', '00:15:00', 3, 'Lamb');
-INSERT INTO recipes VALUES ('Tiramisu', 'baking', 'Italian', 4, 'Classic Italian no-bake dessert with layers of coffee-soaked ladyfingers and mascarpone.', 'Chill for at least four hours before serving.', NULL, NULL, '00:30:00', '00:00:00', 6, 'Mascarpone');
-INSERT INTO recipes VALUES ('Paella', 'cooking', 'Spanish', 5, 'Traditional Spanish rice dish with seafood and saffron.', 'Use fresh seafood for the best flavor.', NULL, NULL, '00:30:00', '00:40:00', 4, 'Rice');
-INSERT INTO recipes VALUES ('Butternut Squash Soup', 'cooking', 'American', 2, 'Smooth and creamy butternut squash soup.', 'Roast the squash for deeper flavor.', NULL, NULL, '00:20:00', '00:55:00', 4, 'Butternut squash');
-INSERT INTO recipes VALUES ('Salmon with Dill Sauce', 'cooking', 'Scandinavian', 3, 'Oven-baked salmon with a creamy dill sauce.', 'Garnish with lemon slices.', NULL, NULL, '00:10:00', '00:20:00', 2, 'Salmon');
-INSERT INTO recipes VALUES ('Shepherd’s Pie', 'cooking', 'British', 3, 'Savory pie with a ground meat filling topped with mashed potatoes.', 'Use lamb for authentic flavor.', NULL, NULL, '00:30:00', '00:20:00', 4, 'Potatoes');
-INSERT INTO recipes VALUES ('Ratatouille', 'cooking', 'French', 4, 'Stewed vegetable dish featuring eggplant, zucchini, and bell peppers.', 'Slow cook to blend the flavors.', NULL, NULL, '00:20:00', '01:00:00', 4, 'Eggplant');
-INSERT INTO recipes VALUES ('Gazpacho', 'cooking', 'Spanish', 1, 'Chilled tomato-based raw vegetable soup, perfect for hot days.', 'Serve chilled with diced cucumber topping.', NULL, NULL, '00:15:00', '00:00:00', 4, 'Tomatoes');
-INSERT INTO recipes VALUES ('Korean BBQ Beef', 'cooking', 'Korean', 3, 'Marinated beef grilled to perfection and served with ssamjang.', 'Grill over charcoal for authentic flavor.', NULL, NULL, '00:30:00', '00:10:00', 2, 'Beef');
-INSERT INTO recipes VALUES ('Baklava', 'baking', 'Middle Eastern', 5, 'Sweet dessert pastry made of layers of filo filled with chopped nuts and sweetened with syrup.', 'Chill overnight to allow the syrup to soak in.', NULL, NULL, '01:00:00', '00:50:00', 12, 'Filo dough');
-INSERT INTO recipes VALUES ('Fettuccine Alfredo', 'cooking', 'Italian', 2, 'Creamy pasta dish made with butter, cream, and Parmesan cheese.', 'Add freshly ground black pepper.', NULL, NULL, '00:10:00', '00:15:00', 2, 'Fettuccine');
-INSERT INTO recipes VALUES ('Jambalaya', 'cooking', 'Cajun', 4, 'Louisiana-origin dish of Spanish and French influence, consisting mainly of meat and vegetables mixed with rice.', 'Traditionally includes andouille sausage and chicken.', NULL, NULL, '00:25:00', '00:40:00', 4, 'Rice');
-INSERT INTO recipes VALUES ('Moussaka', 'cooking', 'Greek', 5, 'Eggplant and potato-based dish, often including ground meat.', 'Layer the ingredients like a lasagna.', NULL, NULL, '00:30:00', '01:10:00', 6, 'Eggplant');
-INSERT INTO recipes VALUES ('Quiche Lorraine', 'baking', 'French', 3, 'Savory open tart with a filling of custard with bacon and cheese.', 'Use a pre-baked tart shell to save time.', NULL, NULL, '00:20:00', '00:30:00', 4, 'Bacon');
-INSERT INTO recipes VALUES ('Ceviche', 'cooking', 'Peruvian', 4, 'Fresh fish marinated in citrus juices with onions, cilantro, and chili peppers.', 'Use fresh, high-quality fish.', NULL, NULL, '00:15:00', '00:00:00', 4, 'White fish');
-INSERT INTO recipes VALUES ('Lobster Bisque', 'cooking', 'French', 5, 'Smooth and creamy lobster soup enriched with brandy.', 'Simmer the shells for an intense flavor.', 'Serve with fresh cream.', NULL, '00:20:00', '01:00:00', 4, 'Lobster');
-INSERT INTO recipes VALUES ('Beef Bourguignon', 'cooking', 'French', 4, 'Beef stewed in red wine with mushrooms, onions, and carrots.', 'Marinate beef in wine overnight.', NULL, NULL, '00:30:00', '03:00:00', 6, 'Beef');
-INSERT INTO recipes VALUES ('Chimichurri Steak', 'cooking', 'Argentinian', 3, 'Grilled steak topped with a fresh parsley and garlic sauce.', 'Let the steak rest before serving.', 'Prepare chimichurri one hour ahead.', NULL, '00:10:00', '00:15:00', 2, 'Steak');
-INSERT INTO recipes VALUES ('Thai Green Curry', 'cooking', 'Thai', 3, 'Spicy and aromatic green curry with chicken and Thai eggplants.', 'Use homemade green curry paste for best results.', NULL, NULL, '00:20:00', '00:25:00', 4, 'Chicken');
-INSERT INTO recipes VALUES ('Moroccan Tagine', 'cooking', 'Moroccan', 4, 'Slow-cooked savory stew made with lamb, dried apricots, almonds, and spices.', 'Serve with couscous.', 'Use a traditional clay tagine for cooking.', NULL, '00:30:00', '02:00:00', 6, 'Lamb');
-INSERT INTO recipes VALUES ('Pulled Pork Sandwich', 'cooking', 'American', 2, 'Slow-cooked pork shoulder shredded and mixed with BBQ sauce, served on a bun.', 'Cook the pork shoulder for at least 6 hours.', 'Top with coleslaw.', NULL, '00:30:00', '06:00:00', 4, 'Pork shoulder');
-
---has_ingredient --
-INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount) VALUES
-('Sunny Breakfast', 'Eggs', 'Piece', 2),
-('Chocolate Cake', 'Cocoa powder', 'Gram', 100),
-('Vegetable Stir Fry', 'Bell peppers', 'Piece', 2),
-('BBQ Ribs', 'Pork ribs', 'Kilo', 1),
-('Classic Margherita Pizza', 'Pizza dough', 'Piece', 1),
-('Lemon Chicken', 'Chicken breast', 'Kilo', 1),
-('Beef Tacos', 'Ground beef', 'Kilo', 0.5),
-('Pad Thai', 'Shrimp', 'Kilo', 0.5),
-('Raspberry Cheesecake', 'Cream cheese', 'Gram', 200),
-('Spaghetti Carbonara', 'Spaghetti', 'Gram', 300),
-('Tomato Soup', 'Tomatoes', 'Piece', 4),
-('Fish and Chips', 'Cod', 'Kilo', 1),
-('Sushi Rolls', 'Sushi rice', 'Gram', 300),
-('Apple Pie', 'Apples', 'Piece', 6),
-('Caesar Salad', 'Romaine lettuce', 'Piece', 1),
-('Mushroom Risotto', 'Arborio rice', 'Gram', 200),
-('Pumpkin Soup', 'Pumpkin', 'Gram', 300),
-('Chicken Tikka Masala', 'Chicken breast', 'Kilo', 1),
-('French Onion Soup', 'Onions', 'Piece', 4),
-('Grilled Cheese Sandwich', 'Bread', 'Piece', 2),
-('Banana Bread', 'Bananas', 'Piece', 3),
-('Falafel Wrap', 'Chickpeas', 'Gram', 200),
-('Vegan Curry', 'Coconut milk', 'Ml', 400),
-('Pasta Primavera', 'Pasta', 'Gram', 300),
-('Clam Chowder', 'Clams', 'Gram', 200),
-('Beef Stroganoff', 'Beef', 'Kilo', 0.5),
-('Chicken Parmesan', 'Chicken breast', 'Kilo', 0.5),
-('Lamb Kebabs', 'Lamb', 'Kilo', 0.5),
-('Tiramisu', 'Mascarpone', 'Gram', 200),
-('Paella', 'Rice', 'Gram', 300),
-('Butternut Squash Soup', 'Butternut squash', 'Gram', 300),
-('Salmon with Dill Sauce', 'Salmon', 'Kilo', 0.5),
-('Shepherd’s Pie', 'Potatoes', 'Piece', 4),
-('Ratatouille', 'Eggplant', 'Piece', 2),
-('Gazpacho', 'Tomatoes', 'Piece', 4),
-('Korean BBQ Beef', 'Beef', 'Kilo', 0.5),
-('Baklava', 'Filo dough', 'Piece', 10),
-('Fettuccine Alfredo', 'Fettuccine', 'Gram', 300),
-('Jambalaya', 'Rice', 'Gram', 300),
-('Moussaka', 'Eggplant', 'Piece', 3),
-('Quiche Lorraine', 'Bacon', 'Piece', 6),
-('Ceviche', 'White fish', 'Kilo', 0.5),
-('Lobster Bisque', 'Lobster', 'Kilo', 0.5),
-('Beef Bourguignon', 'Beef', 'Kilo', 0.5),
-('Chimichurri Steak', 'Steak', 'Kilo', 0.5),
-('Thai Green Curry', 'Chicken', 'Kilo', 0.5),
-('Moroccan Tagine', 'Lamb', 'Kilo', 0.5),
-('Pulled Pork Sandwich', 'Pork shoulder', 'Kilo', 1);
-
-
--- Cuisine --
-INSERT INTO cuisine (cuisine_name) VALUES
-('American'),
-('French'),
-('Chinese'),
-('Italian'),
-('Mexican'),
-('Thai'),
-('British'),
-('Japanese'),
-('Indian'),
-('Middle Eastern'),
-('Scandinavian'),
-('Russian'),
-('Spanish'),
-('Greek'),
-('Peruvian'),
-('Argentinian'),
-('Moroccan'),
-('Cajun'),
-('German'),
-('Korean'),
-('Vietnamese'),
-('Brazilian'),
-('Turkish'),
-('Australian'),
-('Mediterranean'),
-('Caribbean'),
-('Irish'),
-('Swedish'),
-('Portuguese'),
-('African'),
-('Israeli'),
-('Filipino'),
-('Indonesian'),
-('Malaysian'),
-('Swiss'),
-('Thai'),
-('Lebanese'),
-('Polish'),
-('Ethiopian'),
-('Cuban'),
-('Finnish'),
-('Jamaican'),
-('Tibetan'),
-('Hawaiian'),
-('Maltese'),
-('Singaporean'),
-('Belgian'),
-('Nigerian'),
-('Georgian'),
-('Ukrainian'),
-('Bangladeshi'),
-('Cambodian'),
-('Sri Lankan'),
-('Tunisian');
 
 -- Chefs --
 
