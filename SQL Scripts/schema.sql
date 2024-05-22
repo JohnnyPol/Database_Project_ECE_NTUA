@@ -363,4 +363,4 @@ DELIMITER;
 -- -----------------------------------------
 -- INDICES --
 -- -----------------------------------------
-create index on expertise_in (cuisine_name);
+create index cuisine_expertise_in on expertise_in (cuisine_name);
