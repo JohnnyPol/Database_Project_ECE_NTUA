@@ -512,6 +512,68 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Dimitris', 'Papageorgiou', 'Sri Lankan'),
 ('Eleni', 'Panagiotopoulou', 'Tunisian');
 
+--Equipment--
+INSERT INTO equipment (equipment_name, instructions) VALUES
+('Knife', 'Use for cutting and chopping ingredients.'),
+('Cutting Board', 'Place ingredients on for cutting.'),
+('Mixing Bowl', 'Use for combining ingredients.'),
+('Whisk', 'Use for mixing ingredients together smoothly.'),
+('Saucepan', 'Use for heating sauces and liquids.'),
+('Frying Pan', 'Use for frying and sautéing foods.'),
+('Oven', 'Use for baking and roasting.'),
+('Grill', 'Use for grilling meats and vegetables.'),
+('Blender', 'Use for blending ingredients into smooth mixtures.'),
+('Food Processor', 'Use for chopping, slicing, and pureeing ingredients.'),
+('Measuring Cup', 'Use for accurately measuring liquid ingredients.'),
+('Rolling Pin', 'Use for rolling out dough.'),
+('Ladle', 'Use for serving soups and stews.'),
+('Spatula', 'Use for flipping and lifting foods.'),
+('Tongs', 'Use for grasping and turning foods while cooking.'),
+('Colander', 'Use for draining liquids from foods.'),
+('Baking Sheet', 'Use for baking cookies, pastries, and other baked goods.'),
+('Pastry Brush', 'Use for applying egg wash or glaze.'),
+('Grater', 'Use for grating cheese, vegetables, or other ingredients.'),
+('Peeler', 'Use for peeling fruits and vegetables.');
+
+--theme--
+INSERT INTO theme (theme_name, theme_description) VALUES
+('Romantic', 'Perfect for a date night.'),
+('Family-friendly', 'Recipes suitable for the whole family.'),
+('Quick & Easy', 'Recipes that can be prepared in a short amount of time.'),
+('Comfort Food', 'Recipes that evoke feelings of comfort and nostalgia.'),
+('Healthy', 'Nutritious recipes with balanced ingredients.'),
+('Vegetarian', 'Recipes without meat or fish ingredients.'),
+('Vegan', 'Recipes without any animal products.'),
+('Gluten-Free', 'Recipes suitable for individuals with gluten intolerance.'),
+('Low-Carb', 'Recipes with reduced carbohydrate content.'),
+('Budget-Friendly', 'Recipes that are affordable to make.');
+
+--mealtype--
+INSERT INTO meal_type (mealtype_name) VALUES
+('Breakfast'),
+('Brunch'),
+('Lunch'),
+('Dinner'),
+('Appetizer'),
+('Side Dish'),
+('Main Course'),
+('Dessert'),
+('Snack'),
+('Beverage');
+
+--tags--
+INSERT INTO tags (tag_name) VALUES
+('Easy'),
+('Healthy'),
+('Vegetarian'),
+('Quick'),
+('Kid-Friendly'),
+('Low-Calorie'),
+('High-Protein'),
+('Gluten-Free'),
+('Dairy-Free'),
+('One-Pot');
+
 
 -- Dummy inserts -- 
 INSERT INTO recipes VALUES ('Pad Thai', 'cooking', 'Thai', 3, 'Traditional Pad Thai with shrimp and tamarind sauce.', 'Use flat rice noodles.', 'Top with crushed peanuts.', NULL, '00:25:00', '00:15:00', 2, 'Shrimp');
