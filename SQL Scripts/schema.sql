@@ -26,11 +26,7 @@ DROP TABLE IF EXISTS theme;
 
 DROP TABLE IF EXISTS meal_type;
 
-DROP TABLE IF EXISTS belongs_to_foodgroup;
-
 DROP TABLE IF EXISTS tags;
-
-DROP TABLE IF EXISTS food_groups;
 
 DROP TABLE IF EXISTS equipment;
 
@@ -52,13 +48,13 @@ DROP TABLE IF EXISTS dietary_info;
 
 DROP TABLE IF EXISTS expertise_in;
 
-DROP TABLE IF EXISTS Winner;
-
 DROP TABLE IF EXISTS chefs;
 
 DROP TABLE IF EXISTS recipes;
 
 DROP TABLE IF EXISTS ingredients;
+
+DROP TABLE IF EXISTS food_groups;
 
 DROP TABLE IF EXISTS cuisine;
 
@@ -68,12 +64,20 @@ DROP TABLE IF EXISTS cuisine;
 
 CREATE TABLE cuisine ( cuisine_name VARCHAR(255) PRIMARY KEY );
 
+CREATE TABLE food_groups (
+    food_group_name VARCHAR(255) PRIMARY KEY,
+    food_group_description VARCHAR(255),
+    dietary_analogy VARCHAR(255)
+);
+
 CREATE TABLE ingredients (
     ingredient_name VARCHAR(255) PRIMARY KEY,
     fats_per_fund_SI FLOAT,
     protein_per_fund_SI FLOAT,
     carbs_per_fund_SI FLOAT,
-    calories_per_fund_SI INT
+    calories_per_fund_SI INT,
+    food_group_name VARCHAR(255),
+    FOREIGN KEY (food_group_name) REFERENCES food_gropus(food_group_name)
 );
 
 CREATE TABLE recipes (
@@ -109,11 +113,6 @@ CREATE TABLE meal_type ( mealtype_name VARCHAR(255) PRIMARY KEY );
 
 CREATE TABLE tags ( tag_name VARCHAR(255) PRIMARY KEY );
 
-CREATE TABLE food_groups (
-    food_group_name VARCHAR(255) PRIMARY KEY,
-    food_group_description VARCHAR(255),
-    dietary_analogy VARCHAR(255)
-);
 
 CREATE TABLE equipment (
     equipment_name VARCHAR(255) PRIMARY KEY,
@@ -300,10 +299,10 @@ BEGIN
     SET recipe = NEW.recipe_name;
     SET ing = NEW.primary_ingredient;
     
-    SELECT food_group
+    SELECT food_group_name
     INTO cat
-    FROM belongs_to_foodgroup
-    WHERE ingredient = ing;
+    FROM ingredients
+    WHERE ingredient_name = ing;
     
     SELECT dietary_analogy
     INTO Diet
