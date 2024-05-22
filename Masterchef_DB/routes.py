@@ -292,10 +292,11 @@ def index():
             return jsonify(results=serialized_results), 200
 
         elif action == "competition":
-            return jsonify(results=competition(6))
+            season = 2
+            return jsonify(results=competition(season))
 
         else:
-            return send_file("../Images/cuisine/russian.jpg", mimetype="image/jpeg")
+            return send_file("../Images/cuisine/american.jpg", mimetype="image/jpeg")
             return jsonify(status="Connection is established")
 
     except Exception as e:
