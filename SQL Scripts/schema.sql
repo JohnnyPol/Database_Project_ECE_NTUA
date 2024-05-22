@@ -99,7 +99,8 @@ CREATE TABLE steps (
     recipe VARCHAR(255),
     step_number INT,
     step_description VARCHAR(255),
-    PRIMARY KEY (recipe, step_number)
+    PRIMARY KEY (recipe, step_number),
+    FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
 
 CREATE TABLE theme (
@@ -201,6 +202,14 @@ CREATE TABLE belongs_to_tag (
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (tag) REFERENCES tags (tag_name),
     PRIMARY KEY (recipe, tag)
+);
+
+CREATE TABLE belongs_to_theme (
+    recipe VARCHAR(255) NOT NULL,
+    theme VARCHAR(255) NOT NULL,
+    FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
+    FOREIGN KEY (theme) REFERENCES theme (theme_name),
+    PRIMARY KEY (recipe, theme)
 );
 
 CREATE TABLE needs_equipment (

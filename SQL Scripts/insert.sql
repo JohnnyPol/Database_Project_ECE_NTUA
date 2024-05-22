@@ -424,7 +424,7 @@ INSERT INTO chefs VALUES ('Aris', 'Dimeas', 6902345678, '1978-07-15', 45, 22, 'c
 INSERT INTO chefs VALUES ('Haris', 'Doukas', 2106789012, '1986-08-05', 37, 14, '2nd cook');
 INSERT INTO chefs VALUES ('George', 'Fikioris', 2107890123, '1974-09-25', 49, 26, 'chef');
 INSERT INTO chefs VALUES ('George', 'Karybakas', 2108901234, '1979-11-10', 44, 21, 'sous chef');
-INSERT INTO chefs VALUES ('Dimitris', 'Kalamatianos', 6904567890, '1985-12-07', 38, 17, '2nd cook');
+INSERT INTO chefs VALUES ('Anda', 'Ferfeli', 6904567890, '1985-12-07', 38, 17, '2nd cook');
 INSERT INTO chefs VALUES ('Nikolaos', 'Karakostas', 2109012345, '1983-03-23', 41, 20, '1st cook');
 INSERT INTO chefs VALUES ('Sofia', 'Papadopoulou', 2101230987, '1987-05-16', 36, 14, '2nd cook');
 INSERT INTO chefs VALUES ('Maria', 'Koutsou', 6905678901, '1989-07-27', 34, 13, '3rd cook');
@@ -452,7 +452,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Ioanna', 'Roussaki', 'Mexican'),
 ('Stathis', 'Zachos', 'Thai'),
 ('Antonis', 'Papavassileiou', 'British'),
-('Symeon', 'Papavassileiou', 'Japanese'),
+('Symeon', 'Papavassileiou', 'Moroccan'),
 ('Antonis', 'Kladas', 'Indian'),
 ('Aris', 'Koziris', 'Middle Eastern'),
 ('John', 'Tsinias', 'Scandinavian'),
@@ -461,7 +461,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Georgios', 'Koletsos', 'Greek'),
 ('Ioannis', 'Raptis', 'Peruvian'),
 ('Giannis', 'polychronopoulos', 'Argentinian'),
-('Katerina', 'Michou', 'Moroccan'),
+('Katerina', 'Michou', 'Japanese'),
 ('Angeliki', 'Ntalapera', 'Cajun'),
 ('Dora', 'Souliou', 'German'),
 ('Verena', 'Kantere', 'Korean'),
@@ -484,7 +484,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Haris', 'Doukas', 'Lebanese'),
 ('George', 'Fikioris', 'Polish'),
 ('George', 'Karybakas', 'Ethiopian'),
-('Dimitris', 'Kalamatianos', 'Cuban'),
+('Anda', 'Ferfeli', 'Cuban'),
 ('Nikolaos', 'Karakostas', 'Finnish'),
 ('Sofia', 'Papadopoulou', 'Jamaican'),
 ('Maria', 'Koutsou', 'Tibetan'),
@@ -573,3 +573,288 @@ INSERT INTO recipes VALUES ('Moussaka', 'cooking', 'Greek', 5, 'Eggplant and pot
 INSERT INTO ingredients VALUES("Shrimp", 0.1, 6, 0.5, 30);
 INSERT INTO ingredients VALUES("Spaghetti", 0.09, 6, 0.5, 3);
 INSERT INTO ingredients VALUES("Eggplant", 0.02, 2, 0.5, 1);
+
+-- Steps --
+INSERT INTO steps VALUES("Classic Cheeseburger", 1, "Toast the buns");
+INSERT INTO steps VALUES("Classic Cheeseburger", 2, "Order it best");
+INSERT INTO steps VALUES("Coq au Vin", 1, "Pull the feathers off");
+INSERT INTO steps VALUES("Coq au Vin", 2, "Braise the meat in wine");
+INSERT INTO steps VALUES("Coq au Vin", 3, "Season");
+INSERT INTO steps VALUES("Sweet and Sour Pork", 1, "Do it");
+INSERT INTO steps VALUES("Spaghetti Carbonara", 1, "Do it");
+INSERT INTO steps VALUES("Tacos", 1, "Do it");
+INSERT INTO steps VALUES("Pad Thai", 1, "Do it");
+INSERT INTO steps VALUES("Fish and Chips", 1, "Do it");
+INSERT INTO steps VALUES("Sushi Rolls", 1, "Do it");
+INSERT INTO steps VALUES("Chicken Curry", 1, "Do it");
+INSERT INTO steps VALUES("Hummus", 1, "Do it");
+INSERT INTO steps VALUES("Gravlax", 1, "Do it");
+INSERT INTO steps VALUES("Beef Stroganoff", 1, "Do it");
+INSERT INTO steps VALUES("Paella", 1, "Do it");
+INSERT INTO steps VALUES("Moussaka", 1, "Do it");
+INSERT INTO steps VALUES("Ceviche", 1, "Do it");
+INSERT INTO steps VALUES("Asado", 1, "Do it");
+INSERT INTO steps VALUES("Tagine", 1, "Do it");
+INSERT INTO steps VALUES("Jambalaya", 1, "Do it");
+INSERT INTO steps VALUES("Sauerbraten", 1, "Do it");
+INSERT INTO steps VALUES("Bibimbap", 1, "Do it");
+INSERT INTO steps VALUES("Pho", 1, "Do it");
+INSERT INTO steps VALUES("Feijoada", 1, "Do it");
+INSERT INTO steps VALUES("Kebabs", 1, "Do it");
+INSERT INTO steps VALUES("Grilled Barramundi", 1, "Do it");
+INSERT INTO steps VALUES("Grilled Vegetables", 1, "Do it");
+INSERT INTO steps VALUES("Jerk Chicken", 1, "Do it");
+INSERT INTO steps VALUES("Irish Stew", 1, "Do it");
+INSERT INTO steps VALUES("Sweedish Meetbals", 1, "Do it");
+INSERT INTO steps VALUES("Bacalhau à Brás", 1, "Do it");
+INSERT INTO steps VALUES("Jollof Rice", 1, "Do it");
+INSERT INTO steps VALUES("Shakshuka", 1, "Do it");
+INSERT INTO steps VALUES("Adobo", 1, "Do it");
+INSERT INTO steps VALUES("Nasi Goreng", 1, "Do it");
+INSERT INTO steps VALUES("Laksa", 1, "Do it");
+INSERT INTO steps VALUES("Fondue", 1, "Do it");
+INSERT INTO steps VALUES("Tom Yum Soup", 1, "Do it");
+INSERT INTO steps VALUES("Tabbouleh", 1, "Do it");
+INSERT INTO steps VALUES("Pierogi", 1, "Do it");
+INSERT INTO steps VALUES("Doro Wat", 1, "Do it");
+INSERT INTO steps VALUES("Ropa Vieja", 1, "Do it");
+INSERT INTO steps VALUES("Karjalanpaisti", 1, "Do it");
+INSERT INTO steps VALUES("Ackee and Saltfish", 1, "Do it");
+INSERT INTO steps VALUES("Momo", 1, "Do it");
+INSERT INTO steps VALUES("Poke Bowl", 1, "Do it");
+INSERT INTO steps VALUES("Rabbit Stew", 1, "Do it");
+INSERT INTO steps VALUES("Chilly Crab", 1, "Do it");
+INSERT INTO steps VALUES("Chilly Crab", 2, "Do it better");
+INSERT INTO steps VALUES("Moules-Frites", 1, "Do it");
+INSERT INTO steps VALUES("Jollo Fries Nigerian", 1, "Do it");
+INSERT INTO steps VALUES("Khachapuri", 1, "Do it");
+INSERT INTO steps VALUES("Borscht", 1, "Do it");
+INSERT INTO steps VALUES("Chicken Korma", 1, "Do it");
+INSERT INTO steps VALUES("Amok", 1, "Do it");
+INSERT INTO steps VALUES("Sri Lankan Fish Curry", 1, "Do it");
+INSERT INTO steps VALUES("Brik", 1, "Do it");
+
+-- Belongs to Mealtype --
+INSERT INTO steps VALUES("Classic Cheeseburger", "Lunch");
+INSERT INTO steps VALUES("Coq au Vin", "Main Course");
+INSERT INTO steps VALUES("Sweet and Sour Pork", "Dinner");
+INSERT INTO steps VALUES("Spaghetti Carbonara", "Main Course");
+INSERT INTO steps VALUES("Tacos", "Dinner");
+INSERT INTO steps VALUES("Pad Thai", "Main Course");
+INSERT INTO steps VALUES("Fish and Chips", "Main Course");
+INSERT INTO steps VALUES("Sushi Rolls", "Appetizer");
+INSERT INTO steps VALUES("Chicken Curry", "Main Course");
+INSERT INTO steps VALUES("Hummus", "Appetizer");
+INSERT INTO steps VALUES("Gravlax", "Appetizer");
+INSERT INTO steps VALUES("Beef Stroganoff", "Main Course");
+INSERT INTO steps VALUES("Paella", "Main Course");
+INSERT INTO steps VALUES("Moussaka", "Main Course");
+INSERT INTO steps VALUES("Ceviche", "Appetizer");
+INSERT INTO steps VALUES("Asado", "Main Course");
+INSERT INTO steps VALUES("Tagine", "Main Course");
+INSERT INTO steps VALUES("Jambalaya", "Main Course");
+INSERT INTO steps VALUES("Sauerbraten", "Main Course");
+INSERT INTO steps VALUES("Bibimbap", "Main Course");
+INSERT INTO steps VALUES("Pho", "Main Course");
+INSERT INTO steps VALUES("Feijoada", "Main Course");
+INSERT INTO steps VALUES("Kebabs", "Main Course");
+INSERT INTO steps VALUES("Grilled Barramundi", "Main Course");
+INSERT INTO steps VALUES("Grilled Vegetables", "Side Dish");
+INSERT INTO steps VALUES("Jerk Chicken", "Main Course");
+INSERT INTO steps VALUES("Irish Stew", "Main Course");
+INSERT INTO steps VALUES("Sweedish Meetbals", "Main Course");
+INSERT INTO steps VALUES("Bacalhau à Brás", "Main Course");
+INSERT INTO steps VALUES("Jollof Rice", "Main Course");
+INSERT INTO steps VALUES("Shakshuka", "Breakfast");
+INSERT INTO steps VALUES("Adobo", "Main Course");
+INSERT INTO steps VALUES("Nasi Goreng", "Main Course");
+INSERT INTO steps VALUES("Laksa", "Main Course");
+INSERT INTO steps VALUES("Fondue", "Appetizer");
+INSERT INTO steps VALUES("Tom Yum Soup", "Appetizer");
+INSERT INTO steps VALUES("Tabbouleh", "Side Dish");
+INSERT INTO steps VALUES("Pierogi", "Main Course");
+INSERT INTO steps VALUES("Doro Wat", "Main Course");
+INSERT INTO steps VALUES("Ropa Vieja", "Main Course");
+INSERT INTO steps VALUES("Karjalanpaisti", "Main Course");
+INSERT INTO steps VALUES("Ackee and Saltfish", "Main Course");
+INSERT INTO steps VALUES("Momo", "Appetizer");
+INSERT INTO steps VALUES("Poke Bowl", "Main Course");
+INSERT INTO steps VALUES("Rabbit Stew", "Main Course");
+INSERT INTO steps VALUES("Chilly Crab", "Main Course");
+INSERT INTO steps VALUES("Moules-Frites", "Main Course");
+INSERT INTO steps VALUES("Jollo Fries Nigerian", "Main Course");
+INSERT INTO steps VALUES("Khachapuri", "Main Course");
+INSERT INTO steps VALUES("Borscht", "Main Course");
+INSERT INTO steps VALUES("Chicken Korma", "Main Course");
+INSERT INTO steps VALUES("Amok", "Main Course");
+INSERT INTO steps VALUES("Sri Lankan Fish Curry", "Main Course");
+INSERT INTO steps VALUES("Brik", "Appetizer");
+
+-- Belongs to Tag -- 
+INSERT INTO steps VALUES("Sweet and Sour Pork", "High-Protein");
+INSERT INTO steps VALUES("Spaghetti Carbonara", "Easy");
+INSERT INTO steps VALUES("Tacos", "Kid-Friendly");
+INSERT INTO steps VALUES("Pad Thai", "Quick");
+INSERT INTO steps VALUES("Fish and Chips", "Kid-Friendly");
+INSERT INTO steps VALUES("Sushi Rolls", "Gluten-Free");
+INSERT INTO steps VALUES("Chicken Curry", "Easy");
+INSERT INTO steps VALUES("Hummus", "Vegetarian");
+INSERT INTO steps VALUES("Gravlax", "Healthy");
+INSERT INTO steps VALUES("Beef Stroganoff", "Easy");
+INSERT INTO steps VALUES("Paella", "One-Pot");
+INSERT INTO steps VALUES("Moussaka", "Vegetarian");
+INSERT INTO steps VALUES("Ceviche", "Healthy");
+INSERT INTO steps VALUES("Asado", "High-Protein");
+INSERT INTO steps VALUES("Tagine", "Easy");
+INSERT INTO steps VALUES("Jambalaya", "One-Pot");
+INSERT INTO steps VALUES("Sauerbraten", "Low-Calorie");
+INSERT INTO steps VALUES("Bibimbap", "Quick");
+INSERT INTO steps VALUES("Pho", "Healthy");
+INSERT INTO steps VALUES("Feijoada", "High-Protein");
+INSERT INTO steps VALUES("Kebabs", "Quick");
+INSERT INTO steps VALUES("Grilled Barramundi", "Healthy");
+INSERT INTO steps VALUES("Grilled Vegetables", "Vegetarian");
+INSERT INTO steps VALUES("Jerk Chicken", "Kid-Friendly");
+INSERT INTO steps VALUES("Irish Stew", "One-Pot");
+INSERT INTO steps VALUES("Sweedish Meetbals", "Easy");
+INSERT INTO steps VALUES("Bacalhau à Brás", "Gluten-Free");
+INSERT INTO steps VALUES("Jollof Rice", "Kid-Friendly");
+INSERT INTO steps VALUES("Shakshuka", "Vegetarian");
+INSERT INTO steps VALUES("Adobo", "High-Protein");
+INSERT INTO steps VALUES("Nasi Goreng", "Quick");
+INSERT INTO steps VALUES("Laksa", "Kid-Friendly");
+INSERT INTO steps VALUES("Fondue", "Easy");
+INSERT INTO steps VALUES("Tom Yum Soup", "Low-Calorie");
+INSERT INTO steps VALUES("Tabbouleh", "Healthy");
+INSERT INTO steps VALUES("Pierogi", "Vegetarian");
+INSERT INTO steps VALUES("Doro Wat", "High-Protein");
+INSERT INTO steps VALUES("Ropa Vieja", "One-Pot");
+INSERT INTO steps VALUES("Karjalanpaisti", "Gluten-Free");
+INSERT INTO steps VALUES("Ackee and Saltfish", "Low-Calorie");
+INSERT INTO steps VALUES("Momo", "Kid-Friendly");
+INSERT INTO steps VALUES("Poke Bowl", "Healthy");
+INSERT INTO steps VALUES("Rabbit Stew", "One-Pot");
+INSERT INTO steps VALUES("Chilly Crab", "Quick");
+INSERT INTO steps VALUES("Moules-Frites", "Easy");
+INSERT INTO steps VALUES("Jollo Fries Nigerian", "High-Protein");
+INSERT INTO steps VALUES("Khachapuri", "Kid-Friendly");
+INSERT INTO steps VALUES("Borscht", "Vegetarian");
+INSERT INTO steps VALUES("Chicken Korma", "Gluten-Free");
+INSERT INTO steps VALUES("Amok", "Quick");
+INSERT INTO steps VALUES("Sri Lankan Fish Curry", "High-Protein");
+INSERT INTO steps VALUES("Brik", "Vegetarian");
+
+-- Belongs to theme --
+INSERT INTO steps VALUES("Sweet and Sour Pork", "Comfort Food");
+INSERT INTO steps VALUES("Spaghetti Carbonara", "Quick & Easy");
+INSERT INTO steps VALUES("Tacos", "Family-friendly");
+INSERT INTO steps VALUES("Pad Thai", "Quick & Easy");
+INSERT INTO steps VALUES("Fish and Chips", "Family-friendly");
+INSERT INTO steps VALUES("Sushi Rolls", "Gluten-Free");
+INSERT INTO steps VALUES("Chicken Curry", "Comfort Food");
+INSERT INTO steps VALUES("Hummus", "Healthy");
+INSERT INTO steps VALUES("Gravlax", "Romantic");
+INSERT INTO steps VALUES("Beef Stroganoff", "Comfort Food");
+INSERT INTO steps VALUES("Paella", "Family-friendly");
+INSERT INTO steps VALUES("Moussaka", "Vegetarian");
+INSERT INTO steps VALUES("Ceviche", "Healthy");
+INSERT INTO steps VALUES("Asado", "Family-friendly");
+INSERT INTO steps VALUES("Tagine", "Romantic");
+INSERT INTO steps VALUES("Jambalaya", "Family-friendly");
+INSERT INTO steps VALUES("Sauerbraten", "Comfort Food");
+INSERT INTO steps VALUES("Bibimbap", "Quick & Easy");
+INSERT INTO steps VALUES("Pho", "Healthy");
+INSERT INTO steps VALUES("Feijoada", "Comfort Food");
+INSERT INTO steps VALUES("Kebabs", "Quick & Easy");
+INSERT INTO steps VALUES("Grilled Barramundi", "Healthy");
+INSERT INTO steps VALUES("Grilled Vegetables", "Vegetarian");
+INSERT INTO steps VALUES("Jerk Chicken", "Family-friendly");
+INSERT INTO steps VALUES("Irish Stew", "Comfort Food");
+INSERT INTO steps VALUES("Sweedish Meetbals", "Quick & Easy");
+INSERT INTO steps VALUES("Bacalhau à Brás", "Gluten-Free");
+INSERT INTO steps VALUES("Jollof Rice", "Family-friendly");
+INSERT INTO steps VALUES("Shakshuka", "Vegetarian");
+INSERT INTO steps VALUES("Adobo", "Comfort Food");
+INSERT INTO steps VALUES("Nasi Goreng", "Quick & Easy");
+INSERT INTO steps VALUES("Laksa", "Family-friendly");
+INSERT INTO steps VALUES("Fondue", "Romantic");
+INSERT INTO steps VALUES("Tom Yum Soup", "Healthy");
+INSERT INTO steps VALUES("Tabbouleh", "Vegetarian");
+INSERT INTO steps VALUES("Pierogi", "Comfort Food");
+INSERT INTO steps VALUES("Doro Wat", "Family-friendly");
+INSERT INTO steps VALUES("Ropa Vieja", "Comfort Food");
+INSERT INTO steps VALUES("Karjalanpaisti", "Gluten-Free");
+INSERT INTO steps VALUES("Ackee and Saltfish", "Healthy");
+INSERT INTO steps VALUES("Momo", "Family-friendly");
+INSERT INTO steps VALUES("Poke Bowl", "Healthy");
+INSERT INTO steps VALUES("Rabbit Stew", "Comfort Food");
+INSERT INTO steps VALUES("Chilly Crab", "Quick & Easy");
+INSERT INTO steps VALUES("Moules-Frites", "Family-friendly");
+INSERT INTO steps VALUES("Jollo Fries Nigerian", "Comfort Food");
+INSERT INTO steps VALUES("Khachapuri", "Family-friendly");
+INSERT INTO steps VALUES("Borscht", "Vegetarian");
+INSERT INTO steps VALUES("Chicken Korma", "Gluten-Free");
+INSERT INTO steps VALUES("Amok", "Quick & Easy");
+INSERT INTO steps VALUES("Sri Lankan Fish Curry", "Healthy");
+INSERT INTO steps VALUES("Sri Lankan Fish Curry", "Romantic");
+INSERT INTO steps VALUES("Brik", "Vegetarian");
+INSERT INTO steps VALUES("Brik", "Healthy");
+INSERT INTO steps VALUES("Brik", "Family-friendly");
+
+-- Needs Equipment -- 
+INSERT INTO needs_equipment VALUES("Sweet and Sour Pork", "Knife", 1);
+INSERT INTO needs_equipment VALUES("Spaghetti Carbonara", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Tacos", "Frying Pan", 1);
+INSERT INTO needs_equipment VALUES("Pad Thai", "Wok", 1);
+INSERT INTO needs_equipment VALUES("Fish and Chips", "Frying Pan", 1);
+INSERT INTO needs_equipment VALUES("Sushi Rolls", "Bamboo Mat", 1);
+INSERT INTO needs_equipment VALUES("Chicken Curry", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Hummus", "Food Processor", 1);
+INSERT INTO needs_equipment VALUES("Gravlax", "Knife", 1);
+INSERT INTO needs_equipment VALUES("Beef Stroganoff", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Paella", "Paella Pan", 1);
+INSERT INTO needs_equipment VALUES("Moussaka", "Baking Dish", 1);
+INSERT INTO needs_equipment VALUES("Ceviche", "Mixing Bowl", 1);
+INSERT INTO needs_equipment VALUES("Asado", "Grill", 1);
+INSERT INTO needs_equipment VALUES("Tagine", "Tagine Pot", 1);
+INSERT INTO needs_equipment VALUES("Jambalaya", "Dutch Oven", 1);
+INSERT INTO needs_equipment VALUES("Sauerbraten", "Roasting Pan", 1);
+INSERT INTO needs_equipment VALUES("Bibimbap", "Sizzling Hot Plate", 1);
+INSERT INTO needs_equipment VALUES("Pho", "Stock Pot", 1);
+INSERT INTO needs_equipment VALUES("Feijoada", "Dutch Oven", 1);
+INSERT INTO needs_equipment VALUES("Kebabs", "Skewers", 1);
+INSERT INTO needs_equipment VALUES("Grilled Barramundi", "Grill", 1);
+INSERT INTO needs_equipment VALUES("Grilled Vegetables", "Grill Basket", 1);
+INSERT INTO needs_equipment VALUES("Jerk Chicken", "Grill", 1);
+INSERT INTO needs_equipment VALUES("Irish Stew", "Dutch Oven", 1);
+INSERT INTO needs_equipment VALUES("Sweedish Meetbals", "Skillet", 1);
+INSERT INTO needs_equipment VALUES("Bacalhau à Brás", "Oven", 1);
+INSERT INTO needs_equipment VALUES("Jollof Rice", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Shakshuka", "Skillet", 1);
+INSERT INTO needs_equipment VALUES("Adobo", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Nasi Goreng", "Skillet", 1);
+INSERT INTO needs_equipment VALUES("Laksa", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Fondue", "Fondue Pot", 1);
+INSERT INTO needs_equipment VALUES("Tom Yum Soup", "Stock Pot", 1);
+INSERT INTO needs_equipment VALUES("Tabbouleh", "Mixing Bowl", 1);
+INSERT INTO needs_equipment VALUES("Pierogi", "Pot", 1);
+INSERT INTO needs_equipment VALUES("Doro Wat", "Pot", 1);
+INSERT INTO needs_equipment VALUES("Ropa Vieja", "Dutch Oven", 1);
+INSERT INTO needs_equipment VALUES("Karjalanpaisti", "Oven", 1);
+INSERT INTO needs_equipment VALUES("Ackee and Saltfish", "Skillet", 1);
+INSERT INTO needs_equipment VALUES("Momo", "Steamer", 1);
+INSERT INTO needs_equipment VALUES("Poke Bowl", "Mixing Bowl", 1);
+INSERT INTO needs_equipment VALUES("Rabbit Stew", "Dutch Oven", 1);
+INSERT INTO needs_equipment VALUES("Chilly Crab", "Wok", 1);
+INSERT INTO needs_equipment VALUES("Moules-Frites", "Pot", 1);
+INSERT INTO needs_equipment VALUES("Jollo Fries Nigerian", "Deep Fryer", 1);
+INSERT INTO needs_equipment VALUES("Khachapuri", "Oven", 1);
+INSERT INTO needs_equipment VALUES("Borscht", "Pot", 1);
+INSERT INTO needs_equipment VALUES("Chicken Korma", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Amok", "Banana Leaf", 1);
+INSERT INTO needs_equipment VALUES("Sri Lankan Fish Curry", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Sri Lankan Fish Curry", "Grill", 1);
+INSERT INTO needs_equipment VALUES("Brik", "Skillet", 1);
+INSERT INTO needs_equipment VALUES("Brik", "Oven", 1);
+INSERT INTO needs_equipment VALUES("Brik", "Saucepan", 1);
+
