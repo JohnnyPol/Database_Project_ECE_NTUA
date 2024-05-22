@@ -99,7 +99,8 @@ CREATE TABLE steps (
     recipe VARCHAR(255),
     step_number INT,
     step_description VARCHAR(255),
-    PRIMARY KEY (recipe, step_number)
+    PRIMARY KEY (recipe, step_number),
+    FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
 
 CREATE TABLE theme (
