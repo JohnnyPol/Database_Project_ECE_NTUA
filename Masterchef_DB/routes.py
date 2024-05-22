@@ -61,7 +61,13 @@ def index():
             cursor.close()
 
             return jsonify(results=serialized_results), 200
-
+        elif action == "competition":
+            cursor = db.connection.cursor()
+            query = """
+            
+"""
+            cursor.execute(query)
+            return jsonify(status="Competition")
         else:
             return jsonify(status="Connection is established")
 
