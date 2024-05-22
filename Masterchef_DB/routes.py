@@ -147,7 +147,7 @@ def competition(season):
 
         insert_chef_query = f"""
         INSERT INTO participate_in_episode_as_chef
-        VALUES (%s, %s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s, %s);
         """
         for k in range(number_of_cuisines):
             cursor.execute(
@@ -162,6 +162,23 @@ def competition(season):
                 ),
             )
             db.connection.commit()
+
+        insert_recipe_query = f"""
+        INSERT IGNORE INTO has_recipe
+        VALUES (%s, %s, %s);
+        """
+        for k in range(number_of_cuisines):
+            cursor.execute(
+                insert_recipe_query,
+                (
+                    all_chefs[number_of_cuisines * i + k][0],
+                    all_chefs[number_of_cuisines * i + k][1],
+                    all_recipes[number_of_cuisines * i + k][0],
+                ),
+            )
+            db.connection.commit()
+
+
 
         insert_score_query = f"""
         INSERT INTO scores
@@ -293,7 +310,7 @@ def index():
             return jsonify(results=serialized_results), 200
 
         elif action == "competition":
-            season = 2
+            season = 4
             return jsonify(results=competition(season))
 
         else:

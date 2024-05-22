@@ -2,6 +2,8 @@ CREATE DATABASE IF NOT EXISTS Masterchef_NTUA_Edition;
 
 USE Masterchef_NTUA_Edition;
 
+DROP TABLE IF EXISTS has_recipe;
+
 DROP TABLE IF EXISTS participate_in_episode_as_chef;
 
 DROP TABLE IF EXISTS participate_in_episode_as_judge;
@@ -192,6 +194,14 @@ CREATE TABLE scores (
     CHECK (score BETWEEN 1 AND 5)
 );
 
+CREATE TABLE has_recipe(
+    chef_name VARCHAR(50),
+    chef_surname VARCHAR(50),
+    recipe VARCHAR(255),
+    FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
+    FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
+    PRIMARY KEY (chef_name, chef_surname, recipe)
+);
 CREATE TABLE belongs_to_mealtype (
     recipe VARCHAR(255) NOT NULL,
     mealtype VARCHAR(255) NOT NULL,
