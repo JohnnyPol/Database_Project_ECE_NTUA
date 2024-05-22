@@ -6,24 +6,36 @@ import os
 
 def competition():
     cursor = db.connection.cursor()
-    query = """
+    cuisine_query = """
     SELECT cuisine_name
             FROM cuisine
             ORDER BY RAND()
-            LIMIT 2; 
+            LIMIT 3; 
 """  # change to 10
-    cursor.execute(query)
+    cursor.execute(cuisine_query)
     cuisines = cursor.fetchall()
+
+    all_chefs = []
     for cuisine in cuisines:
-        query_chef = f"""
-            SELECT chef_name, chef_surname
-            FROM expertise_in
-            WHERE cuisine_name = "{cuisine}"
-            ORDER BY RAND()
-            LIMIT 1;
-        """
-        cursor.execute(query_chef)
-    return cuisines
+        while(True):
+
+            query_chef = """
+                SELECT chef_name, chef_surname
+                FROM expertise_in
+                WHERE cuisine_name = %s
+                ORDER BY RAND()
+                LIMIT 1;
+            """
+            cursor.execute(query_chef, (cuisine,))
+            chef = cursor.fetchall()
+            if (chef in all_chefs):
+                continue
+            else:
+                all_chefs.extend(chef)
+                break
+
+
+    return all_chefs
 
 
 @app.route("/")
@@ -85,7 +97,7 @@ def index():
             return jsonify(results=serialized_results), 200
 
         elif action == "competition":
-            return jsonify(status=competition())
+            return jsonify(results=competition())
 
         else:
             return jsonify(status="Connection is established")
