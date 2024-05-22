@@ -6,66 +6,99 @@ import os
 
 def competition():
     cursor = db.connection.cursor()
-    cuisine_query = """
-    SELECT cuisine_name
-            FROM cuisine
-            ORDER BY RAND()
-            LIMIT 3; 
-"""  # change to 10
-    cursor.execute(cuisine_query)
-    cuisines = cursor.fetchall()
-
+    all_cuisines = []
     all_chefs = []
-    for cuisine in cuisines:
-        while(True):
-
-            query_chef = """
-                SELECT chef_name, chef_surname
-                FROM expertise_in
-                WHERE cuisine_name = %s
-                ORDER BY RAND()
-                LIMIT 1;
-            """
-            cursor.execute(query_chef, (cuisine,))
-            chef = cursor.fetchone()
-            if (chef in all_chefs):
-                continue
-            else:
-                all_chefs.extend(chef)
-                break
-
     all_recipes = []
-    for cuisine in cuisines:
-            query_recipe = """
-                SELECT recipe_name
-                FROM recipes
-                WHERE cuisine_name = %s
-                ORDER BY RAND()
-                LIMIT 1;
-            """
-            cursor.execute(query_recipe, (cuisine,))
-            recipe = cursor.fetchall()
-            all_recipes.extend(recipe)
-
     all_judges = []
-    for _ in range(3):
-        while(True):
+    number_of_cuisines = 3
+    number_of_judges = 1
+    for i in range(10):
+        first = max(0, (i-3))
+        for k in range(number_of_cuisines):
+            while(True):
+                query_cuisine = """
+                    SELECT cuisine_name
+                    FROM cuisine
+                    ORDER BY RAND()
+                    LIMIT 1;
+                """
+                cursor.execute(query_cuisine)
+                cuisines = cursor.fetchone()
+                if ((k != 0) and cuisines in all_cuisines[number_of_cuisines*i:]):
+                    continue
+                elif (all_cuisines[number_of_cuisines * first : number_of_cuisines * i].count(cuisines) >= 3):
+                    continue
+                    
+                else:
+                    all_cuisines.append(cuisines)
+                    break
 
-            query_chef = """
-                SELECT chef_name, chef_surname
-                FROM chefs
-                ORDER BY RAND()
-                LIMIT 1;
-            """
-            cursor.execute(query_chef)
-            judge = cursor.fetchall()
-            if ((judge in all_judges) or (judge in all_chefs)):
-                continue
-            else:
-                all_judges.extend(judge)
-                break
+        
+        for cuisine in all_cuisines[number_of_cuisines*i:]:
+            counter = 0
+            while(True):
 
-    return all_chefs
+                query_chef = """
+                    SELECT chef_name, chef_surname
+                    FROM expertise_in
+                    WHERE cuisine_name = %s
+                    ORDER BY RAND()
+                    LIMIT 1;
+                """
+                cursor.execute(query_chef, (cuisine,))
+                chef = cursor.fetchone()
+                if ((counter!=0) and (chef in all_chefs[number_of_cuisines*i:])):
+                    continue
+                elif (all_chefs[number_of_cuisines * first : number_of_cuisines * i].count(chef) >= 3):
+                    continue
+                elif (all_judges[number_of_judges * first : number_of_judges * i].count(chef) >= 3):
+                    continue
+                else:
+                    all_chefs.append(chef)
+                    break
+
+            counter += 1
+        
+        for cuisine in all_cuisines[number_of_cuisines*i:]:
+            while(True):
+                query_recipe = """
+                    SELECT recipe_name
+                    FROM recipes
+                    WHERE cuisine_name = %s
+                    ORDER BY RAND()
+                    LIMIT 1;
+                """
+                cursor.execute(query_recipe, (cuisine,))
+                recipe = cursor.fetchone()
+                if (all_recipes[number_of_cuisines * first : number_of_cuisines * i].count(recipe) >= 3):
+                    continue
+                else:
+                    all_recipes.append(recipe)
+
+        
+        for k in range(number_of_judges):
+            while(True):
+
+                query_chef = """
+                    SELECT chef_name, chef_surname
+                    FROM chefs
+                    ORDER BY RAND()
+                    LIMIT 1;
+                """
+                cursor.execute(query_chef)
+                judge = cursor.fetchone()
+                if ((k!=0 and (judge in all_judges[number_of_judges*i:])) or (judge in all_chefs[number_of_cuisines*i:])):
+                    continue
+                elif (all_chefs[number_of_cuisines * first : number_of_cuisines * i].count(judge) >= 3):
+                    continue
+                elif (all_judges[number_of_judges * first : number_of_judges * i].count(judge) >= 3):
+                    continue
+                else:
+                    all_judges.append(judge)
+                    break
+    
+
+    return all_cuisines
 
 
 @app.route("/")

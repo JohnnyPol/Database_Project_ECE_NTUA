@@ -57,12 +57,14 @@ insert into cuisine VALUES('Italian');
 INSERT INTO chefs VALUES("Dimitris", "Tsoumakos", 6969696969, '1950-12-12', 60, 1, "3rd cook");
 INSERT INTO chefs VALUES("Marios", "Koniaris", 6969696969, '1950-12-12', 60, 1, "3rd cook");
 INSERT INTO chefs VALUES("Dimitris", "Fotakis", 6969696969, '1950-12-12', 60, 1, "3rd cook");
+INSERT INTO chefs VALUES("Ioanna", "Roussaki", 6969696969, '1950-12-12', 60, 1, "1st cook");
 
 -- Expertise_in --
 INSERT INTO expertise_in VALUES("Dimitris", "Tsoumakos", "Thai");
 INSERT INTO expertise_in VALUES("Marios", "Koniaris", "Greek");
 INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Italian");
 INSERT INTO expertise_in VALUES("Dimitris", "Fotakis", "Thai");
+INSERT INTO expertise_in VALUES("Ioanna", "Roussaki", "Italian");
 
 DELETE FROM expertise_in;
 
