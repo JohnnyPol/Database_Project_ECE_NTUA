@@ -163,7 +163,7 @@ def index():
             return jsonify(results=competition())
 
         else:
-            return send_file("../Images/gordon_ramsey.jpg",mimetype="image/jpeg")
+            return send_file("../Images/cuisine/greek.jpg",mimetype="image/jpeg")
             return jsonify(status="Connection is established")
 
     except Exception as e:
