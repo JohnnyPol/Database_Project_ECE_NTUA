@@ -91,13 +91,7 @@ INSERT INTO recipes VALUES ('Thai Green Curry', 'cooking', 'Thai', 3, 'Spicy and
 INSERT INTO recipes VALUES ('Moroccan Tagine', 'cooking', 'Moroccan', 4, 'Slow-cooked savory stew made with lamb, dried apricots, almonds, and spices.', 'Serve with couscous.', 'Use a traditional clay tagine for cooking.', NULL, '00:30:00', '02:00:00', 6, 'Lamb');
 INSERT INTO recipes VALUES ('Pulled Pork Sandwich', 'cooking', 'American', 2, 'Slow-cooked pork shoulder shredded and mixed with BBQ sauce, served on a bun.', 'Cook the pork shoulder for at least 6 hours.', 'Top with coleslaw.', NULL, '00:30:00', '06:00:00', 4, 'Pork shoulder');
 
-
-
-
-
-
-
---insert has_ingredient --
+--has_ingredient --
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount) VALUES
 ('Sunny Breakfast', 'Eggs', 'Piece', 2),
 ('Chocolate Cake', 'Cocoa powder', 'Gram', 100),
