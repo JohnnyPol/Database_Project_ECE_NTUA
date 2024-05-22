@@ -364,4 +364,4 @@ DELIMITER;
 -- INDICES --
 -- -----------------------------------------
 create index cuisine_expertise_in on expertise_in (cuisine_name);
-drop Trigger `GetDietaryInfo`
+
