@@ -635,6 +635,8 @@ INSERT INTO steps VALUES("Sri Lankan Fish Curry", 1, "Do it");
 INSERT INTO steps VALUES("Brik", 1, "Do it");
 
 -- Belongs to Mealtype --
+INSERT INTO steps VALUES("Classic Cheeseburger", "Lunch");
+INSERT INTO steps VALUES("Coq au Vin", "Main Course");
 INSERT INTO steps VALUES("Sweet and Sour Pork", "Dinner");
 INSERT INTO steps VALUES("Spaghetti Carbonara", "Main Course");
 INSERT INTO steps VALUES("Tacos", "Dinner");
