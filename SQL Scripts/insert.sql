@@ -39,13 +39,7 @@ VALUES
     ('Saltfish', 0.6, 17, 0, 82, 'Fish'),
     ('Rabbit', 12, 25, 0, 239, 'Meat'),
     ('Crab', 0.11, 0.13, 0.1, 7, 'Fish'),
-    ('Mussels', 0.11, 0.13, 0.1, 7, 'Fish'),
-    ('Beetroot', 0.2, 1.6, 4, 22, 'Vegetables');
-    
-    
-    
-
-    
+    ('Mussels', 0.11, 0.13, 0.1, 7, 'Fish');
 
 
 --new recipes--
@@ -98,7 +92,7 @@ INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, 
     ('Rabbit Stew', 'cooking', 'Maltese', 4, 'Slow-cooked rabbit with wine and herbs.', 'Use fresh rabbit.', 'Cook slowly for tender meat.', 'Serve with crusty bread.', '00:30:00', '01:30:00', 4, 'Rabbit'),
     ('Chilli Crab', 'cooking', 'Singaporean', 4, 'Spicy crab dish.', 'Use fresh crab.', 'Balance the spice and sweetness.', 'Serve with mantou buns.', '00:20:00', '00:30:00', 4, 'Crab'),
     ('Moules-Frites', 'cooking', 'Belgian', 3, 'Mussels with fries.', 'Use fresh mussels.', 'Cook fries until crispy.', 'Serve with mayonnaise.', '00:15:00', '00:20:00', 4, 'Mussels'),
-    ('Jollof Rice', 'cooking', 'Nigerian', 3, 'Spicy rice dish with tomatoes.', 'Use long-grain rice.', 'Cook rice until tender.', 'Serve with fried plantains.', '00:20:00', '00:40:00', 4, 'Rice'),
+    ('Jollof Rice Nigerian', 'cooking', 'Nigerian', 3, 'Spicy rice dish with tomatoes.', 'Use long-grain rice.', 'Cook rice until tender.', 'Serve with fried plantains.', '00:20:00', '00:40:00', 4, 'Rice'),
     ('Khachapuri', 'baking', 'Georgian', 3, 'Cheese-filled bread.', 'Use a mix of cheeses.', 'Bake until golden.', 'Serve warm.', '00:15:00', '00:30:00', 4, 'Cheese'),
     ('Borscht', 'cooking', 'Ukrainian', 3, 'Beet soup with sour cream.', 'Use fresh beets.', 'Simmer until beets are tender.', 'Serve with dill.', '00:20:00', '00:30:00', 4, 'Beetroot'),
     ('Chicken Korma', 'cooking', 'Bangladeshi', 3, 'Creamy chicken curry.', 'Use fresh spices.', 'Simmer until thick.', 'Serve with basmati rice.', '00:20:00', '00:40:00', 4, 'Chicken'),
@@ -415,7 +409,7 @@ INSERT INTO chefs VALUES("Gordon", "Ransey", 1000000000, '1980-12-12', 44, 10, "
 INSERT INTO chefs VALUES("Jaime", "Lannister", 1000000000, '1980-12-12', 44, 10, "chef");
 INSERT INTO chefs VALUES("Daenerys", "Targaryen", 1000000000, '2010-12-12', 14, 1, "chef");
 INSERT INTO chefs VALUES("Jon", "Snow", 1000000000, '1980-12-12', 44, 10, "sous chef");
-INSERT INTO chefs VALUES("Beth", "March", 1000000000, '2023-12-12', 21, 10, "sous chef");
+INSERT INTO chefs VALUES("Joe", "March", 1000000000, '2003-12-12', 21, 10, "sous chef");
 INSERT INTO chefs VALUES("Beth", "March", 1000000000, '2010-12-12', 14, 1, "3rd cook");
 INSERT INTO chefs VALUES("Olga", "Michou", 1000000000, '2010-01-28', 14, 1, "1st cook");
 INSERT INTO chefs VALUES("Christos", "Michos", 1000000000, '2006-03-31', 18, 10, "chef");
