@@ -314,3 +314,4 @@ DELIMITER ;
 -- -----------------------------------------
 -- INDICES --
 -- -----------------------------------------
+create index on expertise_in (cuisine_name);
