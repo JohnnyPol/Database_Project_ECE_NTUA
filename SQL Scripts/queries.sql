@@ -222,7 +222,37 @@ WHERE rank = 1;
 
 -- Question 3.13 --
 
+WITH EpisodeCumulativeExperience AS (
+    SELECT p.season,
+           p.episode_no,
+           SUM(c.experience) AS cumulative_experience
+    FROM participate_in_episode_as_chef p
+    JOIN chefs c ON p.chef_name = c.chef_name AND p.chef_surname = c.chef_surname
+    JOIN participate_in_episode_as_judge j ON p.episode_no = j.episode_no AND p.season = j.season
+    JOIN chefs cj ON j.judge_name = cj.chef_name AND j.judge_surname = cj.chef_surname
+    GROUP BY p.season, p.episode_no
+),
+RankedEpisodes AS (
+    SELECT season,
+           episode_no,
+           cumulative_experience,
+           ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS rank
+    FROM EpisodeCumulativeExperience
+)
+SELECT season,
+       episode_no,
+       cumulative_experience
+FROM RankedEpisodes
+WHERE rank = 1;
+
 -- Question 3.14 --
+
+SELECT b.theme, COUNT(*) AS appearance_count
+FROM belongs_to_theme b
+JOIN participate_in_episode_as_chef p ON b.recipe = p.recipe_name
+GROUP BY b.theme
+ORDER BY appearance_count DESC
+LIMIT 1;
 
 -- Question 3.15 --
 
