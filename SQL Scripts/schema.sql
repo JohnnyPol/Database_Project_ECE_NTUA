@@ -42,8 +42,6 @@ DROP TABLE IF EXISTS needs_equipment;
 
 DROP TABLE IF EXISTS has_ingredient;
 
-DROP TABLE IF EXISTS belongs_to_foodgroup;
-
 DROP TABLE IF EXISTS dietary_info;
 
 DROP TABLE IF EXISTS expertise_in;
