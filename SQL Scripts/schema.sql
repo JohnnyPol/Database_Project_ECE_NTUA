@@ -173,6 +173,7 @@ CREATE TABLE scores (
     season INT,
     chef_name VARCHAR(50),
     chef_surname VARCHAR(50),
+    cuisine VARCHAR(255),
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
     PRIMARY KEY (
@@ -185,6 +186,7 @@ CREATE TABLE scores (
     ),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (judge_name, judge_surname) REFERENCES chefs (chef_name, chef_surname),
+    FOREIGN KEY (cuisine) references cuisine(cuisine_name),
     CHECK (score BETWEEN 1 AND 5)
 );
 
