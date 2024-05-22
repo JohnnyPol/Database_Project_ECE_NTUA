@@ -34,7 +34,18 @@ VALUES
     ('Cheese', 34, 25, 1, 402, 'Dairy'),
     ('Tomatoes', 0.2, 0.9, 3.9, 18, 'Vegetables'),
     ('Beetroot', 0.2, 1.6, 9, 43, 'Vegetables'),
-    ('Egg', 11, 13, 1.1, 143, 'Dairy');
+    ('Egg', 11, 13, 1.1, 143, 'Dairy'),
+    ('Shrimp', 0.11, 0.13, 0.1, 7, 'Fish'),
+    ('Saltfish', 0.6, 17, 0, 82, 'Fish'),
+    ('Rabbit', 12, 25, 0, 239, 'Meat'),
+    ('Crab', 0.11, 0.13, 0.1, 7, 'Fish'),
+    ('Mussels', 0.11, 0.13, 0.1, 7, 'Fish'),
+    ('Beetroot', 0.2, 1.6, 4, 22, 'Vegetables');
+    
+    
+    
+
+    
 
 
 --new recipes--
