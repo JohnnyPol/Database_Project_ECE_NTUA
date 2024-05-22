@@ -173,12 +173,11 @@ WHERE
 WITH JudgeCumulativeScores AS (
     SELECT p.chef_name,
            p.chef_surname,
-           j.judge_name,
-           j.judge_surname,
+           p.judge_name,
+           p.judge_surname,
            SUM(p.score) AS cumulative_score
-    FROM participate_in_episode_as_chef p
-    JOIN participate_in_episode_as_judge j ON p.episode_no = j.episode_no AND p.season = j.season
-    GROUP BY p.chef_name, p.chef_surname, j.judge_name, j.judge_surname
+    FROM scores p
+    GROUP BY p.chef_name, p.chef_surname, p.judge_name, p.judge_surname
 ),
 RankedJudges AS (
     SELECT chef_name,
@@ -186,7 +185,7 @@ RankedJudges AS (
            judge_name,
            judge_surname,
            cumulative_score,
-           ROW_NUMBER() OVER(PARTITION BY chef_name, chef_surname ORDER BY cumulative_score DESC) AS rank
+           ROW_NUMBER() OVER(PARTITION BY chef_name, chef_surname ORDER BY cumulative_score DESC) AS my_rank
     FROM JudgeCumulativeScores
 )
 SELECT chef_name,
@@ -195,7 +194,8 @@ SELECT chef_name,
        judge_surname,
        cumulative_score
 FROM RankedJudges
-WHERE rank <= 5;
+WHERE my_rank <= 5
+ORDER BY chef_name, chef_surname;
 
 -- Question 3.12 --
 
@@ -211,39 +211,52 @@ RankedEpisodes AS (
     SELECT season,
            episode_no,
            cumulative_difficulty,
-           ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_difficulty DESC) AS rank
+           ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_difficulty DESC) AS my_rank
     FROM EpisodeCumulativeDifficulty
 )
 SELECT season,
        episode_no,
        cumulative_difficulty
 FROM RankedEpisodes
-WHERE rank = 1;
+WHERE my_rank = 1;
 
 -- Question 3.13 --
 
 WITH EpisodeCumulativeExperience AS (
-    SELECT p.season,
-           p.episode_no,
-           SUM(c.experience) AS cumulative_experience
+    SELECT 
+        p.season,
+        p.episode_no,
+        SUM(
+            CASE 
+                WHEN c.experience_level = 'chef' THEN 5
+                WHEN c.experience_level = 'sous chef' THEN 4
+                WHEN c.experience_level = '1st cook' THEN 3
+                WHEN c.experience_level = '2nd cook' THEN 2
+                WHEN c.experience_level = '3rd cook' THEN 1
+                ELSE 0  -- handle other cases, if any
+            END
+        ) AS cumulative_experience
     FROM participate_in_episode_as_chef p
     JOIN chefs c ON p.chef_name = c.chef_name AND p.chef_surname = c.chef_surname
-    JOIN participate_in_episode_as_judge j ON p.episode_no = j.episode_no AND p.season = j.season
-    JOIN chefs cj ON j.judge_name = cj.chef_name AND j.judge_surname = cj.chef_surname
+   -- JOIN participate_in_episode_as_judge j ON p.episode_no = j.episode_no AND p.season = j.season
+   -- JOIN chefs cj ON j.judge_name = cj.chef_name AND j.judge_surname = cj.chef_surname
     GROUP BY p.season, p.episode_no
 ),
 RankedEpisodes AS (
     SELECT season,
            episode_no,
            cumulative_experience,
-           ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS rank
+           ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS my_rank
     FROM EpisodeCumulativeExperience
 )
+SELECT *
+FROM `EpisodeCumulativeExperience`
+
 SELECT season,
        episode_no,
        cumulative_experience
 FROM RankedEpisodes
-WHERE rank = 1;
+WHERE my_rank = 1;
 
 -- Question 3.14 --
 
