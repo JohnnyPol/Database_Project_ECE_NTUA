@@ -1,7 +1,6 @@
 from flask import jsonify, request, send_file
 from Masterchef_DB import app, db
 from datetime import timedelta
-import os
 
 
 def competition():
@@ -163,7 +162,7 @@ def index():
             return jsonify(results=competition())
 
         else:
-            return send_file("../Images/cuisine/greek.jpg",mimetype="image/jpeg")
+            return send_file("../Images/cuisine/russian.jpg",mimetype="image/jpeg")
             return jsonify(status="Connection is established")
 
     except Exception as e:
