@@ -608,7 +608,31 @@ INSERT INTO steps VALUES("Irish Stew", 1, "Do it");
 INSERT INTO steps VALUES("Sweedish Meetbals", 1, "Do it");
 INSERT INTO steps VALUES("Bacalhau à Brás", 1, "Do it");
 INSERT INTO steps VALUES("Jollof Rice", 1, "Do it");
-
+INSERT INTO steps VALUES("Shakshuka", 1, "Do it");
+INSERT INTO steps VALUES("Adobo", 1, "Do it");
+INSERT INTO steps VALUES("Nasi Goreng", 1, "Do it");
+INSERT INTO steps VALUES("Laksa", 1, "Do it");
+INSERT INTO steps VALUES("Fondue", 1, "Do it");
+INSERT INTO steps VALUES("Tom Yum Soup", 1, "Do it");
+INSERT INTO steps VALUES("Tabbouleh", 1, "Do it");
+INSERT INTO steps VALUES("Pierogi", 1, "Do it");
+INSERT INTO steps VALUES("Doro Wat", 1, "Do it");
+INSERT INTO steps VALUES("Ropa Vieja", 1, "Do it");
+INSERT INTO steps VALUES("Karjalanpaisti", 1, "Do it");
+INSERT INTO steps VALUES("Ackee and Saltfish", 1, "Do it");
+INSERT INTO steps VALUES("Momo", 1, "Do it");
+INSERT INTO steps VALUES("Poke Bowl", 1, "Do it");
+INSERT INTO steps VALUES("Rabbit Stew", 1, "Do it");
+INSERT INTO steps VALUES("Chilly Crab", 1, "Do it");
+INSERT INTO steps VALUES("Chilly Crab", 2, "Do it better");
+INSERT INTO steps VALUES("Moules-Frites", 1, "Do it");
+INSERT INTO steps VALUES("Jollo Fries Nigerian", 1, "Do it");
+INSERT INTO steps VALUES("Khachapuri", 1, "Do it");
+INSERT INTO steps VALUES("Borscht", 1, "Do it");
+INSERT INTO steps VALUES("Chicken Korma", 1, "Do it");
+INSERT INTO steps VALUES("Amok", 1, "Do it");
+INSERT INTO steps VALUES("Sri Lankan Fish Curry", 1, "Do it");
+INSERT INTO steps VALUES("Brik", 1, "Do it");
 
 
 
