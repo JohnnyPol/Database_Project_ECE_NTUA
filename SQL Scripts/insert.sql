@@ -424,7 +424,7 @@ INSERT INTO chefs VALUES ('Aris', 'Dimeas', 6902345678, '1978-07-15', 45, 22, 'c
 INSERT INTO chefs VALUES ('Haris', 'Doukas', 2106789012, '1986-08-05', 37, 14, '2nd cook');
 INSERT INTO chefs VALUES ('George', 'Fikioris', 2107890123, '1974-09-25', 49, 26, 'chef');
 INSERT INTO chefs VALUES ('George', 'Karybakas', 2108901234, '1979-11-10', 44, 21, 'sous chef');
-INSERT INTO chefs VALUES ('Dimitris', 'Kalamatianos', 6904567890, '1985-12-07', 38, 17, '2nd cook');
+INSERT INTO chefs VALUES ('Anda', 'Ferfeli', 6904567890, '1985-12-07', 38, 17, '2nd cook');
 INSERT INTO chefs VALUES ('Nikolaos', 'Karakostas', 2109012345, '1983-03-23', 41, 20, '1st cook');
 INSERT INTO chefs VALUES ('Sofia', 'Papadopoulou', 2101230987, '1987-05-16', 36, 14, '2nd cook');
 INSERT INTO chefs VALUES ('Maria', 'Koutsou', 6905678901, '1989-07-27', 34, 13, '3rd cook');
@@ -452,7 +452,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Ioanna', 'Roussaki', 'Mexican'),
 ('Stathis', 'Zachos', 'Thai'),
 ('Antonis', 'Papavassileiou', 'British'),
-('Symeon', 'Papavassileiou', 'Japanese'),
+('Symeon', 'Papavassileiou', 'Moroccan'),
 ('Antonis', 'Kladas', 'Indian'),
 ('Aris', 'Koziris', 'Middle Eastern'),
 ('John', 'Tsinias', 'Scandinavian'),
@@ -461,7 +461,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Georgios', 'Koletsos', 'Greek'),
 ('Ioannis', 'Raptis', 'Peruvian'),
 ('Giannis', 'polychronopoulos', 'Argentinian'),
-('Katerina', 'Michou', 'Moroccan'),
+('Katerina', 'Michou', 'Japanese'),
 ('Angeliki', 'Ntalapera', 'Cajun'),
 ('Dora', 'Souliou', 'German'),
 ('Verena', 'Kantere', 'Korean'),
@@ -484,7 +484,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Haris', 'Doukas', 'Lebanese'),
 ('George', 'Fikioris', 'Polish'),
 ('George', 'Karybakas', 'Ethiopian'),
-('Dimitris', 'Kalamatianos', 'Cuban'),
+('Anda', 'Ferfeli', 'Cuban'),
 ('Nikolaos', 'Karakostas', 'Finnish'),
 ('Sofia', 'Papadopoulou', 'Jamaican'),
 ('Maria', 'Koutsou', 'Tibetan'),
