@@ -573,3 +573,42 @@ INSERT INTO recipes VALUES ('Moussaka', 'cooking', 'Greek', 5, 'Eggplant and pot
 INSERT INTO ingredients VALUES("Shrimp", 0.1, 6, 0.5, 30);
 INSERT INTO ingredients VALUES("Spaghetti", 0.09, 6, 0.5, 3);
 INSERT INTO ingredients VALUES("Eggplant", 0.02, 2, 0.5, 1);
+
+-- Steps --
+INSERT INTO steps VALUES("Classic Cheeseburger", 1, "Toast the buns");
+INSERT INTO steps VALUES("Classic Cheeseburger", 2, "Order it best");
+INSERT INTO steps VALUES("Coq au Vin", 1, "Pull the feathers off");
+INSERT INTO steps VALUES("Coq au Vin", 2, "Braise the meat in wine");
+INSERT INTO steps VALUES("Coq au Vin", 3, "Season");
+INSERT INTO steps VALUES("Sweet and Sour Pork", 1, "Do it");
+INSERT INTO steps VALUES("Spaghetti Carbonara", 1, "Do it");
+INSERT INTO steps VALUES("Tacos", 1, "Do it");
+INSERT INTO steps VALUES("Pad Thai", 1, "Do it");
+INSERT INTO steps VALUES("Fish and Chips", 1, "Do it");
+INSERT INTO steps VALUES("Sushi Rolls", 1, "Do it");
+INSERT INTO steps VALUES("Chicken Curry", 1, "Do it");
+INSERT INTO steps VALUES("Hummus", 1, "Do it");
+INSERT INTO steps VALUES("Gravlax", 1, "Do it");
+INSERT INTO steps VALUES("Beef Stroganoff", 1, "Do it");
+INSERT INTO steps VALUES("Paella", 1, "Do it");
+INSERT INTO steps VALUES("Moussaka", 1, "Do it");
+INSERT INTO steps VALUES("Ceviche", 1, "Do it");
+INSERT INTO steps VALUES("Asado", 1, "Do it");
+INSERT INTO steps VALUES("Tagine", 1, "Do it");
+INSERT INTO steps VALUES("Jambalaya", 1, "Do it");
+INSERT INTO steps VALUES("Sauerbraten", 1, "Do it");
+INSERT INTO steps VALUES("Bibimbap", 1, "Do it");
+INSERT INTO steps VALUES("Pho", 1, "Do it");
+INSERT INTO steps VALUES("Feijoada", 1, "Do it");
+INSERT INTO steps VALUES("Kebabs", 1, "Do it");
+INSERT INTO steps VALUES("Grilled Barramundi", 1, "Do it");
+INSERT INTO steps VALUES("Grilled Vegetables", 1, "Do it");
+INSERT INTO steps VALUES("Jerk Chicken", 1, "Do it");
+INSERT INTO steps VALUES("Irish Stew", 1, "Do it");
+INSERT INTO steps VALUES("Sweedish Meetbals", 1, "Do it");
+INSERT INTO steps VALUES("Bacalhau à Brás", 1, "Do it");
+INSERT INTO steps VALUES("Jollof Rice", 1, "Do it");
+
+
+
+
