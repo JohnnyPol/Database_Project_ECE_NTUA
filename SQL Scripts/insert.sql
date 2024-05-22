@@ -1,3 +1,47 @@
+-- Ingredients
+INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI) VALUES
+('Eggs', 10.0, 12.6, 1.1, 155),
+('Cocoa powder', 11.0, 19.6, 57.9, 229),
+('Bell peppers', 0.2, 1.0, 6.0, 31),
+('Pork ribs', 28.0, 21.0, 0.0, 349),
+('Pizza dough', 1.5, 7.0, 50.0, 266),
+('Chicken', 3.6, 31.0, 0.0, 165),
+('Chicken Breast', 3.6, 31.0, 0.0, 165),
+('Ground beef', 20.0, 26.0, 0.0, 250),
+('Shrimp', 1.7, 24.0, 0.0, 99),
+('Cream cheese', 34.0, 7.2, 3.2, 342),
+('Spaghetti', 1.5, 5.0, 31.0, 157),
+('Tomatoes', 0.2, 0.9, 3.9, 18),
+('Cod', 0.7, 17.9, 0.0, 82),
+('Sushi rice', 0.3, 6.7, 28.7, 130),
+('Apples', 0.3, 0.3, 13.8, 52),
+('Romaine lettuce', 0.2, 1.2, 3.3, 17),
+('Arborio rice', 0.3, 2.4, 28.0, 130),
+('Pumpkin', 0.1, 1.0, 7.0, 26),
+('Onions', 0.1, 1.1, 9.3, 40),
+('Bread', 1.0, 9.0, 50.0, 265),
+('Bananas', 0.3, 1.3, 22.8, 96),
+('Chickpeas', 6.0, 19.0, 61.0, 364),
+('Coconut milk', 24.0, 2.3, 6.0, 230),
+('Pasta', 1.5, 5.0, 31.0, 157),
+('Clams', 1.0, 14.0, 2.0, 74),
+('Beef', 20.0, 26.0, 0.0, 250),
+('Lamb', 21.0, 25.0, 0.0, 294),
+('Mascarpone', 44.0, 4.4, 1.5, 450),
+('Rice', 0.3, 2.4, 28.0, 130),
+('Butternut squash', 0.1, 1.0, 12.0, 45),
+('Salmon', 13.0, 20.0, 0.0, 208),
+('Potatoes', 0.1, 2.0, 17.0, 77),
+('Eggplant', 0.2, 1.0, 6.0, 25),
+('Steak', 25.0, 26.0, 0.0, 271),
+('White fish', 1.0, 20.0, 0.0, 97),
+('Lobster', 1.5, 19.0, 0.0, 89),
+('Filo dough', 10.0, 6.0, 68.0, 350),
+('Fettuccine', 1.5, 5.0, 31.0, 157),
+('Bacon', 42.0, 37.0, 1.4, 541),
+('Pork shoulder', 21.0, 21.0, 0.0, 294);
+
+-- 
 INSERT INTO recipes VALUES ('Sunny Breakfast', 'cooking', 'American', 2, 'A delightful start to your day with sunny side up eggs and toast.', 'Serve immediately.', 'Add herbs for enhanced flavor.', NULL, '00:10:00', '00:05:00', 1, 'Eggs');
 INSERT INTO recipes VALUES ('Chocolate Cake', 'baking', 'French', 3, 'Rich chocolate cake with layers of dark chocolate ganache.', 'Use high-quality cocoa.', NULL, NULL, '00:20:00', '00:45:00', 8, 'Cocoa powder');
 INSERT INTO recipes VALUES ('Vegetable Stir Fry', 'cooking', 'Chinese', 2, 'Quick and healthy vegetable stir fry with soy sauce.', 'Can add chicken or beef.', 'Use fresh vegetables.', NULL, '00:15:00', '00:10:00', 2, 'Bell peppers');
@@ -47,48 +91,8 @@ INSERT INTO recipes VALUES ('Thai Green Curry', 'cooking', 'Thai', 3, 'Spicy and
 INSERT INTO recipes VALUES ('Moroccan Tagine', 'cooking', 'Moroccan', 4, 'Slow-cooked savory stew made with lamb, dried apricots, almonds, and spices.', 'Serve with couscous.', 'Use a traditional clay tagine for cooking.', NULL, '00:30:00', '02:00:00', 6, 'Lamb');
 INSERT INTO recipes VALUES ('Pulled Pork Sandwich', 'cooking', 'American', 2, 'Slow-cooked pork shoulder shredded and mixed with BBQ sauce, served on a bun.', 'Cook the pork shoulder for at least 6 hours.', 'Top with coleslaw.', NULL, '00:30:00', '06:00:00', 4, 'Pork shoulder');
 
---inserts ingredients--
-INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI) VALUES
-('Eggs', 10.0, 12.6, 1.1, 155),
-('Cocoa powder', 11.0, 19.6, 57.9, 229),
-('Bell peppers', 0.2, 1.0, 6.0, 31),
-('Pork ribs', 28.0, 21.0, 0.0, 349),
-('Pizza dough', 1.5, 7.0, 50.0, 266),
-('Chicken', 3.6, 31.0, 0.0, 165),
-('Chicken Breast', 3.6, 31.0, 0.0, 165),
-('Ground beef', 20.0, 26.0, 0.0, 250),
-('Shrimp', 1.7, 24.0, 0.0, 99),
-('Cream cheese', 34.0, 7.2, 3.2, 342),
-('Spaghetti', 1.5, 5.0, 31.0, 157),
-('Tomatoes', 0.2, 0.9, 3.9, 18),
-('Cod', 0.7, 17.9, 0.0, 82),
-('Sushi rice', 0.3, 6.7, 28.7, 130),
-('Apples', 0.3, 0.3, 13.8, 52),
-('Romaine lettuce', 0.2, 1.2, 3.3, 17),
-('Arborio rice', 0.3, 2.4, 28.0, 130),
-('Pumpkin', 0.1, 1.0, 7.0, 26),
-('Onions', 0.1, 1.1, 9.3, 40),
-('Bread', 1.0, 9.0, 50.0, 265),
-('Bananas', 0.3, 1.3, 22.8, 96),
-('Chickpeas', 6.0, 19.0, 61.0, 364),
-('Coconut milk', 24.0, 2.3, 6.0, 230),
-('Pasta', 1.5, 5.0, 31.0, 157),
-('Clams', 1.0, 14.0, 2.0, 74),
-('Beef', 20.0, 26.0, 0.0, 250),
-('Lamb', 21.0, 25.0, 0.0, 294),
-('Mascarpone', 44.0, 4.4, 1.5, 450),
-('Rice', 0.3, 2.4, 28.0, 130),
-('Butternut squash', 0.1, 1.0, 12.0, 45),
-('Salmon', 13.0, 20.0, 0.0, 208),
-('Potatoes', 0.1, 2.0, 17.0, 77),
-('Eggplant', 0.2, 1.0, 6.0, 25),
-('Steak', 25.0, 26.0, 0.0, 271),
-('White fish', 1.0, 20.0, 0.0, 97),
-('Lobster', 1.5, 19.0, 0.0, 89),
-('Filo dough', 10.0, 6.0, 68.0, 350),
-('Fettuccine', 1.5, 5.0, 31.0, 157),
-('Bacon', 42.0, 37.0, 1.4, 541),
-('Pork shoulder', 21.0, 21.0, 0.0, 294);
+
+
 
 
 
