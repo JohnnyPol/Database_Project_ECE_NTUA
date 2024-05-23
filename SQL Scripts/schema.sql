@@ -32,8 +32,6 @@ DROP TABLE IF EXISTS equipment;
 
 DROP TABLE IF EXISTS scores;
 
-DROP TABLE IF EXISTS episodes;
-
 DROP TABLE IF EXISTS belongs_to_mealtype;
 
 DROP TABLE IF EXISTS belongs_to_tag;
@@ -378,4 +376,10 @@ DELIMITER;
 -- INDICES --
 -- -----------------------------------------
 create index cuisine_expertise_in on expertise_in (cuisine_name);
+
+CREATE INDEX idx_recipe_name ON recipes(recipe_name);
+
+CREATE INDEX idx_recipe_tag ON belongs_to_tag(recipe, tag);
+
+CREATE INDEX idx_participate_in_episode_as_chef ON participate_in_episode_as_chef(recipe_name);
 

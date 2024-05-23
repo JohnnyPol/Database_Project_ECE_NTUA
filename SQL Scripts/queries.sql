@@ -77,6 +77,63 @@ HAVING COUNT(*) > 3;
 
 -- Question 3.6 --
 
+-- Alternative query with index hints for performance improvement
+-- Find common pairs of tags for recipes that appeared in episodes
+WITH RecipeTagPairs AS (
+    SELECT 
+        r.recipe_name,
+        t1.tag AS tag1,
+        t2.tag AS tag2
+    FROM recipes r
+    JOIN belongs_to_tag t1 ON r.recipe_name = t1.recipe
+    JOIN belongs_to_tag t2 ON r.recipe_name = t2.recipe
+    WHERE t1.tag < t2.tag
+),
+EpisodeTagPairs AS (
+    SELECT 
+        rtp.tag1,
+        rtp.tag2,
+        COUNT(DISTINCT p.episode_no, p.season) AS episode_count
+    FROM RecipeTagPairs rtp
+    JOIN participate_in_episode_as_chef p ON rtp.recipe_name = p.recipe_name
+    GROUP BY rtp.tag1, rtp.tag2
+)
+SELECT 
+    etp.tag1,
+    etp.tag2,
+    etp.episode_count
+FROM EpisodeTagPairs etp
+ORDER BY etp.episode_count DESC
+LIMIT 3;
+
+WITH RecipeTagPairs AS (
+    SELECT 
+        r.recipe_name,
+        t1.tag AS tag1,
+        t2.tag AS tag2
+    FROM recipes r
+    JOIN belongs_to_tag t1 USE INDEX (idx_recipe_tag) ON r.recipe_name = t1.recipe
+    JOIN belongs_to_tag t2 USE INDEX (idx_recipe_tag) ON r.recipe_name = t2.recipe
+    WHERE t1.tag < t2.tag
+),
+EpisodeTagPairs AS (
+    SELECT 
+        rtp.tag1,
+        rtp.tag2,
+        COUNT(DISTINCT p.episode_no, p.season) AS episode_count
+    FROM RecipeTagPairs rtp
+    JOIN participate_in_episode_as_chef p USE INDEX (idx_participate_in_episode_as_chef) ON rtp.recipe_name = p.recipe_name
+    GROUP BY rtp.tag1, rtp.tag2
+)
+SELECT 
+    etp.tag1,
+    etp.tag2,
+    etp.episode_count
+FROM EpisodeTagPairs etp
+ORDER BY etp.episode_count DESC
+LIMIT 3;
+
+
 -- Question 3.7 --
 
 WITH ChefEpisodeCounts AS (
