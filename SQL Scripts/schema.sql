@@ -343,6 +343,11 @@ END$$
 
 DELIMITER;
 
+Drop trigger `GetDietaryCat`;
+
+drop trigger `GetDietaryInfo`;
+
+drop trigger `BeforeInsertRecipe`;
 -- -----------------------------------------
 -- INDICES --
 -- -----------------------------------------

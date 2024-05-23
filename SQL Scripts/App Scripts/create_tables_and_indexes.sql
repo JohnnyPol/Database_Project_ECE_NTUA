@@ -1,3 +1,5 @@
+-- This script will create all tables and indexes for the schema --;
+
 CREATE DATABASE IF NOT EXISTS Masterchef_NTUA_Edition;
 USE Masterchef_NTUA_Edition;
 DROP TABLE IF EXISTS has_recipe;

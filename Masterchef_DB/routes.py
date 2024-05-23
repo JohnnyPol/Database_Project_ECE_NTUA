@@ -250,83 +250,59 @@ def competition(season):
         db.connection.commit()
     return all_judges
 
-def create_tables(cursor):
-    with open("SQL Scripts/create_tables.sql", "r") as file:
-        sql_script = file.read()
+def Create_Database(cursor):
+    ## Create tables and indexes
     
-    for query in sql_script.split(";"):
-        query = query.replace("\n", "")
-        if query != "":
-            cursor.execute(query)
-            db.connection.commit()
-    with open("SQL Scripts/test_insert.sql", "r") as file:
+    with open("SQL Scripts/App Scripts/create_tables_and_indexes.sql", "r") as file:
         sql_script = file.read()
 
     for query in sql_script.split(";"):
-        query = query.replace("\n", "")
+        #query = query.replace("\n", "")
         if query != "":
             cursor.execute(query)
             db.connection.commit()
-    cursor.close()
     
+    
+    ## Create Triggers
+    with open("SQL Scripts/App Scripts/create_triggers.sql", "r") as file:
+        sql_script = file.read()
+    
+    for query in sql_script.split("END;"):
+        if query != "":
+            query += " END;"
+            cursor.execute(query)
+            db.connection.commit()
+
+    ## Insert Data
+    with open("SQL Scripts/App Scripts/insert.sql", "r") as file:
+        sql_script = file.read()
+
+    for query in sql_script.split(";"):
+        #query = query.replace("\n", "")
+        if query != "":
+            cursor.execute(query)
+            db.connection.commit()
+
+
+    
+    cursor.close()
+
 @app.route("/")
 def index():
     try:
         action = request.args.get("action")
+        season = request.args.get("season")
         cursor = db.connection.cursor() 
         if action == "create_database":
-            create_tables(cursor)
-            return jsonify("Successfully created tables and inserted data")
+            Create_Database(cursor)
+            return jsonify(results="Database Created Successfully")
         
-        elif action == "create_tables":
-            with open("SQL Scripts/create_tables.sql", "r") as file:
-                sql_script = file.read()
-            
-            for query in sql_script.split(";"):
-                query = query.replace("\n", "")
-                if query != "":
-                    cursor.execute(query)
-                    db.connection.commit()
-            
-            cursor.close()
-            return jsonify(message="Tables created successfully successfully"), 200
-        
-        elif action == "insert":
-            with open("SQL Scripts/test_insert.sql", "r") as file:
-                sql_script = file.read()
-            
-            for query in sql_script.split(";"):
-                query = query.replace("\n", "")
-                if query != "":
-                    cursor.execute(query)
-                    db.connection.commit()
-            cursor.close()
-            return jsonify(message="Inserted data to database successfully"), 200
-            
-        elif action == "list_recipes":
-            cursor.execute("SELECT * FROM recipes")
-            column_names = [i[0] for i in cursor.description]
-            results = cursor.fetchall()
-
-            serialized_results = []
-            for row in results:
-                serialized_row = {}
-                for idx, value in enumerate(row):
-                    if isinstance(value, timedelta):
-                        value = str(value)
-                    serialized_row[column_names[idx]] = value
-                serialized_results.append(serialized_row)
-
-            cursor.close()
-            return jsonify(results=serialized_results), 200
-
         elif action == "competition":
-            season = 4
             return jsonify(results=competition(season))
 
         else:
-            return send_file("../Images/cuisine/american.jpg", mimetype="image/jpeg")
             return jsonify(status="Connection is established")
+            return send_file("../Images/cuisine/russian.jpg", mimetype="image/jpeg")
 
     except Exception as e:
         return jsonify(error_message="{}".format(str(e))), 500
