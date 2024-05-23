@@ -250,49 +250,61 @@ def competition(season):
         db.connection.commit()
     return all_judges
 
+def create_tables(cursor):
+    with open("SQL Scripts/create_tables.sql", "r") as file:
+        sql_script = file.read()
+    
+    for query in sql_script.split(";"):
+        query = query.replace("\n", "")
+        if query != "":
+            cursor.execute(query)
+            db.connection.commit()
+    with open("SQL Scripts/test_insert.sql", "r") as file:
+        sql_script = file.read()
 
+    for query in sql_script.split(";"):
+        query = query.replace("\n", "")
+        if query != "":
+            cursor.execute(query)
+            db.connection.commit()
+    cursor.close()
+    
 @app.route("/")
 def index():
     try:
         action = request.args.get("action")
-
+        cursor = db.connection.cursor() 
         if action == "create_database":
-            with open("SQL Scripts/test_schema.sql", "r") as file:
+            create_tables(cursor)
+            return jsonify("Successfully created tables and inserted data")
+        
+        elif action == "create_tables":
+            with open("SQL Scripts/create_tables.sql", "r") as file:
                 sql_script = file.read()
-
-            cursor = db.connection.cursor()
-
-            # Execute the SQL script
-            cursor.execute(sql_script)
-
-            # Commit the changes to the database to ensure they are saved
-            db.connection.commit()
+            
+            for query in sql_script.split(";"):
+                query = query.replace("\n", "")
+                if query != "":
+                    cursor.execute(query)
+                    db.connection.commit()
+            
             cursor.close()
-
-            return (
-                jsonify(message="Database created and schema applied successfully"),
-                200,
-            )
+            return jsonify(message="Tables created successfully successfully"), 200
+        
         elif action == "insert":
             with open("SQL Scripts/test_insert.sql", "r") as file:
                 sql_script = file.read()
-
-            cursor = db.connection.cursor()
-            cursor.execute(sql_script)
-
-            # Commit the changes to the database to ensure they are saved
-            db.connection.commit()
-
+            
+            for query in sql_script.split(";"):
+                query = query.replace("\n", "")
+                if query != "":
+                    cursor.execute(query)
+                    db.connection.commit()
             cursor.close()
-
-            return (
-                jsonify(message="Inserted data to database successfully"),
-                200,
-            )
+            return jsonify(message="Inserted data to database successfully"), 200
+            
         elif action == "list_recipes":
-            cursor = db.connection.cursor()
             cursor.execute("SELECT * FROM recipes")
-
             column_names = [i[0] for i in cursor.description]
             results = cursor.fetchall()
 
@@ -306,7 +318,6 @@ def index():
                 serialized_results.append(serialized_row)
 
             cursor.close()
-
             return jsonify(results=serialized_results), 200
 
         elif action == "competition":

@@ -29,18 +29,14 @@ DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS food_groups;
 DROP TABLE IF EXISTS cuisine;
 
--- -----------------------------------------
--- Tables --
--- -----------------------------------------
-
-CREATE TABLE cuisine ( cuisine_name VARCHAR(255) PRIMARY KEY );
-
 CREATE TABLE food_groups (
     food_group_name VARCHAR(255) PRIMARY KEY,
     food_group_description VARCHAR(255),
     dietary_analogy VARCHAR(255)
 );
-
+CREATE TABLE cuisine (
+    cuisine_name VARCHAR(255) PRIMARY KEY 
+);
 CREATE TABLE ingredients (
     ingredient_name VARCHAR(255) PRIMARY KEY,
     fats_per_fund_SI FLOAT,
@@ -50,7 +46,6 @@ CREATE TABLE ingredients (
     food_group_name VARCHAR(255),
     FOREIGN KEY (food_group_name) REFERENCES food_groups(food_group_name)
 );
-
 CREATE TABLE recipes (
     recipe_name VARCHAR(255) PRIMARY KEY,
     kind VARCHAR(255) CHECK (kind in ("cooking", "baking")) NOT NULL,
@@ -67,7 +62,6 @@ CREATE TABLE recipes (
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (primary_ingredient) REFERENCES ingredients (ingredient_name)
 );
-
 CREATE TABLE steps (
     recipe VARCHAR(255),
     step_number INT,
@@ -75,22 +69,16 @@ CREATE TABLE steps (
     PRIMARY KEY (recipe, step_number),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
-
 CREATE TABLE theme (
     theme_name VARCHAR(255) PRIMARY KEY,
     theme_description VARCHAR(255)
 );
-
 CREATE TABLE meal_type ( mealtype_name VARCHAR(255) PRIMARY KEY );
-
 CREATE TABLE tags ( tag_name VARCHAR(255) PRIMARY KEY );
-
-
 CREATE TABLE equipment (
     equipment_name VARCHAR(255) PRIMARY KEY,
     instructions VARCHAR(255)
 );
-
 CREATE TABLE chefs (
     chef_name VARCHAR(50),
     chef_surname VARCHAR(50),
@@ -107,7 +95,6 @@ CREATE TABLE chefs (
     ),
     PRIMARY KEY (chef_name, chef_surname)
 );
-
 CREATE TABLE participate_in_episode_as_chef (
     episode_no INT,
     season INT,
@@ -125,7 +112,6 @@ CREATE TABLE participate_in_episode_as_chef (
         chef_surname
     )
 );
-
 CREATE TABLE participate_in_episode_as_judge (
     episode_no INT,
     season INT,
@@ -139,7 +125,6 @@ CREATE TABLE participate_in_episode_as_judge (
         judge_surname
     )
 );
-
 CREATE TABLE scores (
     score INT,
     episode_number INT,
@@ -162,7 +147,6 @@ CREATE TABLE scores (
     FOREIGN KEY (cuisine) references cuisine(cuisine_name),
     CHECK (score BETWEEN 1 AND 5)
 );
-
 CREATE TABLE has_recipe(
     chef_name VARCHAR(50),
     chef_surname VARCHAR(50),
@@ -178,7 +162,6 @@ CREATE TABLE belongs_to_mealtype (
     FOREIGN KEY (mealtype) REFERENCES meal_type (mealtype_name),
     PRIMARY KEY (recipe, mealtype)
 );
-
 CREATE TABLE belongs_to_tag (
     recipe VARCHAR(255) NOT NULL,
     tag VARCHAR(255) NOT NULL,
@@ -186,7 +169,6 @@ CREATE TABLE belongs_to_tag (
     FOREIGN KEY (tag) REFERENCES tags (tag_name),
     PRIMARY KEY (recipe, tag)
 );
-
 CREATE TABLE belongs_to_theme (
     recipe VARCHAR(255) NOT NULL,
     theme VARCHAR(255) NOT NULL,
@@ -194,7 +176,6 @@ CREATE TABLE belongs_to_theme (
     FOREIGN KEY (theme) REFERENCES theme (theme_name),
     PRIMARY KEY (recipe, theme)
 );
-
 CREATE TABLE needs_equipment (
     recipe VARCHAR(255),
     equipment_name VARCHAR(255),
@@ -203,7 +184,6 @@ CREATE TABLE needs_equipment (
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (equipment_name) REFERENCES equipment (equipment_name)
 );
-
 CREATE TABLE has_ingredient (
     recipe VARCHAR(255),
     ingredient VARCHAR(255),
@@ -213,8 +193,6 @@ CREATE TABLE has_ingredient (
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient_name)
 );
-
-
 CREATE TABLE dietary_info (
     recipe VARCHAR(255) PRIMARY KEY,
     dietary_category VARCHAR(255),
@@ -224,7 +202,6 @@ CREATE TABLE dietary_info (
     total_calories INT DEFAULT 0,
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
-
 CREATE TABLE expertise_in (
     chef_name VARCHAR(50) NOT NULL,
     chef_surname VARCHAR(50) NOT NULL,
@@ -237,7 +214,6 @@ CREATE TABLE expertise_in (
         cuisine_name
     )
 );
-
 CREATE TABLE Winner (
     episode_num INT,
     season INT,
@@ -246,118 +222,8 @@ CREATE TABLE Winner (
     PRIMARY KEY (episode_num, season),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname)
 );
-
--- -----------------------------------------
--- Functions --
--- -----------------------------------------
-
--- -----------------------------------------
--- Triggers --
--- -----------------------------------------
-
-DELIMITER $$
-
--- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
-
-CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
-BEGIN
-    -- Check if the cuisine exists in the cuisine table
-    DECLARE cuisineExists INT;
-
-    -- Check existence
-    SELECT COUNT(*) INTO cuisineExists FROM cuisine WHERE cuisine_name = NEW.cuisine_name;
-
-    -- If it does not exist, insert it
-    IF cuisineExists = 0 THEN
-        INSERT INTO cuisine (cuisine_name) VALUES (NEW.cuisine_name);
-    END IF;
-END$$
-
--- Create a trigger when we insert the recipe to insert a new row on dietary_info
-CREATE TRIGGER GetDietaryCat AFTER INSERT ON recipes FOR EACH ROW
-BEGIN
-	DECLARE recipe VARCHAR(255);
-    DECLARE ing VARCHAR(255);
-    DECLARE cat VARCHAR(255);
-    DECLARE Diet VARCHAR(255);
-    SET recipe = NEW.recipe_name;
-    SET ing = NEW.primary_ingredient;
-    
-    SELECT food_group_name
-    INTO cat
-    FROM ingredients
-    WHERE ingredient_name = ing;
-    
-    SELECT dietary_analogy
-    INTO Diet
-    FROM food_groups
-    WHERE food_group_name = cat;
-    
-    INSERT INTO dietary_info VALUES (recipe, Diet, 0, 0, 0, 0); 
-END$$
-
--- Create a trigger when we insert an new row to recipe has ingredient
-CREATE TRIGGER GetDietaryInfo AFTER INSERT ON has_ingredient FOR EACH ROW
-BEGIN
-	DECLARE fat FLOAT;
-    DECLARE carbs FLOAT;
-    DECLARE protein FLOAT;
-    DECLARE cal INT;
-    DECLARE amount INT;
-    
-    DECLARE fat_i FLOAT;
-    DECLARE carbs_i FLOAT;
-    DECLARE protein_i FLOAT;
-    DECLARE cal_i INT;
-    
-    SET amount = new.amount;
-    
-    IF new.fundamental_unit in ("Kilo", "Litre") THEN
-		SET amount = 1000 * amount;
-	END IF;
-		
-    IF new.fundamental_unit in ("Kilo", "Litre", "Gram", "Ml", "Piece") THEN
-		SELECT total_carbs, total_protein, total_fats, total_calories
-        INTO carbs, protein, fat, cal
-        FROM dietary_info
-        WHERE recipe = new.recipe;
-        
-        SELECT fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI
-        INTO fat_i, protein_i, carbs_i, cal_i
-        FROM ingredients
-        WHERE ingredient_name = new.ingredient;
-        
-        SET fat = fat + amount * fat_i;
-        SET carbs = carbs + amount * carbs_i;
-        SET protein = protein + amount * protein_i;
-        SET cal = cal + amount * cal_i;
-        
-        UPDATE dietary_info
-        SET total_carbs = carbs, total_protein = protein, total_fats = fat, total_calories = cal
-        WHERE recipe = new.recipe;
-	END IF;
-
-    
-	 
-END$$
-
-DELIMITER;
-
--- -----------------------------------------
--- INDICES --
--- -----------------------------------------
-
--- Create index on recipes table for recipe_name
 CREATE INDEX idx_recipe_name ON recipes(recipe_name);
-
--- Create composite index on belongs_to_tag table for (recipe, tag)
 CREATE INDEX idx_recipe_tag ON belongs_to_tag(recipe, tag);
-
--- Create index on participate_in_episode_as_chef table for recipe_name
 CREATE INDEX idx_participate_in_episode_as_chef ON participate_in_episode_as_chef(recipe_name);
-
--- Create index on participate_in_episode_as_chef table for recipe_name
 CREATE INDEX idx_participate_recipe ON participate_in_episode_as_chef(recipe_name);
-
--- Create index on needs_equipment table for recipe
 CREATE INDEX idx_needs_equipment_recipe ON needs_equipment(recipe);
