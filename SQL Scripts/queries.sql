@@ -62,12 +62,12 @@ FROM
 SELECT chef_name, chef_surname
 FROM chefs
 WHERE (chef_name, chef_surname) NOT IN (
-    SELECT DISTINCT chef_name, chef_surname
+    SELECT DISTINCT judge_name, judge_surname
     FROM participate_in_episode_as_judge
 ); 
 
--- Question 3.5 --
 
+-- Question 3.5 --
 SELECT judge_name, judge_surname, COUNT(*) AS appearance_count
 FROM participate_in_episode_as_judge
 WHERE season = 2
@@ -76,7 +76,7 @@ HAVING COUNT(*) > 3;
 
 -- Question 3.6 --
 
---Find pairs of tags in recipes then count in how many episodes they appear
+-- Find pairs of tags in recipes then count in how many episodes they appear
 WITH RecipeTagPairs AS (
     SELECT 
         r.recipe_name,
@@ -232,6 +232,13 @@ LIMIT 1;
 
 
 -- Question 3.9 --
+SELECT p.season,
+       AVG(d.total_carbs) AS avg_carbs_per_season
+FROM participate_in_episode_as_chef p
+JOIN dietary_info d ON p.recipe_name = d.recipe
+GROUP BY p.season;
+
+-- Question 3.10 --
 
 WITH CuisineSeasonEntries AS (
     SELECT
@@ -267,7 +274,8 @@ SELECT
 FROM
     ConsecutiveSeasonEntries
 WHERE
-    entries1 = entries2;
+    entries1 = entries2
+ORDER BY season1, entries;
 
 
 -- Question 3.11 --
@@ -335,14 +343,14 @@ WITH EpisodeChefCumulativeExperience AS (
                 WHEN c.experience_level = '1st cook' THEN 3
                 WHEN c.experience_level = '2nd cook' THEN 2
                 WHEN c.experience_level = '3rd cook' THEN 1
-                ELSE 0  -- handle other cases, if any
+                ELSE 0
             END
         ) AS cumulative_chef_experience
     FROM participate_in_episode_as_chef p
     JOIN chefs c ON p.chef_name = c.chef_name AND p.chef_surname = c.chef_surname
     GROUP BY p.season, p.episode_no
 ),
-    EpisodeJudgeCumulativeExperience AS (
+EpisodeJudgeCumulativeExperience AS (
     SELECT 
         pj.season,
         pj.episode_no,
@@ -353,29 +361,33 @@ WITH EpisodeChefCumulativeExperience AS (
                 WHEN j.experience_level = '1st cook' THEN 3
                 WHEN j.experience_level = '2nd cook' THEN 2
                 WHEN j.experience_level = '3rd cook' THEN 1
-                ELSE 0  -- handle other cases, if any
+                ELSE 0
             END
         ) AS cumulative_judge_experience
     FROM participate_in_episode_as_judge pj
     JOIN chefs j ON pj.judge_name = j.chef_name AND pj.judge_surname = j.chef_surname
     GROUP BY pj.season, pj.episode_no
 ),
+CumulativeEpisodeExperience AS (
+    SELECT season,
+           episode_no,
+           (c.cumulative_chef_experience + j.cumulative_judge_experience) AS cumulative_experience
+    FROM EpisodeChefCumulativeExperience c
+    NATURAL JOIN EpisodeJudgeCumulativeExperience j
+),
 RankedEpisodes AS (
     SELECT season,
            episode_no,
-           (cumulative_judge_expexperience + cumulative_chef_experiense) AS cumulative_experience,
+           cumulative_experience,
            ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS my_rank
-    FROM EpisodeChefCumulativeExperience
-    NATURAL JOIN EpisodeJudgeCumulativeExperience
+    FROM CumulativeEpisodeExperience
 )
-SELECT *
-FROM `EpisodeCumulativeExperience`
-
 SELECT season,
        episode_no,
        cumulative_experience
 FROM RankedEpisodes
 WHERE my_rank = 1;
+
 
 -- Question 3.14 --
 
@@ -401,4 +413,6 @@ LEFT JOIN (
 ON fg.food_group_name = appeared_food_groups.food_group_name
 -- Step 3: Find food groups that have never appeared
 WHERE appeared_food_groups.food_group_name IS NULL;
+
+
 
