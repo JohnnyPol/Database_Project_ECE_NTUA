@@ -55,19 +55,12 @@ def competition(season):
                 if (counter != 0) and (chef in all_chefs[number_of_cuisines * i :]):
                     continue
                 elif (
-                    all_chefs[
+                    (all_chefs[
                         number_of_cuisines * first : number_of_cuisines * i
-                    ].count(chef)
-                    >= 3
+                    ].count(chef) + all_judge[number_of_judges * first : number_of_judges * I].count(chef)) >=3
                 ):
                     continue
-                elif (
-                    all_judges[number_of_judges * first : number_of_judges * i].count(
-                        chef
-                    )
-                    >= 3
-                ):
-                    continue
+
                 else:
                     all_chefs.append(chef)
                     break
@@ -112,17 +105,9 @@ def competition(season):
                 ):
                     continue
                 elif (
-                    all_chefs[
+                    (all_chefs[
                         number_of_cuisines * first : number_of_cuisines * i
-                    ].count(judge)
-                    >= 3
-                ):
-                    continue
-                elif (
-                    all_judges[number_of_judges * first : number_of_judges * i].count(
-                        judge
-                    )
-                    >= 3
+                    ].count(judge) + all_judge[number_of_judges * first : number_of_judges * I].count(judge)) >=3
                 ):
                     continue
                 else:
