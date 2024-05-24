@@ -236,7 +236,6 @@ def competition(season):
 
 def Create_Database(cursor):
     ## Create tables and indexes
-    cursor.execute("SET GLOBAL log_bin_trust_function_creators=1;")
     with open("SQL Scripts/App Scripts/create_tables_and_indexes.sql", "r") as file:
         sql_script = file.read()
 
