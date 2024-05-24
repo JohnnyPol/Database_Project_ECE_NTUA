@@ -633,7 +633,7 @@ INSERT INTO theme (theme_name, theme_description) VALUES
 ('Gluten-Free', 'Recipes suitable for individuals with gluten intolerance.'),
 ('Low-Carb', 'Recipes with reduced carbohydrate content.'),
 ('Budget-Friendly', 'Recipes that are affordable to make.'),
-('Sugar bomb', 'Recipes with enough sugar to case diabetes');
+('Sugar bomb', 'Recipes with enough sugar to cause diabetes');
 
 --mealtype--
 INSERT INTO meal_type (mealtype_name) VALUES
