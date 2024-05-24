@@ -31,7 +31,6 @@ GROUP BY
 
 -- Question 3.3
 
--- Step 1: Find the maximum recipe count for chefs under 30
 WITH recipe_counts AS (
     SELECT
         hr.chef_name,
@@ -77,8 +76,7 @@ HAVING COUNT(*) > 3;
 
 -- Question 3.6 --
 
--- Alternative query with index hints for performance improvement
--- Find common pairs of tags for recipes that appeared in episodes
+--Find pairs of tags in recipes then count in how many episodes they appear
 WITH RecipeTagPairs AS (
     SELECT 
         r.recipe_name,
@@ -235,41 +233,6 @@ LIMIT 1;
 
 -- Question 3.9 --
 
-SELECT p.season,
-       AVG(d.total_carbs) AS avg_carbs_per_season
-FROM participate_in_episode_as_chef p
-JOIN dietary_info d ON p.recipe_name = d.recipe
-GROUP BY p.season;
-
--- Question 3.10 --
-
-WITH CuisineTotalAppearances AS (
-    SELECT c.cuisine_name,
-           p.season,
-           COUNT(*) AS appearances
-    FROM participate_in_episode_as_chef p
-    JOIN dietary_info d ON p.recipe_name = d.recipe
-    JOIN cuisine c ON p.cuisine_name = c.cuisine_name
-    GROUP BY c.cuisine_name, p.season
-),
-SeasonCuisineCounts AS (
-    SELECT season,
-           cuisine_name,
-           SUM(CASE WHEN appearances > 3 THEN 1 ELSE 0 END) AS appearances_over_three
-    FROM CuisineTotalAppearances
-    GROUP BY season, cuisine_name
-)
-SELECT s1.season AS season1,
-       s2.season AS season2,
-       GROUP_CONCAT(s1.cuisine_name ORDER BY s1.cuisine_name) AS cuisines
-FROM SeasonCuisineCounts s1
-JOIN SeasonCuisineCounts s2 ON s1.season < s2.season
-                             AND s1.cuisine_name = s2.cuisine_name
-WHERE s1.appearances_over_three = 1
-      AND s2.appearances_over_three = 1
-GROUP BY season1, season2
-HAVING COUNT(*) > 1;
-
 WITH CuisineSeasonEntries AS (
     SELECT
         p.cuisine_name,
@@ -361,7 +324,7 @@ WHERE my_rank = 1;
 
 -- Question 3.13 --
 
-WITH EpisodeCumulativeExperience AS (
+WITH EpisodeChefCumulativeExperience AS (
     SELECT 
         p.season,
         p.episode_no,
@@ -374,19 +337,36 @@ WITH EpisodeCumulativeExperience AS (
                 WHEN c.experience_level = '3rd cook' THEN 1
                 ELSE 0  -- handle other cases, if any
             END
-        ) AS cumulative_experience
+        ) AS cumulative_chef_experience
     FROM participate_in_episode_as_chef p
     JOIN chefs c ON p.chef_name = c.chef_name AND p.chef_surname = c.chef_surname
-   -- JOIN participate_in_episode_as_judge j ON p.episode_no = j.episode_no AND p.season = j.season
-   -- JOIN chefs cj ON j.judge_name = cj.chef_name AND j.judge_surname = cj.chef_surname
     GROUP BY p.season, p.episode_no
+),
+    EpisodeJudgeCumulativeExperience AS (
+    SELECT 
+        pj.season,
+        pj.episode_no,
+        SUM(
+            CASE 
+                WHEN j.experience_level = 'chef' THEN 5
+                WHEN j.experience_level = 'sous chef' THEN 4
+                WHEN j.experience_level = '1st cook' THEN 3
+                WHEN j.experience_level = '2nd cook' THEN 2
+                WHEN j.experience_level = '3rd cook' THEN 1
+                ELSE 0  -- handle other cases, if any
+            END
+        ) AS cumulative_judge_experience
+    FROM participate_in_episode_as_judge pj
+    JOIN chefs j ON pj.judge_name = j.chef_name AND pj.judge_surname = j.chef_surname
+    GROUP BY pj.season, pj.episode_no
 ),
 RankedEpisodes AS (
     SELECT season,
            episode_no,
-           cumulative_experience,
+           (cumulative_judge_expexperience + cumulative_chef_experiense) AS cumulative_experience,
            ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS my_rank
-    FROM EpisodeCumulativeExperience
+    FROM EpisodeChefCumulativeExperience
+    NATURAL JOIN EpisodeJudgeCumulativeExperience
 )
 SELECT *
 FROM `EpisodeCumulativeExperience`
@@ -397,66 +377,6 @@ SELECT season,
 FROM RankedEpisodes
 WHERE my_rank = 1;
 
-
-WITH EpisodeCumulativeExperience AS (
-    SELECT 
-        p.season,
-        p.episode_no,
-        COALESCE(SUM(p_chef.experience), 0) + COALESCE(SUM(p_judge.experience), 0) AS cumulative_experience
-    FROM 
-        participate_in_episode_as_chef p
-    LEFT JOIN 
-        (
-            SELECT 
-                episode_no,
-                season,
-                chef_name,
-                chef_surname,
-                SUM(experience) AS experience
-            FROM 
-                chefs
-            GROUP BY 
-                episode_no, season, chef_name, chef_surname
-        ) p_chef ON p.episode_no = p_chef.episode_no 
-                  AND p.season = p_chef.season 
-                  AND p.chef_name = p_chef.chef_name 
-                  AND p.chef_surname = p_chef.chef_surname
-    LEFT JOIN 
-        (
-            SELECT 
-                episode_no,
-                season,
-                judge_name,
-                judge_surname,
-                SUM(experience) AS experience
-            FROM 
-                chefs
-            GROUP BY 
-                episode_no, season, judge_name, judge_surname
-        ) p_judge ON p.episode_no = p_judge.episode_no 
-                  AND p.season = p_judge.season 
-                  AND p.judge_name = p_judge.judge_name 
-                  AND p.judge_surname = p_judge.judge_surname
-    GROUP BY 
-        p.season, p.episode_no
-),
-RankedEpisodes AS (
-    SELECT 
-        season,
-        episode_no,
-        cumulative_experience,
-        ROW_NUMBER() OVER(PARTITION BY season ORDER BY cumulative_experience) AS my_rank
-    FROM 
-        EpisodeCumulativeExperience
-)
-SELECT 
-    season,
-    episode_no,
-    cumulative_experience
-FROM 
-    RankedEpisodes
-WHERE 
-    my_rank = 1;
 -- Question 3.14 --
 
 SELECT b.theme, COUNT(*) AS appearance_count
