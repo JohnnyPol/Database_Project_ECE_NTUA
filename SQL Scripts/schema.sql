@@ -15,14 +15,8 @@ DROP TABLE IF EXISTS meal_type;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS equipment;
 DROP TABLE IF EXISTS scores;
-DROP TABLE IF EXISTS belongs_to_mealtype;
-DROP TABLE IF EXISTS belongs_to_tag;
 DROP TABLE IF EXISTS belongs_to_theme;
 DROP TABLE IF EXISTS theme;
-DROP TABLE IF EXISTS needs_equipment;
-DROP TABLE IF EXISTS has_ingredient;
-DROP TABLE IF EXISTS dietary_info;
-DROP TABLE IF EXISTS expertise_in;
 DROP TABLE IF EXISTS chefs;
 DROP TABLE IF EXISTS recipes;
 DROP TABLE IF EXISTS ingredients;
@@ -341,7 +335,7 @@ BEGIN
 	 
 END$$
 
-DELIMITER;
+DELIMITER ;
 
 -- -----------------------------------------
 -- INDICES --

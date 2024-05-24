@@ -57,7 +57,7 @@ def competition(season):
                 elif (
                     (all_chefs[
                         number_of_cuisines * first : number_of_cuisines * i
-                    ].count(chef) + all_judge[number_of_judges * first : number_of_judges * I].count(chef)) >=3
+                    ].count(chef) + all_judges[number_of_judges * first : number_of_judges * i].count(chef)) >=3
                 ):
                     continue
 
@@ -107,13 +107,12 @@ def competition(season):
                 elif (
                     (all_chefs[
                         number_of_cuisines * first : number_of_cuisines * i
-                    ].count(judge) + all_judge[number_of_judges * first : number_of_judges * I].count(judge)) >=3
+                    ].count(judge) + all_judges[number_of_judges * first : number_of_judges * i].count(judge)) >=3
                 ):
                     continue
                 else:
                     all_judges.append(judge)
                     break
-
         insert_judge_query = f"""
         INSERT INTO participate_in_episode_as_judge
         VALUES (%s, %s, %s, %s)
@@ -237,7 +236,7 @@ def competition(season):
 
 def Create_Database(cursor):
     ## Create tables and indexes
-    
+    cursor.execute("SET GLOBAL log_bin_trust_function_creators=1;")
     with open("SQL Scripts/App Scripts/create_tables_and_indexes.sql", "r") as file:
         sql_script = file.read()
 
