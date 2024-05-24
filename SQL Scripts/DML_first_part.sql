@@ -6,6 +6,7 @@ INSERT INTO food_groups (food_group_name, food_group_description, dietary_analog
 ('Proteins', 'Protein-rich foods are essential for building and repairing tissues in the body.', 'Protein-rich'),
 ('Dairy', 'Dairy products are rich in calcium and vitamin D, important for bone health.', 'Lacto-vegetarian'),
 ('Meat', 'Meat are animal products that are rich sources of protein and other nutrients.', 'Carnivorous'),
+('Nuts', 'Edible seeds with a hard shell', 'Healthy fats, protein-rich'),
 ('Fish', 'Seafood includes various types of fish and shellfish, rich in omega-3 fatty acids and protein.', 'Pescetarian');
 
 -- new ingredients
@@ -40,6 +41,58 @@ VALUES
     ('Rabbit', 12, 25, 0, 239, 'Meat'),
     ('Crab', 0.11, 0.13, 0.1, 7, 'Fish'),
     ('Mussels', 0.11, 0.13, 0.1, 7, 'Fish');
+
+INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
+VALUES
+    ('Turkey', 6, 29, 0, 189, 'Meat'),
+    ('Quinoa', 6, 14, 64, 368, 'Grains'),
+    ('Tilapia', 2.3, 26, 0, 129, 'Fish'),
+    ('Sweet Potato', 0.1, 2, 20, 86, 'Vegetables'),
+    ('Greek Yogurt', 4, 10, 6, 73, 'Dairy'),
+    ('Almonds', 50, 21, 22, 579, 'Nuts'),
+    ('Oats', 7, 17, 66, 389, 'Grains'),
+    ('Tuna', 1.2, 28, 0, 132, 'Fish'),
+    ('Broccoli', 0.4, 2.8, 6, 34, 'Vegetables'),
+    ('Kale', 0.9, 2.9, 6, 35, 'Vegetables'),
+    ('Cottage Cheese', 4.3, 11, 3.4, 98, 'Dairy'),
+    ('Avocado', 15, 2, 9, 160, 'Fruits'),
+    ('Peanut Butter', 50, 25, 20, 588, 'Nuts'),
+    ('Spinach', 0.4, 2.9, 3.6, 23, 'Vegetables'),
+    ('Blueberries', 0.3, 1, 14, 57, 'Fruits'),
+    ('Tofu', 5, 8, 2, 76, 'Vegetables'),
+    ('Pumpkin Seeds', 49, 30, 11, 559, 'Nuts'),
+    ('Walnuts', 65, 15, 14, 654, 'Nuts'),
+    ('Asparagus', 0.2, 2.4, 4, 20, 'Vegetables'),
+    ('Pistachios', 45, 20, 28, 562, 'Nuts'),
+    ('Cauliflower', 0.3, 1.9, 5, 25, 'Vegetables'),
+    ('Blackberries', 0.5, 2, 10, 43, 'Fruits'),
+    ('Edamame', 5, 11, 8, 122, 'Vegetables'),
+    ('Chia Seeds', 31, 17, 42, 486, 'Nuts'),
+    ('Brussels Sprouts', 0.3, 3.4, 9, 38, 'Vegetables'),
+    ('Lentils', 1, 9, 20, 116, 'Vegetables'),
+    ('Hazelnuts', 61, 15, 17, 628, 'Nuts'),
+    ('Artichoke', 0.2, 2.5, 11, 47, 'Vegetables'),
+    ('Grapes', 0.2, 0.7, 18, 69, 'Fruits'),
+    ('Apricots', 0.1, 0.5, 11, 48, 'Fruits'),
+    ('Mango', 0.6, 0.8, 15, 60, 'Fruits'),
+    ('Raspberries', 0.6, 1.5, 12, 52, 'Fruits'),
+    ('Peas', 0.4, 5.4, 14, 81, 'Vegetables'),
+    ('Radish', 0.1, 0.7, 3.9, 16, 'Vegetables'),
+    ('Cucumber', 0.1, 0.6, 3.6, 16, 'Vegetables'),
+    ('Green Beans', 0.1, 1.8, 7, 31, 'Vegetables'),
+    ('Lima Beans', 0.7, 6.7, 23, 123, 'Vegetables'),
+    ('Pineapple', 0.1, 0.5, 13, 50, 'Fruits'),
+    ('Figs', 0.3, 0.8, 19, 74, 'Fruits'),
+    ('Pomegranate', 1.2, 1.7, 19, 83, 'Fruits'),
+    ('Pear', 0.1, 0.5, 15, 57, 'Fruits'),
+    ('Cashews', 44, 18, 30, 553, 'Nuts'),
+    ('Celery', 0.1, 0.7, 3, 14, 'Vegetables'),
+    ('Papaya', 0.3, 0.5, 11, 43, 'Fruits'),
+    ('Leeks', 0.3, 1.5, 14, 61, 'Vegetables'),
+    ('Plums', 0.3, 0.5, 11, 46, 'Fruits'),
+    ('Cherries', 0.3, 1, 12, 50, 'Fruits'),
+    ('Bok Choy', 0.2, 1.5, 2.2, 13, 'Vegetables');
+
 
 -- Cuisine --
 INSERT INTO cuisine (cuisine_name) VALUES
