@@ -1,3 +1,4 @@
+-- Active: 1716575225026@@127.0.0.1@3306@masterchef_ntua_edition
 -- Food Groups--
 INSERT INTO food_groups (food_group_name, food_group_description, dietary_analogy) VALUES 
 ('Fruits', 'Fruits are natural sources of essential vitamins, minerals, and fiber.', 'Fruitarian'),
@@ -150,7 +151,7 @@ INSERT INTO cuisine (cuisine_name) VALUES
 ('Sri Lankan'),
 ('Tunisian');
 
--- new recipes--
+
 -- Insert into recipes table
 INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, tips1, tips2, tips3, prep_time, cooking_time, servings, primary_ingredient) VALUES
     ('Classic Cheeseburger', 'cooking', 'American', 2, 'A juicy cheeseburger with all the classic fixings.', 'Use high-quality beef for best results.', 'Toast the buns for extra flavor.', 'Melt the cheese over the patty in the pan.', '00:15:00', '00:10:00', 4, 'Ground Beef'),

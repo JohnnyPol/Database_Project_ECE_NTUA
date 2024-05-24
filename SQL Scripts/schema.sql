@@ -27,12 +27,17 @@ DROP TABLE IF EXISTS cuisine;
 -- Tables --
 -- -----------------------------------------
 
-CREATE TABLE cuisine ( cuisine_name VARCHAR(255) PRIMARY KEY );
+CREATE TABLE cuisine ( cuisine_name VARCHAR(255) PRIMARY KEY,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description"
+);
 
 CREATE TABLE food_groups (
     food_group_name VARCHAR(255) PRIMARY KEY,
     food_group_description VARCHAR(255),
-    dietary_analogy VARCHAR(255)
+    dietary_analogy VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description"
 );
 
 CREATE TABLE ingredients (
@@ -42,6 +47,8 @@ CREATE TABLE ingredients (
     carbs_per_fund_SI FLOAT,
     calories_per_fund_SI INT,
     food_group_name VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (food_group_name) REFERENCES food_groups(food_group_name)
 );
 
@@ -58,6 +65,8 @@ CREATE TABLE recipes (
     cooking_time TIME NOT NULL,
     servings INT,
     primary_ingredient VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (primary_ingredient) REFERENCES ingredients (ingredient_name)
 );
@@ -66,23 +75,37 @@ CREATE TABLE steps (
     recipe VARCHAR(255),
     step_number INT,
     step_description VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",    
     PRIMARY KEY (recipe, step_number),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
 
 CREATE TABLE theme (
     theme_name VARCHAR(255) PRIMARY KEY,
-    theme_description VARCHAR(255)
+    theme_description VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description"
 );
 
-CREATE TABLE meal_type ( mealtype_name VARCHAR(255) PRIMARY KEY );
+CREATE TABLE meal_type ( 
+    mealtype_name VARCHAR(255) PRIMARY KEY,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description"
+);
 
-CREATE TABLE tags ( tag_name VARCHAR(255) PRIMARY KEY );
+CREATE TABLE tags ( 
+    tag_name VARCHAR(255) PRIMARY KEY ,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description"    
+);
 
 
 CREATE TABLE equipment (
     equipment_name VARCHAR(255) PRIMARY KEY,
-    instructions VARCHAR(255)
+    instructions VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description"
 );
 
 CREATE TABLE chefs (
@@ -99,6 +122,8 @@ CREATE TABLE chefs (
         "sous chef",
         "chef"
     ),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (chef_name, chef_surname)
 );
 
@@ -109,6 +134,8 @@ CREATE TABLE participate_in_episode_as_chef (
     chef_surname VARCHAR(50),
     cuisine_name VARCHAR(255),
     recipe_name VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (recipe_name) REFERENCES recipes (recipe_name),
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
@@ -125,6 +152,8 @@ CREATE TABLE participate_in_episode_as_judge (
     season INT,
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (judge_name, judge_surname) REFERENCES chefs (chef_name, chef_surname),
     PRIMARY KEY (
         episode_no,
@@ -143,6 +172,8 @@ CREATE TABLE scores (
     cuisine VARCHAR(255),
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (
         episode_number,
         season,
@@ -161,6 +192,8 @@ CREATE TABLE has_recipe(
     chef_name VARCHAR(50),
     chef_surname VARCHAR(50),
     recipe VARCHAR(255),
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     PRIMARY KEY (chef_name, chef_surname, recipe)
@@ -168,6 +201,8 @@ CREATE TABLE has_recipe(
 CREATE TABLE belongs_to_mealtype (
     recipe VARCHAR(255) NOT NULL,
     mealtype VARCHAR(255) NOT NULL,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (mealtype) REFERENCES meal_type (mealtype_name),
     PRIMARY KEY (recipe, mealtype)
@@ -176,6 +211,8 @@ CREATE TABLE belongs_to_mealtype (
 CREATE TABLE belongs_to_tag (
     recipe VARCHAR(255) NOT NULL,
     tag VARCHAR(255) NOT NULL,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (tag) REFERENCES tags (tag_name),
     PRIMARY KEY (recipe, tag)
@@ -184,6 +221,8 @@ CREATE TABLE belongs_to_tag (
 CREATE TABLE belongs_to_theme (
     recipe VARCHAR(255) NOT NULL,
     theme VARCHAR(255) NOT NULL,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (theme) REFERENCES theme (theme_name),
     PRIMARY KEY (recipe, theme)
@@ -193,6 +232,8 @@ CREATE TABLE needs_equipment (
     recipe VARCHAR(255),
     equipment_name VARCHAR(255),
     amount INT DEFAULT 0,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (recipe, equipment_name),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (equipment_name) REFERENCES equipment (equipment_name)
@@ -203,6 +244,8 @@ CREATE TABLE has_ingredient (
     ingredient VARCHAR(255),
     fundamental_unit VARCHAR(255),
     amount INT DEFAULT 0,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (recipe, ingredient),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient_name)
@@ -216,6 +259,8 @@ CREATE TABLE dietary_info (
     total_protein INT DEFAULT 0,
     total_fats INT DEFAULT 0,
     total_calories INT DEFAULT 0,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
 
@@ -223,6 +268,8 @@ CREATE TABLE expertise_in (
     chef_name VARCHAR(50) NOT NULL,
     chef_surname VARCHAR(50) NOT NULL,
     cuisine_name VARCHAR(255) NOT NULL,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     PRIMARY KEY (
@@ -237,6 +284,8 @@ CREATE TABLE Winner (
     season INT,
     chef_surname VARCHAR(50) NOT NULL,
     chef_name VARCHAR(50) NOT NULL,
+    the_image VARCHAR(255) DEFAULT "Images/the-food-pyramid-explained_1250.jpg",
+    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (episode_num, season),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname)
 );
