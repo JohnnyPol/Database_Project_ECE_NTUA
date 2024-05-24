@@ -283,6 +283,11 @@ def index():
         elif action == "competition":
             return jsonify(results=competition(season))
 
+        elif action == "image":
+            cursor.execute("SELECT the_image FROM cuisine where cuisine_name='American'")
+            results = cursor.fetchone()
+            return send_file(results[0], mimetype="image/jpeg")
+            return jsonify(results=results)
         else:
             return jsonify(status="Connection is established")
             return send_file("../Images/cuisine/russian.jpg", mimetype="image/jpeg")
