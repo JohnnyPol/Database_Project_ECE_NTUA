@@ -1,4 +1,3 @@
--- Active: 1716632723301@@127.0.0.1@3306@masterchef_ntua_edition
 CREATE DATABASE IF NOT EXISTS Masterchef_NTUA_Edition;
 USE Masterchef_NTUA_Edition;
 DROP TABLE IF EXISTS has_recipe;
@@ -23,7 +22,6 @@ DROP TABLE IF EXISTS recipes;
 DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS food_groups;
 DROP TABLE IF EXISTS cuisine;
-
 -- -----------------------------------------
 -- Tables --
 -- -----------------------------------------
@@ -76,8 +74,8 @@ CREATE TABLE steps (
     recipe VARCHAR(255),
     step_number INT,
     step_description VARCHAR(255),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",    
+    -- the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+    -- image_description VARCHAR(255) DEFAULT "Description",    
     PRIMARY KEY (recipe, step_number),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
@@ -122,8 +120,8 @@ CREATE TABLE chefs (
         "sous chef",
         "chef"
     ),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
+    -- the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+    -- image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (chef_name, chef_surname)
 );
 
@@ -134,8 +132,8 @@ CREATE TABLE participate_in_episode_as_chef (
     chef_surname VARCHAR(50),
     cuisine_name VARCHAR(255),
     recipe_name VARCHAR(255),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
+    -- the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+   -- image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (recipe_name) REFERENCES recipes (recipe_name),
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
@@ -152,8 +150,8 @@ CREATE TABLE participate_in_episode_as_judge (
     season INT,
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
+   -- the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+    -- image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (judge_name, judge_surname) REFERENCES chefs (chef_name, chef_surname),
     PRIMARY KEY (
         episode_no,
@@ -172,8 +170,8 @@ CREATE TABLE scores (
     cuisine VARCHAR(255),
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
+    -- the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+    -- image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (
         episode_number,
         season,
@@ -192,8 +190,6 @@ CREATE TABLE has_recipe(
     chef_name VARCHAR(50),
     chef_surname VARCHAR(50),
     recipe VARCHAR(255),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     PRIMARY KEY (chef_name, chef_surname, recipe)
@@ -201,57 +197,41 @@ CREATE TABLE has_recipe(
 CREATE TABLE belongs_to_mealtype (
     recipe VARCHAR(255) NOT NULL,
     mealtype VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (mealtype) REFERENCES meal_type (mealtype_name),
     PRIMARY KEY (recipe, mealtype)
 );
-
 CREATE TABLE belongs_to_tag (
     recipe VARCHAR(255) NOT NULL,
     tag VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (tag) REFERENCES tags (tag_name),
     PRIMARY KEY (recipe, tag)
 );
-
 CREATE TABLE belongs_to_theme (
     recipe VARCHAR(255) NOT NULL,
     theme VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (theme) REFERENCES theme (theme_name),
     PRIMARY KEY (recipe, theme)
 );
-
 CREATE TABLE needs_equipment (
     recipe VARCHAR(255),
     equipment_name VARCHAR(255),
     amount INT DEFAULT 0,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (recipe, equipment_name),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (equipment_name) REFERENCES equipment (equipment_name)
 );
-
 CREATE TABLE has_ingredient (
     recipe VARCHAR(255),
     ingredient VARCHAR(255),
     fundamental_unit VARCHAR(255),
     amount INT DEFAULT 0,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (recipe, ingredient),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient_name)
 );
-
-
 CREATE TABLE dietary_info (
     recipe VARCHAR(255) PRIMARY KEY,
     dietary_category VARCHAR(255),
@@ -259,8 +239,6 @@ CREATE TABLE dietary_info (
     total_protein INT DEFAULT 0,
     total_fats INT DEFAULT 0,
     total_calories INT DEFAULT 0,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name)
 );
 
@@ -268,8 +246,6 @@ CREATE TABLE expertise_in (
     chef_name VARCHAR(50) NOT NULL,
     chef_surname VARCHAR(50) NOT NULL,
     cuisine_name VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     PRIMARY KEY (
@@ -278,43 +254,33 @@ CREATE TABLE expertise_in (
         cuisine_name
     )
 );
-
 CREATE TABLE Winner (
     episode_num INT,
     season INT,
     chef_surname VARCHAR(50) NOT NULL,
     chef_name VARCHAR(50) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (episode_num, season),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname)
 );
-
 -- -----------------------------------------
 -- Functions --
 -- -----------------------------------------
-
 -- -----------------------------------------
 -- Triggers --
 -- -----------------------------------------
 DELIMITER $$
-
 -- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
-
 CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
 BEGIN
     -- Check if the cuisine exists in the cuisine table
     DECLARE cuisineExists INT;
-
     -- Check existence
     SELECT COUNT(*) INTO cuisineExists FROM cuisine WHERE cuisine_name = NEW.cuisine_name;
-
     -- If it does not exist, insert it
     IF cuisineExists = 0 THEN
         INSERT INTO cuisine (cuisine_name) VALUES (NEW.cuisine_name);
     END IF;
 END$$
-
 -- Create a trigger when we insert the recipe to insert a new row on dietary_info
 CREATE TRIGGER GetDietaryCat AFTER INSERT ON recipes FOR EACH ROW
 BEGIN
@@ -337,7 +303,6 @@ BEGIN
     
     INSERT INTO dietary_info VALUES (recipe, Diet, 0, 0, 0, 0); 
 END$$
-
 -- Create a trigger when we insert an new row to recipe has ingredient
 CREATE TRIGGER GetDietaryInfo AFTER INSERT ON has_ingredient FOR EACH ROW
 BEGIN
@@ -378,25 +343,20 @@ BEGIN
         SET total_carbs = carbs, total_protein = protein, total_fats = fat, total_calories = cal
         WHERE recipe = new.recipe;
 	END IF;
-
     
 	 
 END$$
-
 DELIMITER ;
-
 -- -----------------------------------------
 -- INDICES --
 -- -----------------------------------------
-
 -- Create index on recipes table for recipe_name
 CREATE INDEX idx_recipe_name ON recipes(recipe_name);
-
 -- Create composite index on belongs_to_tag table for (recipe, tag)
 CREATE INDEX idx_recipe_tag ON belongs_to_tag(recipe, tag);
-
+-- Create index on participate_in_episode_as_chef table for recipe_name
+CREATE INDEX idx_participate_in_episode_as_chef ON participate_in_episode_as_chef(recipe_name);
 -- Create index on participate_in_episode_as_chef table for recipe_name
 CREATE INDEX idx_participate_recipe ON participate_in_episode_as_chef(recipe_name);
-
 -- Create index on needs_equipment table for recipe
 CREATE INDEX idx_needs_equipment_recipe ON needs_equipment(recipe);
