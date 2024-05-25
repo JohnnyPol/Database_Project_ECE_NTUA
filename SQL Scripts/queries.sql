@@ -120,7 +120,7 @@ EpisodeTagPairs AS (
         rtp.tag2,
         COUNT(DISTINCT p.episode_no, p.season) AS episode_count
     FROM RecipeTagPairs rtp
-    JOIN participate_in_episode_as_chef p USE INDEX (idx_participate_in_episode_as_chef) ON rtp.recipe_name = p.recipe_name
+    JOIN participate_in_episode_as_chef p USE INDEX (idx_participate_recipe) ON rtp.recipe_name = p.recipe_name
     GROUP BY rtp.tag1, rtp.tag2
 )
 SELECT 
@@ -149,7 +149,7 @@ EpisodeTagPairs AS (
         rtp.tag2,
         COUNT(DISTINCT p.episode_no, p.season) AS episode_count
     FROM RecipeTagPairs rtp
-    JOIN participate_in_episode_as_chef p FORCE INDEX (idx_participate_in_episode_as_chef) ON rtp.recipe_name = p.recipe_name
+    JOIN participate_in_episode_as_chef p FORCE INDEX (idx_participate_recipe) ON rtp.recipe_name = p.recipe_name
     GROUP BY rtp.tag1, rtp.tag2
 )
 SELECT 

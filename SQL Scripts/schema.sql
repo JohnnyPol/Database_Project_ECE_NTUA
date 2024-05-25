@@ -65,8 +65,8 @@ CREATE TABLE recipes (
     cooking_time TIME NOT NULL,
     servings INT,
     primary_ingredient VARCHAR(255),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
+--    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+--    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (primary_ingredient) REFERENCES ingredients (ingredient_name)
 );
@@ -395,9 +395,6 @@ CREATE INDEX idx_recipe_name ON recipes(recipe_name);
 
 -- Create composite index on belongs_to_tag table for (recipe, tag)
 CREATE INDEX idx_recipe_tag ON belongs_to_tag(recipe, tag);
-
--- Create index on participate_in_episode_as_chef table for recipe_name
-CREATE INDEX idx_participate_in_episode_as_chef ON participate_in_episode_as_chef(recipe_name);
 
 -- Create index on participate_in_episode_as_chef table for recipe_name
 CREATE INDEX idx_participate_recipe ON participate_in_episode_as_chef(recipe_name);

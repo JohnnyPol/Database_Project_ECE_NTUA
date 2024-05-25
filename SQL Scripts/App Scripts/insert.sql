@@ -1,3 +1,5 @@
+-- Active: 1716575225026@@127.0.0.1@3306@masterchef_ntua_edition
+-- Food Groups--
 INSERT INTO food_groups (food_group_name, food_group_description, dietary_analogy) VALUES 
 ('Fruits', 'Fruits are natural sources of essential vitamins, minerals, and fiber.', 'Fruitarian'),
 ('Vegetables', 'Vegetables are nutrient-dense foods packed with vitamins, minerals, and antioxidants.', 'Vegetarian'),
@@ -5,7 +7,10 @@ INSERT INTO food_groups (food_group_name, food_group_description, dietary_analog
 ('Proteins', 'Protein-rich foods are essential for building and repairing tissues in the body.', 'Protein-rich'),
 ('Dairy', 'Dairy products are rich in calcium and vitamin D, important for bone health.', 'Lacto-vegetarian'),
 ('Meat', 'Meat are animal products that are rich sources of protein and other nutrients.', 'Carnivorous'),
+('Nuts', 'Edible seeds with a hard shell', 'Healthy fats, protein-rich'),
 ('Fish', 'Seafood includes various types of fish and shellfish, rich in omega-3 fatty acids and protein.', 'Pescetarian');
+
+-- new ingredients
 
 INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
 VALUES
@@ -38,7 +43,59 @@ VALUES
     ('Crab', 0.11, 0.13, 0.1, 7, 'Fish'),
     ('Mussels', 0.11, 0.13, 0.1, 7, 'Fish');
 
+INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
+VALUES
+    ('Turkey', 6, 29, 0, 189, 'Meat'),
+    ('Quinoa', 6, 14, 64, 368, 'Grains'),
+    ('Tilapia', 2.3, 26, 0, 129, 'Fish'),
+    ('Sweet Potato', 0.1, 2, 20, 86, 'Vegetables'),
+    ('Greek Yogurt', 4, 10, 6, 73, 'Dairy'),
+    ('Almonds', 50, 21, 22, 579, 'Nuts'),
+    ('Oats', 7, 17, 66, 389, 'Grains'),
+    ('Tuna', 1.2, 28, 0, 132, 'Fish'),
+    ('Broccoli', 0.4, 2.8, 6, 34, 'Vegetables'),
+    ('Kale', 0.9, 2.9, 6, 35, 'Vegetables'),
+    ('Cottage Cheese', 4.3, 11, 3.4, 98, 'Dairy'),
+    ('Avocado', 15, 2, 9, 160, 'Fruits'),
+    ('Peanut Butter', 50, 25, 20, 588, 'Nuts'),
+    ('Spinach', 0.4, 2.9, 3.6, 23, 'Vegetables'),
+    ('Blueberries', 0.3, 1, 14, 57, 'Fruits'),
+    ('Tofu', 5, 8, 2, 76, 'Vegetables'),
+    ('Pumpkin Seeds', 49, 30, 11, 559, 'Nuts'),
+    ('Walnuts', 65, 15, 14, 654, 'Nuts'),
+    ('Asparagus', 0.2, 2.4, 4, 20, 'Vegetables'),
+    ('Pistachios', 45, 20, 28, 562, 'Nuts'),
+    ('Cauliflower', 0.3, 1.9, 5, 25, 'Vegetables'),
+    ('Blackberries', 0.5, 2, 10, 43, 'Fruits'),
+    ('Edamame', 5, 11, 8, 122, 'Vegetables'),
+    ('Chia Seeds', 31, 17, 42, 486, 'Nuts'),
+    ('Brussels Sprouts', 0.3, 3.4, 9, 38, 'Vegetables'),
+    ('Lentils', 1, 9, 20, 116, 'Vegetables'),
+    ('Hazelnuts', 61, 15, 17, 628, 'Nuts'),
+    ('Artichoke', 0.2, 2.5, 11, 47, 'Vegetables'),
+    ('Grapes', 0.2, 0.7, 18, 69, 'Fruits'),
+    ('Apricots', 0.1, 0.5, 11, 48, 'Fruits'),
+    ('Mango', 0.6, 0.8, 15, 60, 'Fruits'),
+    ('Raspberries', 0.6, 1.5, 12, 52, 'Fruits'),
+    ('Peas', 0.4, 5.4, 14, 81, 'Vegetables'),
+    ('Radish', 0.1, 0.7, 3.9, 16, 'Vegetables'),
+    ('Cucumber', 0.1, 0.6, 3.6, 16, 'Vegetables'),
+    ('Green Beans', 0.1, 1.8, 7, 31, 'Vegetables'),
+    ('Lima Beans', 0.7, 6.7, 23, 123, 'Vegetables'),
+    ('Pineapple', 0.1, 0.5, 13, 50, 'Fruits'),
+    ('Figs', 0.3, 0.8, 19, 74, 'Fruits'),
+    ('Pomegranate', 1.2, 1.7, 19, 83, 'Fruits'),
+    ('Pear', 0.1, 0.5, 15, 57, 'Fruits'),
+    ('Cashews', 44, 18, 30, 553, 'Nuts'),
+    ('Celery', 0.1, 0.7, 3, 14, 'Vegetables'),
+    ('Papaya', 0.3, 0.5, 11, 43, 'Fruits'),
+    ('Leeks', 0.3, 1.5, 14, 61, 'Vegetables'),
+    ('Plums', 0.3, 0.5, 11, 46, 'Fruits'),
+    ('Cherries', 0.3, 1, 12, 50, 'Fruits'),
+    ('Bok Choy', 0.2, 1.5, 2.2, 13, 'Vegetables');
 
+
+-- Cuisine --
 INSERT INTO cuisine (cuisine_name) VALUES
 ('American'),
 ('French'),
@@ -94,6 +151,8 @@ INSERT INTO cuisine (cuisine_name) VALUES
 ('Sri Lankan'),
 ('Tunisian');
 
+
+-- Insert into recipes table
 INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, tips1, tips2, tips3, prep_time, cooking_time, servings, primary_ingredient) VALUES
     ('Classic Cheeseburger', 'cooking', 'American', 2, 'A juicy cheeseburger with all the classic fixings.', 'Use high-quality beef for best results.', 'Toast the buns for extra flavor.', 'Melt the cheese over the patty in the pan.', '00:15:00', '00:10:00', 4, 'Ground Beef'),
     ('Coq au Vin', 'cooking', 'French', 4, 'Classic French chicken braised in wine.', 'Use a good quality red wine.', 'Cook slowly for best results.', 'Serve with mashed potatoes.', '00:20:00', '01:00:00', 4, 'Chicken'),
@@ -150,168 +209,280 @@ INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, 
     ('Sri Lankan Fish Curry', 'cooking', 'Sri Lankan', 3, 'Spicy fish curry.', 'Use fresh fish.', 'Simmer until thick.', 'Serve with coconut rice.', '00:20:00', '00:30:00', 4, 'Fish'),
     ('Brik', 'cooking', 'Tunisian', 3, 'Fried pastry with egg filling.', 'Use fresh eggs.', 'Fry until crispy.', 'Serve with lemon wedges.', '00:10:00', '00:05:00', 4, 'Egg');
 
+
+-- has_ingredients--
+-- Classic Cheeseburger
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Classic Cheeseburger', 'Ground Beef', 'Gram', 200),
        ('Classic Cheeseburger', 'Flour', 'Gram', 100);
+
+-- Coq au Vin
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Coq au Vin', 'Chicken', 'Piece', 2),
        ('Coq au Vin', 'Cheese', 'Gram', 100);
+
+-- Sweet and Sour Pork
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sweet and Sour Pork', 'Pork', 'Gram', 300),
        ('Sweet and Sour Pork', 'Rice', 'Gram', 200);
+
+-- Spaghetti Carbonara
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Spaghetti Carbonara', 'Spaghetti', 'Gram', 300),
        ('Spaghetti Carbonara', 'Black Beans', 'Gram', 150);
+
+-- Tacos
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tacos', 'Ground Beef', 'Gram', 250),
        ('Tacos', 'Salmon', 'Gram', 200);
+
+-- Pad Thai
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Pad Thai', 'Rice Noodles', 'Gram', 200),
        ('Pad Thai', 'Cheese', 'Gram', 100);
+
+-- Fish and Chips
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Fish and Chips', 'Cod', 'Gram', 300),
        ('Fish and Chips', 'Chickpeas', 'Gram', 200);
+
+-- Sushi Rolls
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sushi Rolls', 'Sushi Rice', 'Gram', 200),
        ('Sushi Rolls', 'Egg', 'Piece', 2);
+
+-- Chicken Curry
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Chicken Curry', 'Chicken', 'Piece', 2),
        ('Chicken Curry', 'Mussels', 'Gram', 200);
+
+-- Hummus
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Hummus', 'Chickpeas', 'Gram', 300),
        ('Hummus', 'Beef', 'Gram', 200);
+
+-- Gravlax
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Gravlax', 'Salmon', 'Gram', 300),
        ('Gravlax', 'Rice Noodles', 'Gram', 200);
+
+-- Beef Stroganoff
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Beef Stroganoff', 'Beef', 'Gram', 300),
        ('Beef Stroganoff', 'Cod', 'Gram', 200);
+
+-- Paella
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Paella', 'Rice', 'Gram', 300),
        ('Paella', 'Parsley', 'Gram', 200);
+
+-- Moussaka
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Moussaka', 'Eggplant', 'Piece', 2),
        ('Moussaka', 'Cheese', 'Gram', 200);
+
+-- Ceviche
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Ceviche', 'Fish', 'Gram', 300),
        ('Ceviche', 'Tomatoes', 'Gram', 200);
+
+-- Asado
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Asado', 'Beef', 'Gram', 300),
        ('Asado', 'Rice Noodles', 'Gram', 200);
+
+-- Tagine
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tagine', 'Lamb', 'Gram', 300),
        ('Tagine', 'Parsley', 'Gram', 200);
+
+-- Jambalaya
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jambalaya', 'Rice', 'Gram', 300),
        ('Jambalaya', 'Beef', 'Gram', 200);
+
+-- Sauerbraten
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sauerbraten', 'Beef', 'Gram', 300),
        ('Sauerbraten', 'Beetroot', 'Gram', 200);
+
+-- Bibimbap
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Bibimbap', 'Rice', 'Gram', 300),
        ('Bibimbap', 'Eggplant', 'Gram', 200);
+
+-- Pho
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Pho', 'Rice Noodles', 'Gram', 300),
        ('Pho', 'Cheese', 'Gram', 200);
+-- Feijoada
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Feijoada', 'Black Beans', 'Gram', 300),
        ('Feijoada', 'Beef', 'Gram', 200);
+
+-- Kebabs
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Kebabs', 'Lamb', 'Gram', 300),
        ('Kebabs', 'Parsley', 'Gram', 200);
+
+-- Grilled Barramundi
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Grilled Barramundi', 'Barramundi', 'Gram', 300),
        ('Grilled Barramundi', 'Flour', 'Gram', 200);
+
+-- Grilled Vegetables
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Grilled Vegetables', 'Mixed Vegetables', 'Gram', 300),
        ('Grilled Vegetables', 'Egg', 'Piece', 2);
+
+-- Jerk Chicken
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jerk Chicken', 'Chicken', 'Piece', 2),
        ('Jerk Chicken', 'Ground Beef', 'Gram', 200);
+
+-- Irish Stew
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Irish Stew', 'Lamb', 'Gram', 300),
        ('Irish Stew', 'Rice Noodles', 'Gram', 200);
+
+-- Swedish Meatballs
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Swedish Meatballs', 'Beef', 'Gram', 300),
        ('Swedish Meatballs', 'Cheese', 'Gram', 200);
+
+-- Bacalhau à Brás
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Bacalhau à Brás', 'Saltfish', 'Gram', 300),
        ('Bacalhau à Brás', 'Beef', 'Gram', 200);
+-- Jollof Rice
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jollof Rice', 'Rice', 'Gram', 300),
        ('Jollof Rice', 'Beef', 'Gram', 200);
+
+-- Shakshuka
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Shakshuka', 'Tomatoes', 'Gram', 300),
        ('Shakshuka', 'Rice Noodles', 'Gram', 200);
+
+-- Adobo
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Adobo', 'Pork', 'Gram', 300),
        ('Adobo', 'Lamb', 'Gram', 200);
+
+-- Nasi Goreng
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Nasi Goreng', 'Rice', 'Gram', 300),
        ('Nasi Goreng', 'Chickpeas', 'Gram', 200);
+
+-- Laksa
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Laksa', 'Rice Noodles', 'Gram', 300),
        ('Laksa', 'Fish', 'Gram', 200);
+
+-- Fondue
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Fondue', 'Cheese', 'Gram', 300),
        ('Fondue', 'Chicken', 'Piece', 2);
+
+-- Tom Yum Soup
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tom Yum Soup', 'Shrimp', 'Gram', 300),
        ('Tom Yum Soup', 'Parsley', 'Gram', 200);
+
+-- Tabbouleh
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tabbouleh', 'Parsley', 'Gram', 300),
        ('Tabbouleh', 'Beef', 'Gram', 200);
+
+-- Pierogi
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Pierogi', 'Flour', 'Gram', 300),
        ('Pierogi', 'Fish', 'Gram', 200);
+
+-- Doro Wat
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Doro Wat', 'Chicken', 'Piece', 2),
        ('Doro Wat', 'Mussels', 'Gram', 200);
+
+-- Ropa Vieja
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Ropa Vieja', 'Beef', 'Gram', 300),
        ('Ropa Vieja', 'Chickpeas', 'Gram', 200);
+
+-- Karjalanpaisti
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Karjalanpaisti', 'Beef', 'Gram', 300),
        ('Karjalanpaisti', 'Rice', 'Gram', 200);
+
+-- Ackee and Saltfish
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Ackee and Saltfish', 'Saltfish', 'Gram', 300),
        ('Ackee and Saltfish', 'Black Beans', 'Gram', 200);
+
+-- Momo
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Momo', 'Flour', 'Gram', 300),
        ('Momo', 'Cheese', 'Gram', 200);
+
+-- Poke Bowl
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Poke Bowl', 'Fish', 'Gram', 300),
        ('Poke Bowl', 'Rice', 'Gram', 200);
+
+-- Rabbit Stew
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Rabbit Stew', 'Rabbit', 'Piece', 2),
        ('Rabbit Stew', 'Beef', 'Gram', 200);
+
+-- Chilli Crab
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Chilli Crab', 'Crab', 'Gram', 300),
        ('Chilli Crab', 'Chicken', 'Piece', 2);
+
+-- Moules-Frites
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Moules-Frites', 'Mussels', 'Gram', 300),
        ('Moules-Frites', 'Egg', 'Piece', 2);
+
+-- Jollof Rice Nigerian
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jollof Rice Nigerian', 'Rice', 'Gram', 300),
        ('Jollof Rice Nigerian', 'Beef', 'Gram', 200);
+
+-- Khachapuri
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Khachapuri', 'Cheese', 'Gram', 300),
        ('Khachapuri', 'Rice', 'Gram', 200);
+
+-- Borscht
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Borscht', 'Beetroot', 'Gram', 300),
        ('Borscht', 'Parsley', 'Gram', 200);
+
+-- Chicken Korma
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Chicken Korma', 'Chicken', 'Piece', 2),
        ('Chicken Korma', 'Beef', 'Gram', 200);
+
+-- Amok
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Amok', 'Fish', 'Gram', 300),
        ('Amok', 'Beef', 'Gram', 200);
+
+-- Sri Lankan Fish Curry
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sri Lankan Fish Curry', 'Fish', 'Gram', 300),
        ('Sri Lankan Fish Curry', 'Rice', 'Gram', 200);
+
+-- Brik
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Brik', 'Egg', 'Piece', 2),
        ('Brik', 'Flour', 'Gram', 200);
+
+
+
+
+-- Chefs --
 
 INSERT INTO chefs VALUES("Dimitris", "Tsoumakos", 1000000000, '1980-12-12', 44,10, "chef");
 INSERT INTO chefs VALUES("Dimitris", "Fotakis", 1000000000, '1971-12-12', 53, 20, "chef");
@@ -368,6 +539,10 @@ INSERT INTO chefs VALUES ('Yiannis', 'Tzavellas', 2106781234, '1987-07-08', 36, 
 INSERT INTO chefs VALUES ('Dimitris', 'Papageorgiou', 6905672345, '1978-09-15', 45, 22, 'chef');
 INSERT INTO chefs VALUES ('Eleni', 'Panagiotopoulou', 2107891234, '1990-06-10', 33, 12, '1st cook');
 INSERT INTO chefs VALUES ('Nikos', 'Petros', 2108902345, '1982-12-15', 41, 19, 'sous chef');
+
+
+
+-- Expertise_in --
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Dimitris', 'Tsoumakos', 'American'),
 ('Dimitris', 'Fotakis', 'French'),
@@ -423,6 +598,8 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Yiannis', 'Tzavellas', 'Cambodian'),
 ('Dimitris', 'Papageorgiou', 'Sri Lankan'),
 ('Eleni', 'Panagiotopoulou', 'Tunisian');
+
+-- Equipment--
 INSERT INTO equipment (equipment_name, instructions) VALUES
 ('Knife', 'Use for cutting and chopping ingredients.'),
 ('Cutting Board', 'Place ingredients on for cutting.'),
@@ -444,6 +621,8 @@ INSERT INTO equipment (equipment_name, instructions) VALUES
 ('Pastry Brush', 'Use for applying egg wash or glaze.'),
 ('Grater', 'Use for grating cheese, vegetables, or other ingredients.'),
 ('Peeler', 'Use for peeling fruits and vegetables.');
+
+-- theme--
 INSERT INTO theme (theme_name, theme_description) VALUES
 ('Romantic', 'Perfect for a date night.'),
 ('Family-friendly', 'Recipes suitable for the whole family.'),
@@ -454,7 +633,10 @@ INSERT INTO theme (theme_name, theme_description) VALUES
 ('Vegan', 'Recipes without any animal products.'),
 ('Gluten-Free', 'Recipes suitable for individuals with gluten intolerance.'),
 ('Low-Carb', 'Recipes with reduced carbohydrate content.'),
-('Budget-Friendly', 'Recipes that are affordable to make.');
+('Budget-Friendly', 'Recipes that are affordable to make.'),
+('Sugar bomb', 'Recipes with enough sugar to cause diabetes');
+
+-- mealtype--
 INSERT INTO meal_type (mealtype_name) VALUES
 ('Breakfast'),
 ('Brunch'),
@@ -466,6 +648,8 @@ INSERT INTO meal_type (mealtype_name) VALUES
 ('Dessert'),
 ('Snack'),
 ('Beverage');
+
+-- tags--
 INSERT INTO tags (tag_name) VALUES
 ('Easy'),
 ('Healthy'),
@@ -478,6 +662,8 @@ INSERT INTO tags (tag_name) VALUES
 ('Dairy-Free'),
 ('One-Pot');
 
+
+-- Steps --
 INSERT INTO steps VALUES("Classic Cheeseburger", 1, "Toast the buns");
 INSERT INTO steps VALUES("Classic Cheeseburger", 2, "Order it best");
 INSERT INTO steps VALUES("Coq au Vin", 1, "Pull the feathers off");
@@ -537,6 +723,7 @@ INSERT INTO steps VALUES("Amok", 1, "Do it");
 INSERT INTO steps VALUES("Sri Lankan Fish Curry", 1, "Do it");
 INSERT INTO steps VALUES("Brik", 1, "Do it");
 
+-- Belongs to Mealtype --
 INSERT INTO belongs_to_mealtype VALUES("Classic Cheeseburger", "Lunch");
 INSERT INTO belongs_to_mealtype VALUES("Coq au Vin", "Main Course");
 INSERT INTO belongs_to_mealtype VALUES("Sweet and Sour Pork", "Dinner");
@@ -592,12 +779,16 @@ INSERT INTO belongs_to_mealtype VALUES("Amok", "Main Course");
 INSERT INTO belongs_to_mealtype VALUES("Sri Lankan Fish Curry", "Main Course");
 INSERT INTO belongs_to_mealtype VALUES("Brik", "Appetizer");
 
+-- Belongs to Tag -- 
 INSERT INTO belongs_to_tag VALUES("Sweet and Sour Pork", "High-Protein");
+INSERT INTO belongs_to_tag VALUES("Sweet and Sour Pork", "Easy");
+INSERT INTO belongs_to_tag VALUES("Sweet and Sour Pork", "Quick");
 INSERT INTO belongs_to_tag VALUES("Spaghetti Carbonara", "Easy");
 INSERT INTO belongs_to_tag VALUES("Spaghetti Carbonara", "Kid-Friendly");
 INSERT INTO belongs_to_tag VALUES("Tacos", "Kid-Friendly");
 INSERT INTO belongs_to_tag VALUES("Tacos", "High-Protein");
 INSERT INTO belongs_to_tag VALUES("Pad Thai", "Quick");
+INSERT INTO belongs_to_tag VALUES("Pad Thai", "Easy");
 INSERT INTO belongs_to_tag VALUES("Fish and Chips", "Kid-Friendly");
 INSERT INTO belongs_to_tag VALUES("Sushi Rolls", "Gluten-Free");
 INSERT INTO belongs_to_tag VALUES("Chicken Curry", "Easy");
@@ -618,6 +809,7 @@ INSERT INTO belongs_to_tag VALUES("Bibimbap", "Quick");
 INSERT INTO belongs_to_tag VALUES("Pho", "Healthy");
 INSERT INTO belongs_to_tag VALUES("Feijoada", "High-Protein");
 INSERT INTO belongs_to_tag VALUES("Kebabs", "Quick");
+INSERT INTO belongs_to_tag VALUES("Kebabs", "Easy");
 INSERT INTO belongs_to_tag VALUES("Grilled Barramundi", "Healthy");
 INSERT INTO belongs_to_tag VALUES("Grilled Vegetables", "Vegetarian");
 INSERT INTO belongs_to_tag VALUES("Jerk Chicken", "Kid-Friendly");
@@ -633,6 +825,7 @@ INSERT INTO belongs_to_tag VALUES("Fondue", "Easy");
 INSERT INTO belongs_to_tag VALUES("Tom Yum Soup", "Low-Calorie");
 INSERT INTO belongs_to_tag VALUES("Tabbouleh", "Healthy");
 INSERT INTO belongs_to_tag VALUES("Pierogi", "Vegetarian");
+INSERT INTO belongs_to_tag VALUES("Pierogi", "Healthy");
 INSERT INTO belongs_to_tag VALUES("Doro Wat", "High-Protein");
 INSERT INTO belongs_to_tag VALUES("Ropa Vieja", "One-Pot");
 INSERT INTO belongs_to_tag VALUES("Karjalanpaisti", "Gluten-Free");
@@ -649,9 +842,11 @@ INSERT INTO belongs_to_tag VALUES("Khachapuri", "Kid-Friendly");
 INSERT INTO belongs_to_tag VALUES("Borscht", "Vegetarian");
 INSERT INTO belongs_to_tag VALUES("Chicken Korma", "Gluten-Free");
 INSERT INTO belongs_to_tag VALUES("Amok", "Quick");
+INSERT INTO belongs_to_tag VALUES("Amok", "Easy");
 INSERT INTO belongs_to_tag VALUES("Sri Lankan Fish Curry", "High-Protein");
 INSERT INTO belongs_to_tag VALUES("Brik", "Vegetarian");
 
+-- Belongs to theme --
 INSERT INTO belongs_to_theme VALUES("Sweet and Sour Pork", "Comfort Food");
 INSERT INTO belongs_to_theme VALUES("Spaghetti Carbonara", "Quick & Easy");
 INSERT INTO belongs_to_theme VALUES("Tacos", "Family-friendly");
@@ -708,19 +903,24 @@ INSERT INTO belongs_to_theme VALUES("Brik", "Vegetarian");
 INSERT INTO belongs_to_theme VALUES("Brik", "Healthy");
 INSERT INTO belongs_to_theme VALUES("Brik", "Family-friendly");
 
+-- Needs Equipment -- 
 INSERT INTO needs_equipment VALUES("Sweet and Sour Pork", "Knife", 1);
+INSERT INTO needs_equipment VALUES("Sweet and Sour Pork", "Frying Pan", 1);
 INSERT INTO needs_equipment VALUES("Spaghetti Carbonara", "Saucepan", 1);
-INSERT INTO needs_equipment VALUES("Tacos", "Frying Pan", 1);
+INSERT INTO needs_equipment VALUES("Spaghetti Carbonara", "Whisk", 1);
+INSERT INTO needs_equipment VALUES("Spaghetti Carbonara", "Knife", 2);
+INSERT INTO needs_equipment VALUES("Tacos", "Frying Pan", 2);
 INSERT INTO needs_equipment VALUES("Pad Thai", "Saucepan", 1);
 INSERT INTO needs_equipment VALUES("Fish and Chips", "Frying Pan", 1);
-INSERT INTO needs_equipment VALUES("Sushi Rolls", "Knife", 1);
+INSERT INTO needs_equipment VALUES("Sushi Rolls", "Knife", 2);
 INSERT INTO needs_equipment VALUES("Chicken Curry", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Chicken Curry", "Knife", 3);
 INSERT INTO needs_equipment VALUES("Hummus", "Food Processor", 1);
 INSERT INTO needs_equipment VALUES("Gravlax", "Knife", 1);
 INSERT INTO needs_equipment VALUES("Beef Stroganoff", "Saucepan", 1);
 INSERT INTO needs_equipment VALUES("Paella", "Frying Pan", 1);
-INSERT INTO needs_equipment VALUES("Moussaka", "Whisk", 1);
-INSERT INTO needs_equipment VALUES("Ceviche", "Mixing Bowl", 1);
+INSERT INTO needs_equipment VALUES("Moussaka", "Whisk", 5);
+INSERT INTO needs_equipment VALUES("Ceviche", "Mixing Bowl", 2);
 INSERT INTO needs_equipment VALUES("Asado", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Tagine", "Ladle", 1);
 INSERT INTO needs_equipment VALUES("Jambalaya", "Oven", 1);
@@ -728,9 +928,11 @@ INSERT INTO needs_equipment VALUES("Sauerbraten", "Frying Pan", 1);
 INSERT INTO needs_equipment VALUES("Bibimbap", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Pho", "Ladle", 1);
 INSERT INTO needs_equipment VALUES("Feijoada", "Oven", 1);
+INSERT INTO needs_equipment VALUES("Feijoada", "Mixing Bowl", 2);
 INSERT INTO needs_equipment VALUES("Kebabs", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Grilled Barramundi", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Grilled Vegetables", "Grill", 1);
+INSERT INTO needs_equipment VALUES("Grilled Vegetables", "Peeler", 1);
 INSERT INTO needs_equipment VALUES("Jerk Chicken", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Irish Stew", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Swedish Meatballs", "Ladle", 1);
@@ -742,6 +944,7 @@ INSERT INTO needs_equipment VALUES("Nasi Goreng", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Laksa", "Saucepan", 1);
 INSERT INTO needs_equipment VALUES("Fondue", "Ladle", 1);
 INSERT INTO needs_equipment VALUES("Tom Yum Soup", "Oven", 1);
+INSERT INTO needs_equipment VALUES("Tom Yum Soup", "Mixing Bowl", 2);
 INSERT INTO needs_equipment VALUES("Tabbouleh", "Mixing Bowl", 1);
 INSERT INTO needs_equipment VALUES("Pierogi", "Mixing Bowl", 1);
 INSERT INTO needs_equipment VALUES("Doro Wat", "Oven", 1);
@@ -749,17 +952,21 @@ INSERT INTO needs_equipment VALUES("Ropa Vieja", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Karjalanpaisti", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Ackee and Saltfish", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Momo", "Grill", 1);
-INSERT INTO needs_equipment VALUES("Poke Bowl", "Mixing Bowl", 1);
+INSERT INTO needs_equipment VALUES("Poke Bowl", "Mixing Bowl", 2);
 INSERT INTO needs_equipment VALUES("Rabbit Stew", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Chilli Crab", "Ladle", 1);
 INSERT INTO needs_equipment VALUES("Moules-Frites", "Mixing Bowl", 1);
 INSERT INTO needs_equipment VALUES("Jollof Rice Nigerian", "Ladle", 1);
 INSERT INTO needs_equipment VALUES("Khachapuri", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Borscht", "Peeler", 1);
+INSERT INTO needs_equipment VALUES("Borscht", "Saucepan", 1);
+INSERT INTO needs_equipment VALUES("Borscht", "Frying Pan", 1);
 INSERT INTO needs_equipment VALUES("Chicken Korma", "Saucepan", 1);
-INSERT INTO needs_equipment VALUES("Amok", "Baking Sheet", 1);
+INSERT INTO needs_equipment VALUES("Amok", "Baking Sheet", 3);
+INSERT INTO needs_equipment VALUES("Amok", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Sri Lankan Fish Curry", "Saucepan", 1);
 INSERT INTO needs_equipment VALUES("Sri Lankan Fish Curry", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Brik", "Grill", 1);
 INSERT INTO needs_equipment VALUES("Brik", "Oven", 1);
 INSERT INTO needs_equipment VALUES("Brik", "Saucepan", 1);
+
