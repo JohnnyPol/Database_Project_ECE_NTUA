@@ -288,6 +288,15 @@ def index():
             results = cursor.fetchone()
             return send_file(results[0], mimetype="image/jpeg")
             return jsonify(results=results)
+        elif len(request.args) != 0:
+            return jsonify(
+                message=[
+                    "Invalid Parameters",
+                    "Valid URLs:",
+                    "localhost:3000/?action=create_database",
+                    "localhost:3000/?action=competition&season=<season_number>"
+                ]
+            ), 400
         else:
             return jsonify(status="Connection is established")
             return send_file("../Images/cuisine/russian.jpg", mimetype="image/jpeg")
