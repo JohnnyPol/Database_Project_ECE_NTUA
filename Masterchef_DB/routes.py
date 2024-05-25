@@ -88,7 +88,7 @@ def competition(season):
                 else:
                     all_recipes.append(recipe)
                     break
-
+        
         for k in range(number_of_judges):
             while True:
 
@@ -113,6 +113,8 @@ def competition(season):
                 else:
                     all_judges.append(judge)
                     break
+        
+        
         insert_judge_query = f"""
         INSERT INTO participate_in_episode_as_judge
         VALUES (%s, %s, %s, %s)
@@ -232,7 +234,8 @@ def competition(season):
             ),
         )
         db.connection.commit()
-    return all_judges
+    return all_chefs
+
 
 def Create_Database(cursor):
     ## Create tables and indexes
