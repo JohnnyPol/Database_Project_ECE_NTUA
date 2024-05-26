@@ -11,7 +11,7 @@ def competition(season):
     all_chefs = []
     all_recipes = []
     all_judges = []
-    number_of_cuisines = 10
+    number_of_cuisines = 5
     number_of_judges = 3
     for i in range(10):
         first = max(0, (i - 3))
@@ -108,7 +108,7 @@ def competition(season):
                     all_judges.append(judge)
                     break
         
-        '''
+        
         insert_judge_query = f"""
         INSERT INTO participate_in_episode_as_judge
         VALUES (%s, %s, %s, %s)
@@ -228,7 +228,7 @@ def competition(season):
             ),
         )
         db.connection.commit()
-        '''
+        
     return all_chefs
 
 def Create_Database(cursor):
