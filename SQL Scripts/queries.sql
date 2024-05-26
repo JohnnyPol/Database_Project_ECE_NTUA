@@ -8,7 +8,7 @@ FROM scores
 GROUP BY cuisine;
 
 -- Question 3.2 --
-SELECT 
+SELECT DISTINCT
     ec.chef_name,
     ec.chef_surname,
     CASE 
@@ -24,10 +24,10 @@ LEFT JOIN
     AND pe.season = 4
 WHERE 
     ec.cuisine_name = 'Japanese'
-GROUP BY 
+ORDER BY 
+	participation_status,
     ec.chef_name,
-    ec.chef_surname,
-    participation_status;
+    ec.chef_surname;
 
 -- Question 3.3
 
@@ -70,7 +70,7 @@ WHERE (chef_name, chef_surname) NOT IN (
 -- Question 3.5 --
 SELECT judge_name, judge_surname, COUNT(*) AS appearance_count
 FROM participate_in_episode_as_judge
-WHERE season = 2
+WHERE season = 1
 GROUP BY judge_name, judge_surname
 HAVING COUNT(*) > 3;
 
@@ -104,6 +104,7 @@ FROM EpisodeTagPairs etp
 ORDER BY etp.episode_count DESC
 LIMIT 3;
 
+-- Query Plan with force index
 WITH RecipeTagPairs AS (
     SELECT 
         r.recipe_name,
@@ -132,6 +133,34 @@ ORDER BY etp.episode_count DESC
 LIMIT 3;
 
 -- View the query execution plan --
+EXPLAIN
+WITH RecipeTagPairs AS (
+    SELECT 
+        r.recipe_name,
+        t1.tag AS tag1,
+        t2.tag AS tag2
+    FROM recipes r
+    JOIN belongs_to_tag t1 ON r.recipe_name = t1.recipe
+    JOIN belongs_to_tag t2 ON r.recipe_name = t2.recipe
+    WHERE t1.tag < t2.tag
+),
+EpisodeTagPairs AS (
+    SELECT 
+        rtp.tag1,
+        rtp.tag2,
+        COUNT(DISTINCT p.episode_no, p.season) AS episode_count
+    FROM RecipeTagPairs rtp
+    JOIN participate_in_episode_as_chef p ON rtp.recipe_name = p.recipe_name
+    GROUP BY rtp.tag1, rtp.tag2
+)
+SELECT 
+    etp.tag1,
+    etp.tag2,
+    etp.episode_count
+FROM EpisodeTagPairs etp
+ORDER BY etp.episode_count DESC
+LIMIT 3;
+
 EXPLAIN
 WITH RecipeTagPairs AS (
     SELECT 
@@ -171,7 +200,31 @@ MaxEpisodeCount AS (
     SELECT MAX(episode_count) AS max_count
     FROM ChefEpisodeCounts
 )
-SELECT c.chef_name, c.chef_surname
+SELECT c.chef_name, c.chef_surname, episode_count
+FROM ChefEpisodeCounts c, MaxEpisodeCount m
+WHERE c.episode_count <= m.max_count - 5;
+
+-- Alternative that counts judges
+WITH ChefEpisodeCounts AS (
+    SELECT chef_name, chef_surname, SUM(appearances) AS episode_count
+	FROM (
+		SELECT chef_name, chef_surname, COUNT(*) AS appearances
+		FROM participate_in_episode_as_chef 
+		GROUP BY chef_name, chef_surname
+		
+		UNION ALL
+		
+		SELECT judge_name, judge_surname, COUNT(*) AS appearances
+		FROM participate_in_episode_as_judge
+		GROUP BY judge_name, judge_surname
+	) AS combined_results
+	GROUP BY chef_name, chef_surname
+),
+MaxEpisodeCount AS (
+    SELECT MAX(episode_count) AS max_count
+    FROM ChefEpisodeCounts
+)
+SELECT c.chef_name, c.chef_surname, episode_count
 FROM ChefEpisodeCounts c, MaxEpisodeCount m
 WHERE c.episode_count <= m.max_count - 5;
 
@@ -212,6 +265,21 @@ ORDER BY eec.equipment_count DESC
 LIMIT 1;
 
 -- View the query execution plan --
+EXPLAIN
+WITH EpisodeEquipmentCount AS (
+    SELECT
+        p.episode_no,
+        p.season,
+        COUNT(ne.equipment_name) AS equipment_count
+    FROM participate_in_episode_as_chef p
+    JOIN needs_equipment ne ON p.recipe_name = ne.recipe
+    GROUP BY p.episode_no, p.season
+)
+SELECT *
+FROM EpisodeEquipmentCount eec
+ORDER BY eec.equipment_count DESC
+LIMIT 1;
+
 EXPLAIN
 WITH EpisodeEquipmentCount AS (
     SELECT
@@ -413,6 +481,3 @@ LEFT JOIN (
 ON fg.food_group_name = appeared_food_groups.food_group_name
 -- Step 3: Find food groups that have never appeared
 WHERE appeared_food_groups.food_group_name IS NULL;
-
-
-
