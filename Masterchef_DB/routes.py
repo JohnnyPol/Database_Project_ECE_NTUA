@@ -1,8 +1,6 @@
 from flask import jsonify, request, send_file
 from Masterchef_DB import app, db
-from datetime import timedelta
 from random import randint
-
 
 def competition(season):
     exp = {"chef": 5, "sous chef": 4, "1st cook": 3, "2nd cook": 2, "3rd cook": 1}
@@ -107,8 +105,7 @@ def competition(season):
                 else:
                     all_judges.append(judge)
                     break
-        
-        
+             
         insert_judge_query = f"""
         INSERT INTO participate_in_episode_as_judge
         VALUES (%s, %s, %s, %s)
@@ -157,8 +154,6 @@ def competition(season):
                 ),
             )
             db.connection.commit()
-
-
 
         insert_score_query = f"""
         INSERT INTO scores
@@ -268,6 +263,7 @@ def index():
         action = request.args.get("action")
         season = request.args.get("season")
         cursor = db.connection.cursor() 
+
         if action == "create_database":
             Create_Database(cursor)
             return jsonify(results="Database Created Successfully")
@@ -279,19 +275,19 @@ def index():
             cursor.execute("SELECT the_image FROM cuisine where cuisine_name='American'")
             results = cursor.fetchone()
             return send_file(results[0], mimetype="image/jpeg")
-            return jsonify(results=results)
+        
         elif len(request.args) != 0:
             return jsonify(
                 message=[
                     "Invalid Parameters",
                     "Valid URLs:",
                     "localhost:3000/?action=create_database",
-                    "localhost:3000/?action=competition&season=<season_number>"
+                    "localhost:3000/?action=competition&season=<season_number>",
+                    "localhost:3000/?action=image"
                 ]
             ), 400
         else:
             return jsonify(status="Connection is established")
-            return send_file("../Images/cuisine/russian.jpg", mimetype="image/jpeg")
-
+        
     except Exception as e:
         return jsonify(error_message="{}".format(str(e))), 500
