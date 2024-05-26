@@ -1,6 +1,6 @@
 {
-    "MYSQL_USER": "ntua",
-    "MYSQL_PASSWORD": "ecentua1234",
+    "MYSQL_USER": "your username (we recommend choosing the root user)",
+    "MYSQL_PASSWORD": "password of that user",
     "MYSQL_DB": "masterchef_ntua_edition",
     "MYSQL_HOST": "localhost"
 }
