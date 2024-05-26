@@ -275,15 +275,12 @@ DELIMITER $$
 
 -- Create a trigger where when we create the recipe we add the cuisine to the cuisine table
 
-CREATE TRIGGER BeforeInsertRecipe BEFORE INSERT ON recipes FOR EACH ROW
+CREATE TRIGGER BeforeInsertRecipe 
+BEFORE INSERT ON recipes 
+FOR EACH ROW
 BEGIN
-    -- Check if the cuisine exists in the cuisine table
     DECLARE cuisineExists INT;
-
-    -- Check existence
     SELECT COUNT(*) INTO cuisineExists FROM cuisine WHERE cuisine_name = NEW.cuisine_name;
-
-    -- If it does not exist, insert it
     IF cuisineExists = 0 THEN
         INSERT INTO cuisine (cuisine_name) VALUES (NEW.cuisine_name);
     END IF;
@@ -309,7 +306,8 @@ BEGIN
     FROM food_groups
     WHERE food_group_name = cat;
     
-    INSERT INTO dietary_info VALUES (recipe, Diet, 0, 0, 0, 0); 
+   INSERT INTO dietary_info(recipe, dietary_category, total_carbs, total_protein, total_fats, total_calories)
+   VALUES (recipe, Diet, 0, 0, 0, 0); 
 END$$
 
 -- Create a trigger when we insert an new row to recipe has ingredient
@@ -351,10 +349,7 @@ BEGIN
         UPDATE dietary_info
         SET total_carbs = carbs, total_protein = protein, total_fats = fat, total_calories = cal
         WHERE recipe = new.recipe;
-	END IF;
-
-    
-	 
+	END IF;	 
 END$$
 
 DELIMITER ;
@@ -362,15 +357,24 @@ DELIMITER ;
 -- -----------------------------------------
 -- INDICES --
 -- -----------------------------------------
-
--- Create index on recipes table for recipe_name
 CREATE INDEX idx_recipe_name ON recipes(recipe_name);
 
--- Create composite index on belongs_to_tag table for (recipe, tag)
 CREATE INDEX idx_recipe_tag ON belongs_to_tag(recipe, tag);
 
--- Create index on participate_in_episode_as_chef table for recipe_name
 CREATE INDEX idx_participate_recipe ON participate_in_episode_as_chef(recipe_name);
 
--- Create index on needs_equipment table for recipe
 CREATE INDEX idx_needs_equipment_recipe ON needs_equipment(recipe);
+
+CREATE INDEX three_one_a ON scores(chef_name,chef_surname);
+
+CREATE INDEX three_one_b ON scores(cuisine);
+
+CREATE INDEX three_three ON chefs(age);
+
+CREATE INDEX chef_participation_a ON participate_in_episode_as_chef(season);
+
+CREATE INDEX chef_participation_b ON participate_in_episode_as_chef(chef_name,chef_surname);
+
+CREATE INDEX judge_participation_a ON participate_in_episode_as_judge(season);
+
+CREATE INDEX judge_participation_b ON participate_in_episode_as_judge(judge_name,judge_surname);

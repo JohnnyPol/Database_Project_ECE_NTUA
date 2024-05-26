@@ -271,3 +271,17 @@ CREATE INDEX idx_recipe_tag ON belongs_to_tag(recipe, tag);
 CREATE INDEX idx_participate_recipe ON participate_in_episode_as_chef(recipe_name);
 
 CREATE INDEX idx_needs_equipment_recipe ON needs_equipment(recipe);
+
+CREATE INDEX three_one_a ON scores(chef_name,chef_surname);
+
+CREATE INDEX three_one_b ON scores(cuisine);
+
+CREATE INDEX three_three ON chefs(age);
+
+CREATE INDEX chef_participation_a ON participate_in_episode_as_chef(season);
+
+CREATE INDEX chef_participation_b ON participate_in_episode_as_chef(chef_name,chef_surname);
+
+CREATE INDEX judge_participation_a ON participate_in_episode_as_judge(season);
+
+CREATE INDEX judge_participation_b ON participate_in_episode_as_judge(judge_name,judge_surname);
