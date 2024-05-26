@@ -1,5 +1,3 @@
--- Active: 1716632723301@@127.0.0.1@3306@masterchef_ntua_edition
--- Food Groups--
 INSERT INTO food_groups (food_group_name, food_group_description, dietary_analogy) VALUES 
 ('Fruits', 'Fruits are natural sources of essential vitamins, minerals, and fiber.', 'Fruitarian'),
 ('Vegetables', 'Vegetables are nutrient-dense foods packed with vitamins, minerals, and antioxidants.', 'Vegetarian'),
@@ -10,7 +8,7 @@ INSERT INTO food_groups (food_group_name, food_group_description, dietary_analog
 ('Nuts', 'Edible seeds with a hard shell', 'Healthy fats, protein-rich'),
 ('Fish', 'Seafood includes various types of fish and shellfish, rich in omega-3 fatty acids and protein.', 'Pescetarian');
 
--- new ingredients
+
 
 INSERT INTO ingredients (ingredient_name, fats_per_fund_SI, protein_per_fund_SI, carbs_per_fund_SI, calories_per_fund_SI, food_group_name)
 VALUES
@@ -95,7 +93,7 @@ VALUES
     ('Bok Choy', 0.2, 1.5, 2.2, 13, 'Vegetables');
 
 
--- Cuisine --
+
 INSERT INTO cuisine (cuisine_name) VALUES
 ('American'),
 ('French'),
@@ -152,7 +150,7 @@ INSERT INTO cuisine (cuisine_name) VALUES
 ('Tunisian');
 
 
--- Insert into recipes table
+
 
 INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, tips1, tips2, tips3, prep_time, cooking_time, servings, primary_ingredient) VALUES
     ('Classic Cheeseburger', 'cooking', 'American', 2, 'A juicy cheeseburger with all the classic fixings.', 'Use high-quality beef for best results.', 'Toast the buns for extra flavor.', 'Melt the cheese over the patty in the pan.', '00:15:00', '00:10:00', 4, 'Ground Beef'),
@@ -211,271 +209,218 @@ INSERT INTO recipes (recipe_name, kind, cuisine_name, difficulty, descriptions, 
     ('Brik', 'cooking', 'Tunisian', 3, 'Fried pastry with egg filling.', 'Use fresh eggs.', 'Fry until crispy.', 'Serve with lemon wedges.', '00:10:00', '00:05:00', 4, 'Egg');
 
 
--- has_ingredients--
--- Classic Cheeseburger
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Classic Cheeseburger', 'Ground Beef', 'Gram', 200),
        ('Classic Cheeseburger', 'Flour', 'Gram', 100);
 
--- Coq au Vin
+
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Coq au Vin', 'Chicken', 'Piece', 2),
        ('Coq au Vin', 'Cheese', 'Gram', 100);
 
--- Sweet and Sour Pork
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sweet and Sour Pork', 'Pork', 'Gram', 300),
        ('Sweet and Sour Pork', 'Rice', 'Gram', 200);
 
--- Spaghetti Carbonara
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Spaghetti Carbonara', 'Spaghetti', 'Gram', 300),
        ('Spaghetti Carbonara', 'Black Beans', 'Gram', 150);
 
--- Tacos
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tacos', 'Ground Beef', 'Gram', 250),
        ('Tacos', 'Salmon', 'Gram', 200);
 
--- Pad Thai
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Pad Thai', 'Rice Noodles', 'Gram', 200),
        ('Pad Thai', 'Cheese', 'Gram', 100);
 
--- Fish and Chips
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Fish and Chips', 'Cod', 'Gram', 300),
        ('Fish and Chips', 'Chickpeas', 'Gram', 200);
 
--- Sushi Rolls
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sushi Rolls', 'Sushi Rice', 'Gram', 200),
        ('Sushi Rolls', 'Egg', 'Piece', 2);
 
--- Chicken Curry
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Chicken Curry', 'Chicken', 'Piece', 2),
        ('Chicken Curry', 'Mussels', 'Gram', 200);
 
--- Hummus
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Hummus', 'Chickpeas', 'Gram', 300),
        ('Hummus', 'Beef', 'Gram', 200);
 
--- Gravlax
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Gravlax', 'Salmon', 'Gram', 300),
        ('Gravlax', 'Rice Noodles', 'Gram', 200);
 
--- Beef Stroganoff
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Beef Stroganoff', 'Beef', 'Gram', 300),
        ('Beef Stroganoff', 'Cod', 'Gram', 200);
 
--- Paella
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Paella', 'Rice', 'Gram', 300),
        ('Paella', 'Parsley', 'Gram', 200);
 
--- Moussaka
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Moussaka', 'Eggplant', 'Piece', 2),
        ('Moussaka', 'Cheese', 'Gram', 200);
 
--- Ceviche
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Ceviche', 'Fish', 'Gram', 300),
        ('Ceviche', 'Tomatoes', 'Gram', 200);
 
--- Asado
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Asado', 'Beef', 'Gram', 300),
        ('Asado', 'Rice Noodles', 'Gram', 200);
 
--- Tagine
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tagine', 'Lamb', 'Gram', 300),
        ('Tagine', 'Parsley', 'Gram', 200);
 
--- Jambalaya
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jambalaya', 'Rice', 'Gram', 300),
        ('Jambalaya', 'Beef', 'Gram', 200);
 
--- Sauerbraten
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sauerbraten', 'Beef', 'Gram', 300),
        ('Sauerbraten', 'Beetroot', 'Gram', 200);
 
--- Bibimbap
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Bibimbap', 'Rice', 'Gram', 300),
        ('Bibimbap', 'Eggplant', 'Gram', 200);
 
--- Pho
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Pho', 'Rice Noodles', 'Gram', 300),
        ('Pho', 'Cheese', 'Gram', 200);
--- Feijoada
+
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Feijoada', 'Black Beans', 'Gram', 300),
        ('Feijoada', 'Beef', 'Gram', 200);
 
--- Kebabs
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Kebabs', 'Lamb', 'Gram', 300),
        ('Kebabs', 'Parsley', 'Gram', 200);
 
--- Grilled Barramundi
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Grilled Barramundi', 'Barramundi', 'Gram', 300),
        ('Grilled Barramundi', 'Flour', 'Gram', 200);
 
--- Grilled Vegetables
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Grilled Vegetables', 'Mixed Vegetables', 'Gram', 300),
        ('Grilled Vegetables', 'Egg', 'Piece', 2);
 
--- Jerk Chicken
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jerk Chicken', 'Chicken', 'Piece', 2),
        ('Jerk Chicken', 'Ground Beef', 'Gram', 200);
 
--- Irish Stew
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Irish Stew', 'Lamb', 'Gram', 300),
        ('Irish Stew', 'Rice Noodles', 'Gram', 200);
 
--- Swedish Meatballs
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Swedish Meatballs', 'Beef', 'Gram', 300),
        ('Swedish Meatballs', 'Cheese', 'Gram', 200);
 
--- Bacalhau à Brás
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Bacalhau à Brás', 'Saltfish', 'Gram', 300),
        ('Bacalhau à Brás', 'Beef', 'Gram', 200);
--- Jollof Rice
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jollof Rice', 'Rice', 'Gram', 300),
        ('Jollof Rice', 'Beef', 'Gram', 200);
 
--- Shakshuka
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Shakshuka', 'Tomatoes', 'Gram', 300),
        ('Shakshuka', 'Rice Noodles', 'Gram', 200);
 
--- Adobo
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Adobo', 'Pork', 'Gram', 300),
        ('Adobo', 'Lamb', 'Gram', 200);
 
--- Nasi Goreng
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Nasi Goreng', 'Rice', 'Gram', 300),
        ('Nasi Goreng', 'Chickpeas', 'Gram', 200);
 
--- Laksa
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Laksa', 'Rice Noodles', 'Gram', 300),
        ('Laksa', 'Fish', 'Gram', 200);
 
--- Fondue
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Fondue', 'Cheese', 'Gram', 300),
        ('Fondue', 'Chicken', 'Piece', 2);
 
--- Tom Yum Soup
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tom Yum Soup', 'Shrimp', 'Gram', 300),
        ('Tom Yum Soup', 'Parsley', 'Gram', 200);
 
--- Tabbouleh
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Tabbouleh', 'Parsley', 'Gram', 300),
        ('Tabbouleh', 'Beef', 'Gram', 200);
 
--- Pierogi
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Pierogi', 'Flour', 'Gram', 300),
        ('Pierogi', 'Fish', 'Gram', 200);
 
--- Doro Wat
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Doro Wat', 'Chicken', 'Piece', 2),
        ('Doro Wat', 'Mussels', 'Gram', 200);
 
--- Ropa Vieja
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Ropa Vieja', 'Beef', 'Gram', 300),
        ('Ropa Vieja', 'Chickpeas', 'Gram', 200);
 
--- Karjalanpaisti
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Karjalanpaisti', 'Beef', 'Gram', 300),
        ('Karjalanpaisti', 'Rice', 'Gram', 200);
 
--- Ackee and Saltfish
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Ackee and Saltfish', 'Saltfish', 'Gram', 300),
        ('Ackee and Saltfish', 'Black Beans', 'Gram', 200);
 
--- Momo
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Momo', 'Flour', 'Gram', 300),
        ('Momo', 'Cheese', 'Gram', 200);
 
--- Poke Bowl
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Poke Bowl', 'Fish', 'Gram', 300),
        ('Poke Bowl', 'Rice', 'Gram', 200);
 
--- Rabbit Stew
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Rabbit Stew', 'Rabbit', 'Piece', 2),
        ('Rabbit Stew', 'Beef', 'Gram', 200);
 
--- Chilli Crab
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Chilli Crab', 'Crab', 'Gram', 300),
        ('Chilli Crab', 'Chicken', 'Piece', 2);
 
--- Moules-Frites
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Moules-Frites', 'Mussels', 'Gram', 300),
        ('Moules-Frites', 'Egg', 'Piece', 2);
 
--- Jollof Rice Nigerian
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Jollof Rice Nigerian', 'Rice', 'Gram', 300),
        ('Jollof Rice Nigerian', 'Beef', 'Gram', 200);
 
--- Khachapuri
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Khachapuri', 'Cheese', 'Gram', 300),
        ('Khachapuri', 'Rice', 'Gram', 200);
 
--- Borscht
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Borscht', 'Beetroot', 'Gram', 300),
        ('Borscht', 'Parsley', 'Gram', 200);
 
--- Chicken Korma
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Chicken Korma', 'Chicken', 'Piece', 2),
        ('Chicken Korma', 'Beef', 'Gram', 200);
 
--- Amok
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Amok', 'Fish', 'Gram', 300),
        ('Amok', 'Beef', 'Gram', 200);
 
--- Sri Lankan Fish Curry
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Sri Lankan Fish Curry', 'Fish', 'Gram', 300),
        ('Sri Lankan Fish Curry', 'Rice', 'Gram', 200);
 
--- Brik
 INSERT INTO has_ingredient (recipe, ingredient, fundamental_unit, amount)
 VALUES ('Brik', 'Egg', 'Piece', 2),
        ('Brik', 'Flour', 'Gram', 200);
@@ -485,61 +430,64 @@ VALUES ('Brik', 'Egg', 'Piece', 2),
 
 -- Chefs --
 
-INSERT INTO chefs VALUES("Dimitris", "Tsoumakos", 1000000000, '1980-12-12', 44,10, "chef");
-INSERT INTO chefs VALUES("Dimitris", "Fotakis", 1000000000, '1971-12-12', 53, 20, "chef");
-INSERT INTO chefs VALUES("Marios", "Koniaris", 1000000000, '1980-12-12', 44, 20, "chef");
-INSERT INTO chefs VALUES("Aris", "Pagourtzis", 1000000000, '1974-12-12', 50, 20, "chef");
-INSERT INTO chefs VALUES("Ioanna", "Roussaki", 1000000000, '1980-12-12', 44, 1, "chef");
-INSERT INTO chefs VALUES("Stathis", "Zachos", 1000000000, '1947-12-12', 77, 100, "chef");
-INSERT INTO chefs VALUES("Antonis", "Papavassileiou", 1000000000, '1974-12-12', 50, 14, "1st cook");
-INSERT INTO chefs VALUES("Symeon", "Papavassileiou", 1000000000, '1980-12-12',44, 1, "1st cook");
-INSERT INTO chefs VALUES("Antonis", "Kladas", 1000000000, '1980-12-12',44, 4, "3rd cook");
-INSERT INTO chefs VALUES("Aris", "Koziris", 1000000000, '1980-12-12', 44, 20, "chef");
-INSERT INTO chefs VALUES("John", "Tsinias", 1000000000, '1950-12-12', 74, 50, "3rd cook");
-INSERT INTO chefs VALUES("Nikolaos", "Giannakakis", 1000000000, '1980-12-12', 44, 10, "2nd cook");
-INSERT INTO chefs VALUES("Michail", "Loulakis", 1000000000, '1950-12-12', 74, 40, "3rd cook");
-INSERT INTO chefs VALUES("Georgios", "Koletsos", 1000000000, '1940-12-12', 84, 60, "chef");
-INSERT INTO chefs VALUES("Ioannis", "Raptis", 1000000000, '1980-12-12', 44, 20, "chef");
-INSERT INTO chefs VALUES("Giannis", "polychronopoulos", 1000000000, '2003-04-18', 21, 4, "chef");
-INSERT INTO chefs VALUES("Katerina", "Michou", 1000000000, '2003-04-4', 21,0, "chef");
-INSERT INTO chefs VALUES("Angeliki", "Ntalapera", 1000000000, '2003-09-14', 20, 3, "sous chef");
-INSERT INTO chefs VALUES("Dora", "Souliou", 1000000000, '1980-12-12', 44, 10, "2nd cook");
-INSERT INTO chefs VALUES("Verena", "Kantere", 1000000000, '1980-12-12', 44, 10, "chef");
-INSERT INTO chefs VALUES("Gordon", "Ransey", 1000000000, '1980-12-12', 44, 10, "chef");
-INSERT INTO chefs VALUES("Jaime", "Lannister", 1000000000, '1980-12-12', 44, 10, "chef");
-INSERT INTO chefs VALUES("Daenerys", "Targaryen", 1000000000, '2010-12-12', 14, 1, "chef");
-INSERT INTO chefs VALUES("Jon", "Snow", 1000000000, '1980-12-12', 44, 10, "sous chef");
-INSERT INTO chefs VALUES("Joe", "March", 1000000000, '2003-12-12', 21, 10, "sous chef");
-INSERT INTO chefs VALUES("Beth", "March", 1000000000, '2010-12-12', 14, 1, "3rd cook");
-INSERT INTO chefs VALUES("Olga", "Michou", 1000000000, '2010-01-28', 14, 1, "1st cook");
-INSERT INTO chefs VALUES("Christos", "Michos", 1000000000, '2006-03-31', 18, 10, "chef");
-INSERT INTO chefs VALUES("Eleni", "Ntalapera", 1000000000, '2004-09-11', 19, 9, "chef");
-INSERT INTO chefs VALUES ('Miltiades', 'Anagnostou', 2101234567, '1980-01-01', 44, 20, 'chef');
-INSERT INTO chefs VALUES ('Antonios', 'Antonopoulos', 2102345678, '1975-02-15', 49, 25, 'sous chef');
-INSERT INTO chefs VALUES ('Dimitrios', 'Askounis', 2103456789, '1985-03-30', 39, 15, '1st cook');
-INSERT INTO chefs VALUES ('Hercules', 'Avramopoulos', 6901234567, '1990-04-25', 34, 12, '2nd cook');
-INSERT INTO chefs VALUES ('Christos', 'Capsalis', 2104567890, '1982-05-10', 42, 18, 'sous chef');
-INSERT INTO chefs VALUES ('Christos', 'Christodoulou', 2105678901, '1988-06-20', 36, 16, '1st cook');
-INSERT INTO chefs VALUES ('Aris', 'Dimeas', 6902345678, '1978-07-15', 45, 22, 'chef');
-INSERT INTO chefs VALUES ('Haris', 'Doukas', 2106789012, '1986-08-05', 37, 14, '2nd cook');
-INSERT INTO chefs VALUES ('George', 'Fikioris', 2107890123, '1974-09-25', 49, 26, 'chef');
-INSERT INTO chefs VALUES ('George', 'Karybakas', 2108901234, '1979-11-10', 44, 21, 'sous chef');
-INSERT INTO chefs VALUES ('Anda', 'Ferfeli', 6904567890, '1985-12-07', 38, 17, '2nd cook');
-INSERT INTO chefs VALUES ('Nikolaos', 'Karakostas', 2109012345, '1983-03-23', 41, 20, '1st cook');
-INSERT INTO chefs VALUES ('Sofia', 'Papadopoulou', 2101230987, '1987-05-16', 36, 14, '2nd cook');
-INSERT INTO chefs VALUES ('Maria', 'Koutsou', 6905678901, '1989-07-27', 34, 13, '3rd cook');
-INSERT INTO chefs VALUES ('Athanasios', 'Mitilineos', 2102340987, '1978-09-14', 45, 24, 'chef');
-INSERT INTO chefs VALUES ('Anastasia', 'Petropoulou', 6906789012, '1990-11-30', 33, 12, 'sous chef');
-INSERT INTO chefs VALUES ('Vasilios', 'Voulgaris', 2103450987, '1982-04-17', 42, 20, '1st cook');
-INSERT INTO chefs VALUES ('Ioannis', 'Anastasiou', 6907890123, '1975-06-20', 48, 25, 'chef');
-INSERT INTO chefs VALUES ('Katerina', 'Mavromati', 2104560987, '1986-08-30', 37, 16, '2nd cook');
-INSERT INTO chefs VALUES ('Eleni', 'Spanou', 6908901234, '1984-12-11', 39, 18, 'sous chef');
-INSERT INTO chefs VALUES ('Kostas', 'Stamatiou', 2105671234, '1981-04-21', 43, 20, 'chef');
-INSERT INTO chefs VALUES ('Petros', 'Gavrilis', 6909012345, '1983-11-12', 40, 18, 'sous chef');
-INSERT INTO chefs VALUES ('Yiannis', 'Tzavellas', 2106781234, '1987-07-08', 36, 15, '2nd cook');
-INSERT INTO chefs VALUES ('Dimitris', 'Papageorgiou', 6905672345, '1978-09-15', 45, 22, 'chef');
-INSERT INTO chefs VALUES ('Eleni', 'Panagiotopoulou', 2107891234, '1990-06-10', 33, 12, '1st cook');
-INSERT INTO chefs VALUES ('Nikos', 'Petros', 2108902345, '1982-12-15', 41, 19, 'sous chef');
+INSERT INTO chefs (
+    chef_name, chef_surname, phone_number, date_of_birth, age, experience, experience_level
+) VALUES
+    ('Dimitris', 'Tsoumakos', '1000000000', '1980-12-12', 44, 10, 'chef'),
+    ('Dimitris', 'Fotakis', '1000000000', '1971-12-12', 53, 20, 'chef'),
+    ('Marios', 'Koniaris', '1000000000', '1980-12-12', 44, 20, 'chef'),
+    ('Aris', 'Pagourtzis', '1000000000', '1974-12-12', 50, 20, 'chef'),
+    ('Ioanna', 'Roussaki', '1000000000', '1980-12-12', 44, 1, 'chef'),
+    ('Stathis', 'Zachos', '1000000000', '1947-12-12', 77, 100, 'chef'),
+    ('Antonis', 'Papavassileiou', '1000000000', '1974-12-12', 50, 14, '1st cook'),
+    ('Symeon', 'Papavassileiou', '1000000000', '1980-12-12', 44, 1, '1st cook'),
+    ('Antonis', 'Kladas', '1000000000', '1980-12-12', 44, 4, '3rd cook'),
+    ('Aris', 'Koziris', '1000000000', '1980-12-12', 44, 20, 'chef'),
+    ('John', 'Tsinias', '1000000000', '1950-12-12', 74, 50, '3rd cook'),
+    ('Nikolaos', 'Giannakakis', '1000000000', '1980-12-12', 44, 10, '2nd cook'),
+    ('Michail', 'Loulakis', '1000000000', '1950-12-12', 74, 40, '3rd cook'),
+    ('Georgios', 'Koletsos', '1000000000', '1940-12-12', 84, 60, 'chef'),
+    ('Ioannis', 'Raptis', '1000000000', '1980-12-12', 44, 20, 'chef'),
+    ('Giannis', 'polychronopoulos', '1000000000', '2003-04-18', 21, 4, 'chef'),
+    ('Katerina', 'Michou', '1000000000', '2003-04-04', 21, 0, 'chef'),
+    ('Angeliki', 'Ntalapera', '1000000000', '2003-09-14', 20, 3, 'sous chef'),
+    ('Dora', 'Souliou', '1000000000', '1980-12-12', 44, 10, '2nd cook'),
+    ('Verena', 'Kantere', '1000000000', '1980-12-12', 44, 10, 'chef'),
+    ('Gordon', 'Ransey', '1000000000', '1980-12-12', 44, 10, 'chef'),
+    ('Jaime', 'Lannister', '1000000000', '1980-12-12', 44, 10, 'chef'),
+    ('Daenerys', 'Targaryen', '1000000000', '2010-12-12', 14, 1, 'chef'),
+    ('Jon', 'Snow', '1000000000', '1980-12-12', 44, 10, 'sous chef'),
+    ('Joe', 'March', '1000000000', '2003-12-12', 21, 10, 'sous chef'),
+    ('Beth', 'March', '1000000000', '2010-12-12', 14, 1, '3rd cook'),
+    ('Olga', 'Michou', '1000000000', '2010-01-28', 14, 1, '1st cook'),
+    ('Christos', 'Michos', '1000000000', '2006-03-31', 18, 10, 'chef'),
+    ('Eleni', 'Ntalapera', '1000000000', '2004-09-11', 19, 9, 'chef'),
+    ('Miltiades', 'Anagnostou', '2101234567', '1980-01-01', 44, 20, 'chef'),
+    ('Antonios', 'Antonopoulos', '2102345678', '1975-02-15', 49, 25, 'sous chef'),
+    ('Dimitrios', 'Askounis', '2103456789', '1985-03-30', 39, 15, '1st cook'),
+    ('Hercules', 'Avramopoulos', '6901234567', '1990-04-25', 34, 12, '2nd cook'),
+    ('Christos', 'Capsalis', '2104567890', '1982-05-10', 42, 18, 'sous chef'),
+    ('Christos', 'Christodoulou', '2105678901', '1988-06-20', 36, 16, '1st cook'),
+    ('Aris', 'Dimeas', '6902345678', '1978-07-15', 45, 22, 'chef'),
+    ('Haris', 'Doukas', '2106789012', '1986-08-05', 37, 14, '2nd cook'),
+    ('George', 'Fikioris', '2107890123', '1974-09-25', 49, 26, 'chef'),
+    ('George', 'Karybakas', '2108901234', '1979-11-10', 44, 21, 'sous chef'),
+    ('Anda', 'Ferfeli', '6904567890', '1985-12-07', 38, 17, '2nd cook'),
+    ('Nikolaos', 'Karakostas', '2109012345', '1983-03-23', 41, 20, '1st cook'),
+    ('Sofia', 'Papadopoulou', '2101230987', '1987-05-16', 36, 14, '2nd cook'),
+    ('Maria', 'Koutsou', '6905678901', '1989-07-27', 34, 13, '3rd cook'),
+    ('Athanasios', 'Mitilineos', '2102340987', '1978-09-14', 45, 24, 'chef'),
+    ('Anastasia', 'Petropoulou', '6906789012', '1990-11-30', 33, 12, 'sous chef'),
+    ('Vasilios', 'Voulgaris', '2103450987', '1982-04-17', 42, 20, '1st cook'),
+    ('Ioannis', 'Anastasiou', '6907890123', '1975-06-20', 48, 25, 'chef'),
+    ('Katerina', 'Mavromati', '2104560987', '1986-08-30', 37, 16, '2nd cook'),
+    ('Eleni', 'Spanou', '6908901234', '1984-12-11', 39, 18, 'sous chef'),
+    ('Kostas', 'Stamatiou', '2105671234', '1981-04-21', 43, 20, 'chef'),
+    ('Petros', 'Gavrilis', '6909012345', '1983-11-12', 40, 18, 'sous chef'),
+    ('Yiannis', 'Tzavellas', '2106781234', '1987-07-08', 36, 15, '2nd cook'),
+    ('Dimitris', 'Papageorgiou', '6905672345', '1978-09-15', 45, 22, 'chef'),
+    ('Eleni', 'Panagiotopoulou', '2107891234', '1990-06-10', 33, 12, '1st cook'),
+    ('Nikos', 'Petros', '2108902345', '1982-12-15', 41, 19, 'sous chef');
 
 
 
@@ -599,6 +547,292 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Yiannis', 'Tzavellas', 'Cambodian'),
 ('Dimitris', 'Papageorgiou', 'Sri Lankan'),
 ('Eleni', 'Panagiotopoulou', 'Tunisian');
+
+-- Adding 5 more chefs for each existing cuisine, ensuring each chef appears at least 3 times
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Antonis', 'Papavassileiou', 'American'),
+('Symeon', 'Papavassileiou', 'American'),
+('Antonis', 'Kladas', 'American'),
+('Aris', 'Koziris', 'American'),
+('Nikolaos', 'Giannakakis', 'American');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Michail', 'Loulakis', 'French'),
+('Ioannis', 'Raptis', 'French'),
+('Giannis', 'polychronopoulos', 'French'),
+('Katerina', 'Michou', 'French'),
+('Angeliki', 'Ntalapera', 'French');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Dora', 'Souliou', 'Chinese'),
+('Verena', 'Kantere', 'Chinese'),
+('Gordon', 'Ransey', 'Chinese'),
+('Jaime', 'Lannister', 'Chinese'),
+('Jon', 'Snow', 'Chinese');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Beth', 'March', 'Italian'),
+('Olga', 'Michou', 'Italian'),
+('Christos', 'Michos', 'Italian'),
+('Eleni', 'Ntalapera', 'Italian'),
+('Miltiades', 'Anagnostou', 'Italian');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Antonios', 'Antonopoulos', 'Mexican'),
+('Dimitrios', 'Askounis', 'Mexican'),
+('Hercules', 'Avramopoulos', 'Mexican'),
+('Christos', 'Capsalis', 'Mexican'),
+('Christos', 'Christodoulou', 'Mexican');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Eleni', 'Ntalapera', 'Thai'),
+('Haris', 'Doukas', 'Thai'),
+('George', 'Fikioris', 'Thai'),
+('George', 'Karybakas', 'Thai'),
+('Anda', 'Ferfeli', 'Thai');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Nikolaos', 'Karakostas', 'British'),
+('Sofia', 'Papadopoulou', 'British'),
+('Maria', 'Koutsou', 'British'),
+('Athanasios', 'Mitilineos', 'British'),
+('Anastasia', 'Petropoulou', 'British');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Vasilios', 'Voulgaris', 'Moroccan'),
+('Ioannis', 'Anastasiou', 'Moroccan'),
+('Katerina', 'Mavromati', 'Moroccan'),
+('Eleni', 'Spanou', 'Moroccan'),
+('Kostas', 'Stamatiou', 'Moroccan');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Petros', 'Gavrilis', 'Indian'),
+('Yiannis', 'Tzavellas', 'Indian'),
+('Dimitris', 'Papageorgiou', 'Indian'),
+('Eleni', 'Panagiotopoulou', 'Indian'),
+('Miltiades', 'Anagnostou', 'Indian');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Dimitris', 'Papageorgiou', 'Middle Eastern'),
+('Eleni', 'Panagiotopoulou', 'Middle Eastern'),
+('Antonios', 'Antonopoulos', 'Middle Eastern'),
+('Dimitrios', 'Askounis', 'Middle Eastern'),
+('Hercules', 'Avramopoulos', 'Middle Eastern');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Christos', 'Capsalis', 'Scandinavian'),
+('Christos', 'Christodoulou', 'Scandinavian'),
+('Aris', 'Dimeas', 'Scandinavian'),
+('Haris', 'Doukas', 'Scandinavian'),
+('George', 'Fikioris', 'Scandinavian');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('George', 'Karybakas', 'Russian'),
+('Anda', 'Ferfeli', 'Russian'),
+('Nikolaos', 'Karakostas', 'Russian'),
+('Sofia', 'Papadopoulou', 'Russian'),
+('Maria', 'Koutsou', 'Russian');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Athanasios', 'Mitilineos', 'Spanish'),
+('Anastasia', 'Petropoulou', 'Spanish'),
+('Vasilios', 'Voulgaris', 'Spanish'),
+('Ioannis', 'Anastasiou', 'Spanish'),
+('Katerina', 'Mavromati', 'Spanish');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Eleni', 'Spanou', 'Greek'),
+('Kostas', 'Stamatiou', 'Greek'),
+('Petros', 'Gavrilis', 'Greek'),
+('Yiannis', 'Tzavellas', 'Greek'),
+('Antonios', 'Antonopoulos', 'Greek'),
+('Dimitrios', 'Askounis', 'Peruvian'),
+('Hercules', 'Avramopoulos', 'Peruvian'),
+('Christos', 'Capsalis', 'Peruvian'),
+('Christos', 'Christodoulou', 'Peruvian'),
+('Aris', 'Dimeas', 'Peruvian'),
+('Haris', 'Doukas', 'Argentinian'),
+('George', 'Fikioris', 'Argentinian'),
+('George', 'Karybakas', 'Argentinian'),
+('Anda', 'Ferfeli', 'Argentinian'),
+('Nikolaos', 'Karakostas', 'Argentinian'),
+('Sofia', 'Papadopoulou', 'Japanese'),
+('Maria', 'Koutsou', 'Japanese'),
+('Athanasios', 'Mitilineos', 'Japanese'),
+('Anastasia', 'Petropoulou', 'Japanese'),
+('Vasilios', 'Voulgaris', 'Japanese'),
+('Ioannis', 'Anastasiou', 'Cajun'),
+('Katerina', 'Mavromati', 'Cajun'),
+('Eleni', 'Spanou', 'Cajun'),
+('Kostas', 'Stamatiou', 'Cajun'),
+('Petros', 'Gavrilis', 'Cajun'),
+('Yiannis', 'Tzavellas', 'German'),
+('Dimitris', 'Papageorgiou', 'German'),
+('Eleni', 'Panagiotopoulou', 'German'),
+('Miltiades', 'Anagnostou', 'German'),
+('Antonios', 'Antonopoulos', 'German'),
+('Dimitrios', 'Askounis', 'Korean'),
+('Hercules', 'Avramopoulos', 'Korean'),
+('Christos', 'Capsalis', 'Korean'),
+('Christos', 'Christodoulou', 'Korean'),
+('Aris', 'Dimeas', 'Korean'),
+('Haris', 'Doukas', 'Vietnamese'),
+('George', 'Fikioris', 'Vietnamese'),
+('George', 'Karybakas', 'Vietnamese'),
+('Anda', 'Ferfeli', 'Vietnamese'),
+('Nikolaos', 'Karakostas', 'Vietnamese'),
+('Sofia', 'Papadopoulou', 'Brazilian'),
+('Maria', 'Koutsou', 'Brazilian'),
+('Athanasios', 'Mitilineos', 'Brazilian'),
+('Anastasia', 'Petropoulou', 'Brazilian'),
+('Vasilios', 'Voulgaris', 'Brazilian'),
+('Ioannis', 'Anastasiou', 'Turkish'),
+('Katerina', 'Mavromati', 'Turkish'),
+('Eleni', 'Spanou', 'Turkish'),
+('Kostas', 'Stamatiou', 'Turkish'),
+('Petros', 'Gavrilis', 'Turkish'),
+('Yiannis', 'Tzavellas', 'Australian'),
+('Dimitris', 'Papageorgiou', 'Australian'),
+('Eleni', 'Panagiotopoulou', 'Australian'),
+('Miltiades', 'Anagnostou', 'Australian'),
+('Antonios', 'Antonopoulos', 'Australian'),
+('Dimitrios', 'Askounis', 'Mediterranean'),
+('Hercules', 'Avramopoulos', 'Mediterranean'),
+('Christos', 'Capsalis', 'Mediterranean'),
+('Christos', 'Christodoulou', 'Mediterranean'),
+('Aris', 'Dimeas', 'Mediterranean'),
+('Haris', 'Doukas', 'Caribbean'),
+('George', 'Fikioris', 'Caribbean'),
+('George', 'Karybakas', 'Caribbean'),
+('Anda', 'Ferfeli', 'Caribbean'),
+('Nikolaos', 'Karakostas', 'Caribbean'),
+('Sofia', 'Papadopoulou', 'Irish'),
+('Maria', 'Koutsou', 'Irish'),
+('Athanasios', 'Mitilineos', 'Irish'),
+('Anastasia', 'Petropoulou', 'Irish'),
+('Vasilios', 'Voulgaris', 'Irish'),
+('Ioannis', 'Anastasiou', 'Swedish'),
+('Katerina', 'Mavromati', 'Swedish'),
+('Eleni', 'Spanou', 'Swedish'),
+('Kostas', 'Stamatiou', 'Swedish'),
+('Petros', 'Gavrilis', 'Swedish'),
+('Yiannis', 'Tzavellas', 'Portuguese'),
+('Dimitris', 'Papageorgiou', 'Portuguese'),
+('Eleni', 'Panagiotopoulou', 'Portuguese'),
+('Miltiades', 'Anagnostou', 'Portuguese'),
+('Antonios', 'Antonopoulos', 'Portuguese');
+
+-- Adding 5 more chefs for each remaining existing cuisine, ensuring each chef appears at least 3 times
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Athanasios', 'Mitilineos', 'Swiss'),
+('Anastasia', 'Petropoulou', 'Swiss'),
+('Vasilios', 'Voulgaris', 'Swiss'),
+('Ioannis', 'Anastasiou', 'Swiss'),
+('Katerina', 'Mavromati', 'Swiss');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Eleni', 'Spanou', 'Lebanese'),
+('Kostas', 'Stamatiou', 'Lebanese'),
+('Petros', 'Gavrilis', 'Lebanese'),
+('Yiannis', 'Tzavellas', 'Lebanese'),
+('Dimitris', 'Papageorgiou', 'Lebanese');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Eleni', 'Panagiotopoulou', 'Polish'),
+('Miltiades', 'Anagnostou', 'Polish'),
+('Antonios', 'Antonopoulos', 'Polish'),
+('Dimitrios', 'Askounis', 'Polish'),
+('Hercules', 'Avramopoulos', 'Polish');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Christos', 'Capsalis', 'Ethiopian'),
+('Christos', 'Christodoulou', 'Ethiopian'),
+('Aris', 'Dimeas', 'Ethiopian'),
+('Haris', 'Doukas', 'Ethiopian'),
+('George', 'Fikioris', 'Ethiopian');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('George', 'Karybakas', 'Cuban'),
+('Aris', 'Dimeas', 'Cuban'),
+('Nikolaos', 'Karakostas', 'Cuban'),
+('Sofia', 'Papadopoulou', 'Cuban'),
+('Maria', 'Koutsou', 'Cuban');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Athanasios', 'Mitilineos', 'Finnish'),
+('Anastasia', 'Petropoulou', 'Finnish'),
+('Vasilios', 'Voulgaris', 'Finnish'),
+('Ioannis', 'Anastasiou', 'Finnish'),
+('Katerina', 'Mavromati', 'Finnish');
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Eleni', 'Spanou', 'Jamaican'),
+('Kostas', 'Stamatiou', 'Jamaican'),
+('Petros', 'Gavrilis', 'Jamaican'),
+('Yiannis', 'Tzavellas', 'Jamaican'),
+('Dimitris', 'Papageorgiou', 'Jamaican'),
+('Eleni', 'Panagiotopoulou', 'Tibetan'),
+('Miltiades', 'Anagnostou', 'Tibetan'),
+('Antonios', 'Antonopoulos', 'Tibetan'),
+('Dimitrios', 'Askounis', 'Tibetan'),
+('Hercules', 'Avramopoulos', 'Tibetan'),
+('Christos', 'Capsalis', 'Hawaiian'),
+('Christos', 'Christodoulou', 'Hawaiian'),
+('Aris', 'Dimeas', 'Hawaiian'),
+('Haris', 'Doukas', 'Hawaiian'),
+('George', 'Fikioris', 'Hawaiian'),
+('George', 'Karybakas', 'Maltese'),
+('Anda', 'Ferfeli', 'Maltese'),
+('Nikolaos', 'Karakostas', 'Maltese'),
+('Sofia', 'Papadopoulou', 'Maltese'),
+('Maria', 'Koutsou', 'Maltese'),
+('Athanasios', 'Mitilineos', 'Singaporean'),
+('Anastasia', 'Petropoulou', 'Singaporean'),
+('Anda', 'Ferfeli', 'Singaporean'),
+('Ioannis', 'Anastasiou', 'Singaporean'),
+('Katerina', 'Mavromati', 'Singaporean'),
+('Eleni', 'Spanou', 'Belgian'),
+('Kostas', 'Stamatiou', 'Belgian'),
+('Petros', 'Gavrilis', 'Belgian'),
+('Yiannis', 'Tzavellas', 'Belgian'),
+('Dimitris', 'Papageorgiou', 'Belgian'),
+('Eleni', 'Panagiotopoulou', 'Nigerian'),
+('Miltiades', 'Anagnostou', 'Nigerian'),
+('Antonios', 'Antonopoulos', 'Nigerian'),
+('Dimitrios', 'Askounis', 'Nigerian'),
+('Hercules', 'Avramopoulos', 'Nigerian'),
+('Christos', 'Capsalis', 'Georgian'),
+('Christos', 'Christodoulou', 'Georgian'),
+('Aris', 'Dimeas', 'Georgian'),
+('Haris', 'Doukas', 'Georgian'),
+('George', 'Fikioris', 'Georgian'),
+('George', 'Karybakas', 'Ukrainian'),
+('Anda', 'Ferfeli', 'Ukrainian'),
+('Nikolaos', 'Karakostas', 'Ukrainian'),
+('Sofia', 'Papadopoulou', 'Ukrainian'),
+('Maria', 'Koutsou', 'Ukrainian'),
+('Athanasios', 'Mitilineos', 'Bangladeshi'),
+('Anastasia', 'Petropoulou', 'Bangladeshi'),
+('Vasilios', 'Voulgaris', 'Bangladeshi'),
+('Ioannis', 'Anastasiou', 'Bangladeshi'),
+('Katerina', 'Mavromati', 'Bangladeshi'),
+('Eleni', 'Spanou', 'Cambodian'),
+('Kostas', 'Stamatiou', 'Cambodian'),
+('Petros', 'Gavrilis', 'Cambodian'),
+('Vasilios', 'Voulgaris', 'Cambodian'),
+('Dimitris', 'Papageorgiou', 'Cambodian'),
+('Eleni', 'Panagiotopoulou', 'Sri Lankan'),
+('Miltiades', 'Anagnostou', 'Sri Lankan'),
+('Antonios', 'Antonopoulos', 'Sri Lankan'),
+('Dimitrios', 'Askounis', 'Sri Lankan'),
+('Hercules', 'Avramopoulos', 'Sri Lankan'),
+('Christos', 'Capsalis', 'Tunisian'),
+('Christos', 'Christodoulou', 'Tunisian'),
+('Aris', 'Dimeas', 'Tunisian'),
+('Haris', 'Doukas', 'Tunisian'),
+('George', 'Fikioris', 'Tunisian');
 
 -- Equipment--
 INSERT INTO equipment (equipment_name, instructions) VALUES
@@ -664,65 +898,65 @@ INSERT INTO tags (tag_name) VALUES
 ('One-Pot');
 
 
--- Steps --
-INSERT INTO steps VALUES("Classic Cheeseburger", 1, "Toast the buns");
-INSERT INTO steps VALUES("Classic Cheeseburger", 2, "Order it best");
-INSERT INTO steps VALUES("Coq au Vin", 1, "Pull the feathers off");
-INSERT INTO steps VALUES("Coq au Vin", 2, "Braise the meat in wine");
-INSERT INTO steps VALUES("Coq au Vin", 3, "Season");
-INSERT INTO steps VALUES("Sweet and Sour Pork", 1, "Do it");
-INSERT INTO steps VALUES("Spaghetti Carbonara", 1, "Do it");
-INSERT INTO steps VALUES("Tacos", 1, "Do it");
-INSERT INTO steps VALUES("Pad Thai", 1, "Do it");
-INSERT INTO steps VALUES("Fish and Chips", 1, "Do it");
-INSERT INTO steps VALUES("Sushi Rolls", 1, "Do it");
-INSERT INTO steps VALUES("Chicken Curry", 1, "Do it");
-INSERT INTO steps VALUES("Hummus", 1, "Do it");
-INSERT INTO steps VALUES("Gravlax", 1, "Do it");
-INSERT INTO steps VALUES("Beef Stroganoff", 1, "Do it");
-INSERT INTO steps VALUES("Paella", 1, "Do it");
-INSERT INTO steps VALUES("Moussaka", 1, "Do it");
-INSERT INTO steps VALUES("Ceviche", 1, "Do it");
-INSERT INTO steps VALUES("Asado", 1, "Do it");
-INSERT INTO steps VALUES("Tagine", 1, "Do it");
-INSERT INTO steps VALUES("Jambalaya", 1, "Do it");
-INSERT INTO steps VALUES("Sauerbraten", 1, "Do it");
-INSERT INTO steps VALUES("Bibimbap", 1, "Do it");
-INSERT INTO steps VALUES("Pho", 1, "Do it");
-INSERT INTO steps VALUES("Feijoada", 1, "Do it");
-INSERT INTO steps VALUES("Kebabs", 1, "Do it");
-INSERT INTO steps VALUES("Grilled Barramundi", 1, "Do it");
-INSERT INTO steps VALUES("Grilled Vegetables", 1, "Do it");
-INSERT INTO steps VALUES("Jerk Chicken", 1, "Do it");
-INSERT INTO steps VALUES("Irish Stew", 1, "Do it");
-INSERT INTO steps VALUES("Swedish Meatballs", 1, "Do it");
-INSERT INTO steps VALUES("Bacalhau à Brás", 1, "Do it");
-INSERT INTO steps VALUES("Jollof Rice", 1, "Do it");
-INSERT INTO steps VALUES("Shakshuka", 1, "Do it");
-INSERT INTO steps VALUES("Adobo", 1, "Do it");
-INSERT INTO steps VALUES("Nasi Goreng", 1, "Do it");
-INSERT INTO steps VALUES("Laksa", 1, "Do it");
-INSERT INTO steps VALUES("Fondue", 1, "Do it");
-INSERT INTO steps VALUES("Tom Yum Soup", 1, "Do it");
-INSERT INTO steps VALUES("Tabbouleh", 1, "Do it");
-INSERT INTO steps VALUES("Pierogi", 1, "Do it");
-INSERT INTO steps VALUES("Doro Wat", 1, "Do it");
-INSERT INTO steps VALUES("Ropa Vieja", 1, "Do it");
-INSERT INTO steps VALUES("Karjalanpaisti", 1, "Do it");
-INSERT INTO steps VALUES("Ackee and Saltfish", 1, "Do it");
-INSERT INTO steps VALUES("Momo", 1, "Do it");
-INSERT INTO steps VALUES("Poke Bowl", 1, "Do it");
-INSERT INTO steps VALUES("Rabbit Stew", 1, "Do it");
-INSERT INTO steps VALUES("Chilli Crab", 1, "Do it");
-INSERT INTO steps VALUES("Chilli Crab", 2, "Do it better");
-INSERT INTO steps VALUES("Moules-Frites", 1, "Do it");
-INSERT INTO steps VALUES("Jollof Rice Nigerian", 1, "Do it");
-INSERT INTO steps VALUES("Khachapuri", 1, "Do it");
-INSERT INTO steps VALUES("Borscht", 1, "Do it");
-INSERT INTO steps VALUES("Chicken Korma", 1, "Do it");
-INSERT INTO steps VALUES("Amok", 1, "Do it");
-INSERT INTO steps VALUES("Sri Lankan Fish Curry", 1, "Do it");
-INSERT INTO steps VALUES("Brik", 1, "Do it");
+INSERT INTO steps (recipe, step_number, step_description) VALUES
+    ("Classic Cheeseburger", 1, "Toast the buns"),
+    ("Classic Cheeseburger", 2, "Order it best"),
+    ("Coq au Vin", 1, "Pull the feathers off"),
+    ("Coq au Vin", 2, "Braise the meat in wine"),
+    ("Coq au Vin", 3, "Season"),
+    ("Sweet and Sour Pork", 1, "Do it"),
+    ("Spaghetti Carbonara", 1, "Do it"),
+    ("Tacos", 1, "Do it"),
+    ("Pad Thai", 1, "Do it"),
+    ("Fish and Chips", 1, "Do it"),
+    ("Sushi Rolls", 1, "Do it"),
+    ("Chicken Curry", 1, "Do it"),
+    ("Hummus", 1, "Do it"),
+    ("Gravlax", 1, "Do it"),
+    ("Beef Stroganoff", 1, "Do it"),
+    ("Paella", 1, "Do it"),
+    ("Moussaka", 1, "Do it"),
+    ("Ceviche", 1, "Do it"),
+    ("Asado", 1, "Do it"),
+    ("Tagine", 1, "Do it"),
+    ("Jambalaya", 1, "Do it"),
+    ("Sauerbraten", 1, "Do it"),
+    ("Bibimbap", 1, "Do it"),
+    ("Pho", 1, "Do it"),
+    ("Feijoada", 1, "Do it"),
+    ("Kebabs", 1, "Do it"),
+    ("Grilled Barramundi", 1, "Do it"),
+    ("Grilled Vegetables", 1, "Do it"),
+    ("Jerk Chicken", 1, "Do it"),
+    ("Irish Stew", 1, "Do it"),
+    ("Swedish Meatballs", 1, "Do it"),
+    ("Bacalhau à Brás", 1, "Do it"),
+    ("Jollof Rice", 1, "Do it"),
+    ("Shakshuka", 1, "Do it"),
+    ("Adobo", 1, "Do it"),
+    ("Nasi Goreng", 1, "Do it"),
+    ("Laksa", 1, "Do it"),
+    ("Fondue", 1, "Do it"),
+    ("Tom Yum Soup", 1, "Do it"),
+    ("Tabbouleh", 1, "Do it"),
+    ("Pierogi", 1, "Do it"),
+    ("Doro Wat", 1, "Do it"),
+    ("Ropa Vieja", 1, "Do it"),
+    ("Karjalanpaisti", 1, "Do it"),
+    ("Ackee and Saltfish", 1, "Do it"),
+    ("Momo", 1, "Do it"),
+    ("Poke Bowl", 1, "Do it"),
+    ("Rabbit Stew", 1, "Do it"),
+    ("Chilli Crab", 1, "Do it"),
+    ("Chilli Crab", 2, "Do it better"),
+    ("Moules-Frites", 1, "Do it"),
+    ("Jollof Rice Nigerian", 1, "Do it"),
+    ("Khachapuri", 1, "Do it"),
+    ("Borscht", 1, "Do it"),
+    ("Chicken Korma", 1, "Do it"),
+    ("Amok", 1, "Do it"),
+    ("Sri Lankan Fish Curry", 1, "Do it"),
+    ("Brik", 1, "Do it");
 
 -- Belongs to Mealtype --
 INSERT INTO belongs_to_mealtype VALUES("Classic Cheeseburger", "Lunch");

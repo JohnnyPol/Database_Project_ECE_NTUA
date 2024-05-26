@@ -27,7 +27,6 @@ DROP TABLE IF EXISTS cuisine;
 -- -----------------------------------------
 -- Tables --
 -- -----------------------------------------
-
 CREATE TABLE cuisine ( cuisine_name VARCHAR(255) PRIMARY KEY,
     the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
     image_description VARCHAR(255) DEFAULT "Description"
@@ -66,7 +65,7 @@ CREATE TABLE recipes (
     cooking_time TIME NOT NULL,
     servings INT,
     primary_ingredient VARCHAR(255),
-	the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
+    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
     image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (primary_ingredient) REFERENCES ingredients (ingredient_name)
@@ -101,6 +100,7 @@ CREATE TABLE tags (
     image_description VARCHAR(255) DEFAULT "Description"    
 );
 
+
 CREATE TABLE equipment (
     equipment_name VARCHAR(255) PRIMARY KEY,
     instructions VARCHAR(255),
@@ -134,8 +134,6 @@ CREATE TABLE participate_in_episode_as_chef (
     chef_surname VARCHAR(50),
     cuisine_name VARCHAR(255),
     recipe_name VARCHAR(255),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (recipe_name) REFERENCES recipes (recipe_name),
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
@@ -152,8 +150,6 @@ CREATE TABLE participate_in_episode_as_judge (
     season INT,
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (judge_name, judge_surname) REFERENCES chefs (chef_name, chef_surname),
     PRIMARY KEY (
         episode_no,
@@ -172,8 +168,6 @@ CREATE TABLE scores (
     cuisine VARCHAR(255),
     judge_name VARCHAR(50),
     judge_surname VARCHAR(50),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (
         episode_number,
         season,
@@ -192,8 +186,6 @@ CREATE TABLE has_recipe(
     chef_name VARCHAR(50),
     chef_surname VARCHAR(50),
     recipe VARCHAR(255),
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     PRIMARY KEY (chef_name, chef_surname, recipe)
@@ -201,8 +193,6 @@ CREATE TABLE has_recipe(
 CREATE TABLE belongs_to_mealtype (
     recipe VARCHAR(255) NOT NULL,
     mealtype VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (mealtype) REFERENCES meal_type (mealtype_name),
     PRIMARY KEY (recipe, mealtype)
@@ -211,8 +201,6 @@ CREATE TABLE belongs_to_mealtype (
 CREATE TABLE belongs_to_tag (
     recipe VARCHAR(255) NOT NULL,
     tag VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (tag) REFERENCES tags (tag_name),
     PRIMARY KEY (recipe, tag)
@@ -221,8 +209,6 @@ CREATE TABLE belongs_to_tag (
 CREATE TABLE belongs_to_theme (
     recipe VARCHAR(255) NOT NULL,
     theme VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (theme) REFERENCES theme (theme_name),
     PRIMARY KEY (recipe, theme)
@@ -232,8 +218,6 @@ CREATE TABLE needs_equipment (
     recipe VARCHAR(255),
     equipment_name VARCHAR(255),
     amount INT DEFAULT 0,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (recipe, equipment_name),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (equipment_name) REFERENCES equipment (equipment_name)
@@ -244,8 +228,6 @@ CREATE TABLE has_ingredient (
     ingredient VARCHAR(255),
     fundamental_unit VARCHAR(255),
     amount INT DEFAULT 0,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (recipe, ingredient),
     FOREIGN KEY (recipe) REFERENCES recipes (recipe_name),
     FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient_name)
@@ -268,8 +250,6 @@ CREATE TABLE expertise_in (
     chef_name VARCHAR(50) NOT NULL,
     chef_surname VARCHAR(50) NOT NULL,
     cuisine_name VARCHAR(255) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     FOREIGN KEY (cuisine_name) REFERENCES cuisine (cuisine_name),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname),
     PRIMARY KEY (
@@ -284,15 +264,9 @@ CREATE TABLE Winner (
     season INT,
     chef_surname VARCHAR(50) NOT NULL,
     chef_name VARCHAR(50) NOT NULL,
-    the_image VARCHAR(255) DEFAULT "../Images/the-food-pyramid-explained_1250.jpg",
-    image_description VARCHAR(255) DEFAULT "Description",
     PRIMARY KEY (episode_num, season),
     FOREIGN KEY (chef_name, chef_surname) REFERENCES chefs (chef_name, chef_surname)
 );
-
--- -----------------------------------------
--- Functions --
--- -----------------------------------------
 
 -- -----------------------------------------
 -- Triggers --
