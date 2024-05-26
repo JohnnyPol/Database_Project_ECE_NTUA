@@ -598,6 +598,350 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Dimitris', 'Papageorgiou', 'Sri Lankan'),
 ('Eleni', 'Panagiotopoulou', 'Tunisian');
 
+-- Adding 5 more chefs for each existing cuisine, ensuring each chef appears at least 3 times
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+-- American
+('Antonis', 'Papavassileiou', 'American'),
+('Symeon', 'Papavassileiou', 'American'),
+('Antonis', 'Kladas', 'American'),
+('Aris', 'Koziris', 'American'),
+('Nikolaos', 'Giannakakis', 'American'),
+
+-- French
+('Michail', 'Loulakis', 'French'),
+('Ioannis', 'Raptis', 'French'),
+('Giannis', 'polychronopoulos', 'French'),
+('Katerina', 'Michou', 'French'),
+('Angeliki', 'Ndalapera', 'French'),
+
+-- Chinese
+('Dora', 'Souliou', 'Chinese'),
+('Verena', 'Kantere', 'Chinese'),
+('Gordon', 'Ransey', 'Chinese'),
+('Jaime', 'Lannister', 'Chinese'),
+('Jon', 'Snow', 'Chinese'),
+
+-- Italian
+('Beth', 'March', 'Italian'),
+('Olga', 'Michou', 'Italian'),
+('Christos', 'Michos', 'Italian'),
+('Eleni', 'Ntalapera', 'Italian'),
+('Miltiades', 'Anagnostou', 'Italian'),
+
+-- Mexican
+('Antonios', 'Antonopoulos', 'Mexican'),
+('Dimitrios', 'Askounis', 'Mexican'),
+('Hercules', 'Avramopoulos', 'Mexican'),
+('Christos', 'Capsalis', 'Mexican'),
+('Christos', 'Christodoulou', 'Mexican'),
+
+-- Thai
+('Aris', 'Dimeas', 'Thai'),
+('Haris', 'Doukas', 'Thai'),
+('George', 'Fikioris', 'Thai'),
+('George', 'Karybakas', 'Thai'),
+('Anda', 'Ferfeli', 'Thai'),
+
+-- British
+('Nikolaos', 'Karakostas', 'British'),
+('Sofia', 'Papadopoulou', 'British'),
+('Maria', 'Koutsou', 'British'),
+('Athanasios', 'Mitilineos', 'British'),
+('Anastasia', 'Petropoulou', 'British'),
+
+-- Moroccan
+('Vasilios', 'Voulgaris', 'Moroccan'),
+('Ioannis', 'Anastasiou', 'Moroccan'),
+('Katerina', 'Mavromati', 'Moroccan'),
+('Eleni', 'Spanou', 'Moroccan'),
+('Kostas', 'Stamatiou', 'Moroccan'),
+
+-- Indian
+('Petros', 'Gavrilis', 'Indian'),
+('Yiannis', 'Tzavellas', 'Indian'),
+('Dimitris', 'Papageorgiou', 'Indian'),
+('Eleni', 'Panagiotopoulou', 'Indian'),
+('Miltiades', 'Anagnostou', 'Indian'),
+
+-- Middle Eastern
+('Dimitris', 'Papageorgiou', 'Middle Eastern'),
+('Eleni', 'Panagiotopoulou', 'Middle Eastern'),
+('Antonios', 'Antonopoulos', 'Middle Eastern'),
+('Dimitrios', 'Askounis', 'Middle Eastern'),
+('Hercules', 'Avramopoulos', 'Middle Eastern'),
+
+-- Scandinavian
+('Christos', 'Capsalis', 'Scandinavian'),
+('Christos', 'Christodoulou', 'Scandinavian'),
+('Aris', 'Dimeas', 'Scandinavian'),
+('Haris', 'Doukas', 'Scandinavian'),
+('George', 'Fikioris', 'Scandinavian'),
+
+-- Russian
+('George', 'Karybakas', 'Russian'),
+('Anda', 'Ferfeli', 'Russian'),
+('Nikolaos', 'Karakostas', 'Russian'),
+('Sofia', 'Papadopoulou', 'Russian'),
+('Maria', 'Koutsou', 'Russian'),
+
+-- Spanish
+('Athanasios', 'Mitilineos', 'Spanish'),
+('Anastasia', 'Petropoulou', 'Spanish'),
+('Vasilios', 'Voulgaris', 'Spanish'),
+('Ioannis', 'Anastasiou', 'Spanish'),
+('Katerina', 'Mavromati', 'Spanish'),
+
+-- Greek
+('Eleni', 'Spanou', 'Greek'),
+('Kostas', 'Stamatiou', 'Greek'),
+('Petros', 'Gavrilis', 'Greek'),
+('Yiannis', 'Tzavellas', 'Greek'),
+('Antonios', 'Antonopoulos', 'Greek'),
+
+-- Peruvian
+('Dimitrios', 'Askounis', 'Peruvian'),
+('Hercules', 'Avramopoulos', 'Peruvian'),
+('Christos', 'Capsalis', 'Peruvian'),
+('Christos', 'Christodoulou', 'Peruvian'),
+('Aris', 'Dimeas', 'Peruvian'),
+
+-- Argentinian
+('Haris', 'Doukas', 'Argentinian'),
+('George', 'Fikioris', 'Argentinian'),
+('George', 'Karybakas', 'Argentinian'),
+('Anda', 'Ferfeli', 'Argentinian'),
+('Nikolaos', 'Karakostas', 'Argentinian'),
+
+-- Japanese
+('Sofia', 'Papadopoulou', 'Japanese'),
+('Maria', 'Koutsou', 'Japanese'),
+('Athanasios', 'Mitilineos', 'Japanese'),
+('Anastasia', 'Petropoulou', 'Japanese'),
+('Vasilios', 'Voulgaris', 'Japanese'),
+
+-- Cajun
+('Ioannis', 'Anastasiou', 'Cajun'),
+('Katerina', 'Mavromati', 'Cajun'),
+('Eleni', 'Spanou', 'Cajun'),
+('Kostas', 'Stamatiou', 'Cajun'),
+('Petros', 'Gavrilis', 'Cajun'),
+
+-- German
+('Yiannis', 'Tzavellas', 'German'),
+('Dimitris', 'Papageorgiou', 'German'),
+('Eleni', 'Panagiotopoulou', 'German'),
+('Miltiades', 'Anagnostou', 'German'),
+('Antonios', 'Antonopoulos', 'German'),
+
+-- Korean
+('Dimitrios', 'Askounis', 'Korean'),
+('Hercules', 'Avramopoulos', 'Korean'),
+('Christos', 'Capsalis', 'Korean'),
+('Christos', 'Christodoulou', 'Korean'),
+('Aris', 'Dimeas', 'Korean'),
+
+-- Vietnamese
+('Haris', 'Doukas', 'Vietnamese'),
+('George', 'Fikioris', 'Vietnamese'),
+('George', 'Karybakas', 'Vietnamese'),
+('Anda', 'Ferfeli', 'Vietnamese'),
+('Nikolaos', 'Karakostas', 'Vietnamese'),
+
+-- Brazilian
+('Sofia', 'Papadopoulou', 'Brazilian'),
+('Maria', 'Koutsou', 'Brazilian'),
+('Athanasios', 'Mitilineos', 'Brazilian'),
+('Anastasia', 'Petropoulou', 'Brazilian'),
+('Vasilios', 'Voulgaris', 'Brazilian'),
+
+-- Turkish
+('Ioannis', 'Anastasiou', 'Turkish'),
+('Katerina', 'Mavromati', 'Turkish'),
+('Eleni', 'Spanou', 'Turkish'),
+('Kostas', 'Stamatiou', 'Turkish'),
+('Petros', 'Gavrilis', 'Turkish'),
+
+-- Australian
+('Yiannis', 'Tzavellas', 'Australian'),
+('Dimitris', 'Papageorgiou', 'Australian'),
+('Eleni', 'Panagiotopoulou', 'Australian'),
+('Miltiades', 'Anagnostou', 'Australian'),
+('Antonios', 'Antonopoulos', 'Australian'),
+
+-- Mediterranean
+('Dimitrios', 'Askounis', 'Mediterranean'),
+('Hercules', 'Avramopoulos', 'Mediterranean'),
+('Christos', 'Capsalis', 'Mediterranean'),
+('Christos', 'Christodoulou', 'Mediterranean'),
+('Aris', 'Dimeas', 'Mediterranean'),
+
+-- Caribbean
+('Haris', 'Doukas', 'Caribbean'),
+('George', 'Fikioris', 'Caribbean'),
+('George', 'Karybakas', 'Caribbean'),
+('Anda', 'Ferfeli', 'Caribbean'),
+('Nikolaos', 'Karakostas', 'Caribbean'),
+
+-- Irish
+('Sofia', 'Papadopoulou', 'Irish'),
+('Maria', 'Koutsou', 'Irish'),
+('Athanasios', 'Mitilineos', 'Irish'),
+('Anastasia', 'Petropoulou', 'Irish'),
+('Vasilios', 'Voulgaris', 'Irish'),
+
+-- Swedish
+('Ioannis', 'Anastasiou', 'Swedish'),
+('Katerina', 'Mavromati', 'Swedish'),
+('Eleni', 'Spanou', 'Swedish'),
+('Kostas', 'Stamatiou', 'Swedish'),
+('Petros', 'Gavrilis', 'Swedish'),
+
+-- Portuguese
+('Yiannis', 'Tzavellas', 'Portuguese'),
+('Dimitris', 'Papageorgiou', 'Portuguese'),
+('Eleni', 'Panagiotopoulou', 'Portuguese'),
+('Miltiades', 'Anagnostou', 'Portuguese'),
+('Antonios', 'Antonopoulos', 'Portuguese');
+
+-- Adding 5 more chefs for each remaining existing cuisine, ensuring each chef appears at least 3 times
+
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+-- Swiss
+('Athanasios', 'Mitilineos', 'Swiss'),
+('Anastasia', 'Petropoulou', 'Swiss'),
+('Vasilios', 'Voulgaris', 'Swiss'),
+('Ioannis', 'Anastasiou', 'Swiss'),
+('Katerina', 'Mavromati', 'Swiss'),
+
+-- Lebanese
+('Eleni', 'Spanou', 'Lebanese'),
+('Kostas', 'Stamatiou', 'Lebanese'),
+('Petros', 'Gavrilis', 'Lebanese'),
+('Yiannis', 'Tzavellas', 'Lebanese'),
+('Dimitris', 'Papageorgiou', 'Lebanese'),
+
+-- Polish
+('Eleni', 'Panagiotopoulou', 'Polish'),
+('Miltiades', 'Anagnostou', 'Polish'),
+('Antonios', 'Antonopoulos', 'Polish'),
+('Dimitrios', 'Askounis', 'Polish'),
+('Hercules', 'Avramopoulos', 'Polish'),
+
+-- Ethiopian
+('Christos', 'Capsalis', 'Ethiopian'),
+('Christos', 'Christodoulou', 'Ethiopian'),
+('Aris', 'Dimeas', 'Ethiopian'),
+('Haris', 'Doukas', 'Ethiopian'),
+('George', 'Fikioris', 'Ethiopian'),
+
+-- Cuban
+('George', 'Karybakas', 'Cuban'),
+('Anda', 'Ferfeli', 'Cuban'),
+('Nikolaos', 'Karakostas', 'Cuban'),
+('Sofia', 'Papadopoulou', 'Cuban'),
+('Maria', 'Koutsou', 'Cuban'),
+
+-- Finnish
+('Athanasios', 'Mitilineos', 'Finnish'),
+('Anastasia', 'Petropoulou', 'Finnish'),
+('Vasilios', 'Voulgaris', 'Finnish'),
+('Ioannis', 'Anastasiou', 'Finnish'),
+('Katerina', 'Mavromati', 'Finnish'),
+
+-- Jamaican
+('Eleni', 'Spanou', 'Jamaican'),
+('Kostas', 'Stamatiou', 'Jamaican'),
+('Petros', 'Gavrilis', 'Jamaican'),
+('Yiannis', 'Tzavellas', 'Jamaican'),
+('Dimitris', 'Papageorgiou', 'Jamaican'),
+
+-- Tibetan
+('Eleni', 'Panagiotopoulou', 'Tibetan'),
+('Miltiades', 'Anagnostou', 'Tibetan'),
+('Antonios', 'Antonopoulos', 'Tibetan'),
+('Dimitrios', 'Askounis', 'Tibetan'),
+('Hercules', 'Avramopoulos', 'Tibetan'),
+
+-- Hawaiian
+('Christos', 'Capsalis', 'Hawaiian'),
+('Christos', 'Christodoulou', 'Hawaiian'),
+('Aris', 'Dimeas', 'Hawaiian'),
+('Haris', 'Doukas', 'Hawaiian'),
+('George', 'Fikioris', 'Hawaiian'),
+
+-- Maltese
+('George', 'Karybakas', 'Maltese'),
+('Anda', 'Ferfeli', 'Maltese'),
+('Nikolaos', 'Karakostas', 'Maltese'),
+('Sofia', 'Papadopoulou', 'Maltese'),
+('Maria', 'Koutsou', 'Maltese'),
+
+-- Singaporean
+('Athanasios', 'Mitilineos', 'Singaporean'),
+('Anastasia', 'Petropoulou', 'Singaporean'),
+('Vasilios', 'Voulgaris', 'Singaporean'),
+('Ioannis', 'Anastasiou', 'Singaporean'),
+('Katerina', 'Mavromati', 'Singaporean'),
+
+-- Belgian
+('Eleni', 'Spanou', 'Belgian'),
+('Kostas', 'Stamatiou', 'Belgian'),
+('Petros', 'Gavrilis', 'Belgian'),
+('Yiannis', 'Tzavellas', 'Belgian'),
+('Dimitris', 'Papageorgiou', 'Belgian'),
+
+-- Nigerian
+('Eleni', 'Panagiotopoulou', 'Nigerian'),
+('Miltiades', 'Anagnostou', 'Nigerian'),
+('Antonios', 'Antonopoulos', 'Nigerian'),
+('Dimitrios', 'Askounis', 'Nigerian'),
+('Hercules', 'Avramopoulos', 'Nigerian'),
+
+-- Georgian
+('Christos', 'Capsalis', 'Georgian'),
+('Christos', 'Christodoulou', 'Georgian'),
+('Aris', 'Dimeas', 'Georgian'),
+('Haris', 'Doukas', 'Georgian'),
+('George', 'Fikioris', 'Georgian'),
+
+-- Ukrainian
+('George', 'Karybakas', 'Ukrainian'),
+('Anda', 'Ferfeli', 'Ukrainian'),
+('Nikolaos', 'Karakostas', 'Ukrainian'),
+('Sofia', 'Papadopoulou', 'Ukrainian'),
+('Maria', 'Koutsou', 'Ukrainian'),
+
+-- Bangladeshi
+('Athanasios', 'Mitilineos', 'Bangladeshi'),
+('Anastasia', 'Petropoulou', 'Bangladeshi'),
+('Vasilios', 'Voulgaris', 'Bangladeshi'),
+('Ioannis', 'Anastasiou', 'Bangladeshi'),
+('Katerina', 'Mavromati', 'Bangladeshi'),
+
+-- Cambodian
+('Eleni', 'Spanou', 'Cambodian'),
+('Kostas', 'Stamatiou', 'Cambodian'),
+('Petros', 'Gavrilis', 'Cambodian'),
+('Yiannis', 'Tzavellas', 'Cambodian'),
+('Dimitris', 'Papageorgiou', 'Cambodian'),
+
+-- Sri Lankan
+('Eleni', 'Panagiotopoulou', 'Sri Lankan'),
+('Miltiades', 'Anagnostou', 'Sri Lankan'),
+('Antonios', 'Antonopoulos', 'Sri Lankan'),
+('Dimitrios', 'Askounis', 'Sri Lankan'),
+('Hercules', 'Avramopoulos', 'Sri Lankan'),
+
+-- Tunisian
+('Christos', 'Capsalis', 'Tunisian'),
+('Christos', 'Christodoulou', 'Tunisian'),
+('Aris', 'Dimeas', 'Tunisian'),
+('Haris', 'Doukas', 'Tunisian'),
+('George', 'Fikioris', 'Tunisian');
+
+
+
 -- Equipment--
 INSERT INTO equipment (equipment_name, instructions) VALUES
 ('Knife', 'Use for cutting and chopping ingredients.'),
