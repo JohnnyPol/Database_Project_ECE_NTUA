@@ -243,10 +243,10 @@ def Create_Database(cursor):
         sql_script = file.read()
 
     for query in sql_script.split(";"):
-        #query = query.replace("\n", "")
-        if query != "":
+        if query != "" and query != "\n":
             cursor.execute(query)
             db.connection.commit()
+    
     
     
     ## Create Triggers
@@ -254,7 +254,7 @@ def Create_Database(cursor):
         sql_script = file.read()
     
     for query in sql_script.split("END;"):
-        if query != "":
+        if query != "" and query != "\n":
             query += " END;"
             cursor.execute(query)
             db.connection.commit()
@@ -264,13 +264,10 @@ def Create_Database(cursor):
         sql_script = file.read()
 
     for query in sql_script.split(";"):
-        #query = query.replace("\n", "")
-        if query != "":
+        if query != "" and query != "\n" and query != "\n\n":
             cursor.execute(query)
             db.connection.commit()
 
-
-    
     cursor.close()
 
 @app.route("/")
