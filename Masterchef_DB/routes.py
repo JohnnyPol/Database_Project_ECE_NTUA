@@ -39,8 +39,8 @@ def competition(season):
                     all_cuisines.append(cuisines)
                     break
 
+        counter = 0
         for cuisine in all_cuisines[number_of_cuisines * i :]:
-            counter = 0
             while True:
 
                 query_chef = """
@@ -64,7 +64,6 @@ def competition(season):
                 else:
                     all_chefs.append(chef)
                     break
-
             counter += 1
 
         for cuisine in all_cuisines[number_of_cuisines * i :]:
@@ -78,12 +77,7 @@ def competition(season):
                 """
                 cursor.execute(query_recipe, (cuisine,))
                 recipe = cursor.fetchone()
-                if (
-                    all_recipes[
-                        number_of_cuisines * first : number_of_cuisines * i
-                    ].count(recipe)
-                    >= 3
-                ):
+                if (all_recipes[number_of_cuisines * first : number_of_cuisines * i].count(recipe)>= 3):
                     continue
                 else:
                     all_recipes.append(recipe)
@@ -114,7 +108,7 @@ def competition(season):
                     all_judges.append(judge)
                     break
         
-        
+        '''
         insert_judge_query = f"""
         INSERT INTO participate_in_episode_as_judge
         VALUES (%s, %s, %s, %s)
@@ -234,8 +228,8 @@ def competition(season):
             ),
         )
         db.connection.commit()
+        '''
     return all_chefs
-
 
 def Create_Database(cursor):
     ## Create tables and indexes
@@ -246,9 +240,7 @@ def Create_Database(cursor):
         if query != "" and query != "\n":
             cursor.execute(query)
             db.connection.commit()
-    
-    
-    
+
     ## Create Triggers
     with open("SQL Scripts/App Scripts/create_triggers.sql", "r") as file:
         sql_script = file.read()
