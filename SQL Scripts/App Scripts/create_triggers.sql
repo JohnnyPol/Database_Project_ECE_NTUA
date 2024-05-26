@@ -28,7 +28,8 @@ BEGIN
     FROM food_groups
     WHERE food_group_name = cat;
     
-    INSERT INTO dietary_info VALUES (recipe, Diet, 0, 0, 0, 0); 
+   INSERT INTO dietary_info(recipe, dietary_category, total_carbs, total_protein, total_fats, total_calories)
+   VALUES (recipe, Diet, 0, 0, 0, 0); 
 END;
 
 CREATE TRIGGER GetDietaryInfo AFTER INSERT ON has_ingredient FOR EACH ROW
