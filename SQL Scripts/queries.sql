@@ -21,7 +21,7 @@ LEFT JOIN
     participate_in_episode_as_chef pe 
     ON ec.chef_name = pe.chef_name 
     AND ec.chef_surname = pe.chef_surname
-    AND pe.season = 4
+    AND pe.season = 1
 WHERE 
     ec.cuisine_name = 'Japanese'
 ORDER BY 
