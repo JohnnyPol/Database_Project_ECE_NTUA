@@ -621,7 +621,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Hercules', 'Avramopoulos', 'Middle Eastern');
 
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Christos', 'Capsalis', 'Scandinavian'),
+('Katerina', 'Michou', 'Scandinavian'),
 ('Christos', 'Christodoulou', 'Scandinavian'),
 ('Aris', 'Dimeas', 'Scandinavian'),
 ('Haris', 'Doukas', 'Scandinavian'),
@@ -631,22 +631,22 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('George', 'Karybakas', 'Russian'),
 ('Anda', 'Ferfeli', 'Russian'),
 ('Nikolaos', 'Karakostas', 'Russian'),
-('Sofia', 'Papadopoulou', 'Russian'),
-('Maria', 'Koutsou', 'Russian');
+('Olga', 'Michou', 'Russian'),
+('Christos', 'Michos', 'Russian');
 
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Athanasios', 'Mitilineos', 'Spanish'),
 ('Anastasia', 'Petropoulou', 'Spanish'),
 ('Vasilios', 'Voulgaris', 'Spanish'),
 ('Ioannis', 'Anastasiou', 'Spanish'),
-('Katerina', 'Mavromati', 'Spanish');
+('Dimitris', 'Tsoumakos', 'Spanish');
 
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Eleni', 'Spanou', 'Greek'),
 ('Kostas', 'Stamatiou', 'Greek'),
 ('Petros', 'Gavrilis', 'Greek'),
 ('Yiannis', 'Tzavellas', 'Greek'),
-('Antonios', 'Antonopoulos', 'Greek'),
+('Katerina', 'Michou', 'Greek'),
 ('Dimitrios', 'Askounis', 'Peruvian'),
 ('Hercules', 'Avramopoulos', 'Peruvian'),
 ('Christos', 'Capsalis', 'Peruvian'),
@@ -887,7 +887,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Hercules', 'Avramopoulos', 'Thai'),
 ('Christos', 'Capsalis', 'Thai'),
 ('Christos', 'Christodoulou', 'Thai'),
-('Aris', 'Dimeas', 'Thai');
+('Petros', 'Gavrilis', 'Thai');
 
 -- British
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
@@ -895,41 +895,41 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('George', 'Fikioris', 'British'),
 ('George', 'Karybakas', 'British'),
 ('Anda', 'Ferfeli', 'British'),
-('Nikolaos', 'Karakostas', 'British'),
-('Sofia', 'Papadopoulou', 'British');
+('Aris', 'Dimeas', 'British'),
+('Dimitrios', 'Askounis', 'British');
 
 -- Moroccan
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Maria', 'Koutsou', 'Moroccan'),
 ('Athanasios', 'Mitilineos', 'Moroccan'),
 ('Anastasia', 'Petropoulou', 'Moroccan'),
-('Vasilios', 'Voulgaris', 'Moroccan'),
-('Ioannis', 'Anastasiou', 'Moroccan'),
-('Katerina', 'Mavromati', 'Moroccan');
+('George', 'Karybakas', 'Moroccan'),
+('George', 'Fikioris', 'Moroccan'),
+('Katerina', 'Michou', 'Moroccan');
 
 -- Indian
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Eleni', 'Spanou', 'Indian'),
 ('Kostas', 'Stamatiou', 'Indian'),
-('Petros', 'Gavrilis', 'Indian'),
-('Yiannis', 'Tzavellas', 'Indian'),
-('Dimitris', 'Papageorgiou', 'Indian'),
-('Eleni', 'Panagiotopoulou', 'Indian');
+('Christos', 'Capsalis', 'Indian'),
+('Hercules', 'Avramopoulos', 'Indian'),
+('Antonios', 'Antonopoulos', 'Indian'),
+('Haris', 'Doukas', 'Indian');
 
 -- Middle Eastern
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Miltiades', 'Anagnostou', 'Middle Eastern'),
-('Antonios', 'Antonopoulos', 'Middle Eastern'),
-('Dimitrios', 'Askounis', 'Middle Eastern'),
-('Hercules', 'Avramopoulos', 'Middle Eastern'),
+('Haris', 'Doukas', 'Middle Eastern'),
+('Vasilios', 'Voulgaris', 'Middle Eastern'),
+('Katerina', 'Michou', 'Middle Eastern'),
 ('Christos', 'Capsalis', 'Middle Eastern'),
 ('Christos', 'Christodoulou', 'Middle Eastern');
 
 -- Scandinavian
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Aris', 'Dimeas', 'Scandinavian'),
-('Haris', 'Doukas', 'Scandinavian'),
-('George', 'Fikioris', 'Scandinavian'),
+('Sofia', 'Papadopoulou', 'Scandinavian'),
+('Giannis', 'polychronopoulos', 'Scandinavian'),
+('Christos', 'Capsalis', 'Scandinavian'),
 ('George', 'Karybakas', 'Scandinavian'),
 ('Anda', 'Ferfeli', 'Scandinavian'),
 ('Nikolaos', 'Karakostas', 'Scandinavian');
@@ -977,7 +977,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Christos', 'Capsalis', 'Argentinian'),
 ('Christos', 'Christodoulou', 'Argentinian'),
 ('Aris', 'Dimeas', 'Argentinian'),
-('Haris', 'Doukas', 'Argentinian');
+('Maria', 'Koutsou', 'Argentinian');
 
 -- Japanese
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
@@ -985,67 +985,67 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('George', 'Karybakas', 'Japanese'),
 ('Anda', 'Ferfeli', 'Japanese'),
 ('Nikolaos', 'Karakostas', 'Japanese'),
-('Sofia', 'Papadopoulou', 'Japanese'),
-('Maria', 'Koutsou', 'Japanese');
+('Eleni', 'Spanou', 'Japanese'),
+('Angeliki', 'Ntalapera', 'Japanese');
 
 -- Cajun
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Athanasios', 'Mitilineos', 'Cajun'),
 ('Anastasia', 'Petropoulou', 'Cajun'),
 ('Vasilios', 'Voulgaris', 'Cajun'),
-('Ioannis', 'Anastasiou', 'Cajun'),
-('Katerina', 'Mavromati', 'Cajun'),
-('Eleni', 'Spanou', 'Cajun');
+('Katerina', 'Michou', 'Cajun'),
+('Giannis', 'polychronopoulos', 'Cajun'),
+('Eleni', 'Ntalapera', 'Cajun');
 
 -- German
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Kostas', 'Stamatiou', 'German'),
 ('Petros', 'Gavrilis', 'German'),
-('Yiannis', 'Tzavellas', 'German'),
-('Dimitris', 'Papageorgiou', 'German'),
-('Eleni', 'Panagiotopoulou', 'German'),
-('Miltiades', 'Anagnostou', 'German');
+('George', 'Fikioris', 'German'),
+('Vasilios', 'Voulgaris', 'German'),
+('Anastasia', 'Petropoulou', 'German'),
+('Ioannis', 'Anastasiou', 'German');
 
 -- Korean
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Antonios', 'Antonopoulos', 'Korean'),
-('Dimitrios', 'Askounis', 'Korean'),
-('Hercules', 'Avramopoulos', 'Korean'),
-('Christos', 'Capsalis', 'Korean'),
-('Christos', 'Christodoulou', 'Korean'),
-('Aris', 'Dimeas', 'Korean');
+('Dimitris', 'Papageorgiou', 'Korean'),
+('George', 'Fikioris', 'Korean'),
+('Eleni', 'Panagiotopoulou', 'Korean'),
+('Sofia', 'Papadopoulou', 'Korean'),
+('George', 'Karybakas', 'Korean');
 
 -- Vietnamese
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Haris', 'Doukas', 'Vietnamese'),
-('George', 'Fikioris', 'Vietnamese'),
-('George', 'Karybakas', 'Vietnamese'),
-('Anda', 'Ferfeli', 'Vietnamese'),
-('Nikolaos', 'Karakostas', 'Vietnamese'),
+('Hercules', 'Avramopoulos', 'Vietnamese'),
+('Athanasios', 'Mitilineos', 'Vietnamese'),
+('Maria', 'Koutsou', 'Vietnamese'),
+('Katerina', 'Mavromati', 'Vietnamese'),
+('Christos', 'Michos', 'Vietnamese'),
 ('Sofia', 'Papadopoulou', 'Vietnamese');
 
 -- Brazilian
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Maria', 'Koutsou', 'Brazilian'),
-('Athanasios', 'Mitilineos', 'Brazilian'),
-('Anastasia', 'Petropoulou', 'Brazilian'),
-('Vasilios', 'Voulgaris', 'Brazilian'),
+('Olga', 'Michou', 'Brazilian'),
+('Dimitris', 'Tsoumakos', 'Brazilian'),
+('Dimitris', 'Fotakis', 'Brazilian'),
+('Marios', 'Koniaris', 'Brazilian'),
 ('Ioannis', 'Anastasiou', 'Brazilian'),
 ('Katerina', 'Mavromati', 'Brazilian');
 
 -- Turkish
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Eleni', 'Spanou', 'Turkish'),
-('Kostas', 'Stamatiou', 'Turkish'),
-('Petros', 'Gavrilis', 'Turkish'),
+('Giannis', 'polychronopoulos', 'Turkish'),
+('Angeliki', 'Ntalapera', 'Turkish'),
+('Katerina', 'Michou', 'Turkish'),
 ('Yiannis', 'Tzavellas', 'Turkish'),
 ('Dimitris', 'Papageorgiou', 'Turkish'),
 ('Eleni', 'Panagiotopoulou', 'Turkish');
 
 -- Australian
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Miltiades', 'Anagnostou', 'Australian'),
-('Antonios', 'Antonopoulos', 'Australian'),
+('Giannis', 'polychronopoulos', 'Australian'),
+('Eleni', 'Ntalapera', 'Australian'),
 ('Dimitrios', 'Askounis', 'Australian'),
 ('Hercules', 'Avramopoulos', 'Australian'),
 ('Christos', 'Capsalis', 'Australian'),
@@ -1053,7 +1053,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 
 -- Mediterranean
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Aris', 'Dimeas', 'Mediterranean'),
+('Katerina', 'Michou', 'Mediterranean'),
 ('Haris', 'Doukas', 'Mediterranean'),
 ('George', 'Fikioris', 'Mediterranean'),
 ('George', 'Karybakas', 'Mediterranean'),
@@ -1082,7 +1082,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 -- Lebanese
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Aris', 'Dimeas', 'Lebanese'),
-('Haris', 'Doukas', 'Lebanese'),
+('Olga', 'Michou', 'Lebanese'),
 ('George', 'Fikioris', 'Lebanese'),
 ('George', 'Karybakas', 'Lebanese'),
 ('Anda', 'Ferfeli', 'Lebanese'),
@@ -1108,12 +1108,12 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 
 -- South African
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Eleni', 'Panagiotopoulou', 'South African'),
-('Miltiades', 'Anagnostou', 'South African'),
-('Antonios', 'Antonopoulos', 'South African'),
-('Dimitrios', 'Askounis', 'South African'),
-('Hercules', 'Avramopoulos', 'South African'),
-('Christos', 'Capsalis', 'South African');
+('Eleni', 'Panagiotopoulou', 'African'),
+('Angeliki', 'Ntalapera', 'African'),
+('Antonios', 'Antonopoulos', 'African'),
+('Dimitrios', 'Askounis', 'African'),
+('Hercules', 'Avramopoulos', 'African'),
+('Christos', 'Capsalis', 'African');
 
 
 -- Cajun
@@ -1230,7 +1230,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Antonios', 'Antonopoulos', 'Malaysian'),
 ('Dimitrios', 'Askounis', 'Malaysian'),
 ('Hercules', 'Avramopoulos', 'Malaysian'),
-('Christos', 'Capsalis', 'Malaysian'),
+('Giannis', 'polychronopoulos', 'Malaysian'),
 ('Christos', 'Christodoulou', 'Malaysian');
 
 -- Belgian
@@ -1255,7 +1255,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 -- Georgian
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Katerina', 'Mavromati', 'Georgian'),
-('Eleni', 'Spanou', 'Georgian'),
+('Katerina', 'Michou', 'Georgian'),
 ('Kostas', 'Stamatiou', 'Georgian'),
 ('Petros', 'Gavrilis', 'Georgian'),
 ('Yiannis', 'Tzavellas', 'Georgian'),
@@ -1285,7 +1285,7 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Maria', 'Koutsou', 'Cambodian'),
 ('Athanasios', 'Mitilineos', 'Cambodian'),
 ('Anastasia', 'Petropoulou', 'Cambodian'),
-('Vasilios', 'Voulgaris', 'Cambodian'),
+('Christos', 'Michos', 'Cambodian'),
 ('Ioannis', 'Anastasiou', 'Cambodian');
 
 -- Sri Lankan
@@ -1295,16 +1295,16 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Kostas', 'Stamatiou', 'Sri Lankan'),
 ('Petros', 'Gavrilis', 'Sri Lankan'),
 ('Yiannis', 'Tzavellas', 'Sri Lankan'),
-('Dimitris', 'Papageorgiou', 'Sri Lankan');
+('Giannis', 'polychronopoulos', 'Sri Lankan');
 
 -- Tunisian
 INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
-('Eleni', 'Panagiotopoulou', 'Tunisian'),
+('Katerina', 'Michou', 'Tunisian'),
 ('Miltiades', 'Anagnostou', 'Tunisian'),
 ('Antonios', 'Antonopoulos', 'Tunisian'),
 ('Dimitrios', 'Askounis', 'Tunisian'),
 ('Hercules', 'Avramopoulos', 'Tunisian'),
-('Christos', 'Capsalis', 'Tunisian');
+('Angeliki', 'Ntalapera', 'Tunisian');
 
 
 -- Equipment--
