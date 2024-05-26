@@ -48,8 +48,13 @@ BEGIN
     SET amount = new.amount;
     
     IF new.fundamental_unit in ("Kilo", "Litre") THEN
-		SET amount = 1000 * amount;
+		SET amount = 10 * amount;
 	END IF;
+
+    IF new.fundamental_unit in ("Gram", "Ml") THEN
+		SET amount = amount/100;
+	END IF;
+		
 		
     IF new.fundamental_unit in ("Kilo", "Litre", "Gram", "Ml", "Piece") THEN
 		SELECT total_carbs, total_protein, total_fats, total_calories
