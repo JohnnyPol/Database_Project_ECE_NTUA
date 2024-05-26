@@ -1306,6 +1306,169 @@ INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
 ('Hercules', 'Avramopoulos', 'Tunisian'),
 ('Angeliki', 'Ntalapera', 'Tunisian');
 
+-- African
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Ioannis', 'Raptis', 'African'),
+('Dimitrios', 'Askounis', 'African'),
+('Haris', 'Doukas', 'African'),
+('Maria', 'Koutsou', 'African'),
+('Katerina', 'Mavromati', 'African'),
+('Eleni', 'Panagiotopoulou', 'African');
+
+-- Cuban
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Dimitris', 'Papageorgiou', 'Cuban'),
+('Hercules', 'Avramopoulos', 'Cuban'),
+('Christos', 'Capsalis', 'Cuban'),
+('Miltiades', 'Anagnostou', 'Cuban'),
+('Antonios', 'Antonopoulos', 'Cuban'),
+('Dora', 'Souliou', 'Cuban');
+
+-- Finnish
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Georgios', 'Koletsos', 'Finnish'),
+('George', 'Karybakas', 'Finnish'),
+('Symeon', 'Papavassileiou', 'Finnish'),
+('Antonis', 'Papavassileiou', 'Finnish'),
+('Nikolaos', 'Giannakakis', 'Finnish'),
+('Michail', 'Loulakis', 'Finnish');
+
+-- Greek
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Ioannis', 'Anastasiou', 'Greek'),
+('Katerina', 'Michou', 'Greek'),
+('Anda', 'Ferfeli', 'Greek'),
+('Petros', 'Gavrilis', 'Greek'),
+('Yiannis', 'Tzavellas', 'Greek'),
+('Dimitris', 'Papageorgiou', 'Greek');
+
+-- Hawaiian
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('John', 'Tsinias', 'Hawaiian'),
+('Dimitris', 'Papageorgiou', 'Hawaiian'),
+('Ioannis', 'Anastasiou', 'Hawaiian'),
+('Katerina', 'Michou', 'Hawaiian'),
+('Angeliki', 'Ntalapera', 'Hawaiian'),
+('Dora', 'Souliou', 'Hawaiian');
+
+-- Indonesian
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Verena', 'Kantere', 'Indonesian'),
+('Gordon', 'Ransey', 'Indonesian'),
+('Jaime', 'Lannister', 'Indonesian'),
+('Daenerys', 'Targaryen', 'Indonesian'),
+('Jon', 'Snow', 'Indonesian'),
+('Beth', 'March', 'Indonesian');
+
+-- Jamaican
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Olga', 'Michou', 'Jamaican'),
+('Christos', 'Michos', 'Jamaican'),
+('Eleni', 'Ntalapera', 'Jamaican'),
+('Miltiades', 'Anagnostou', 'Jamaican'),
+('Antonios', 'Antonopoulos', 'Jamaican'),
+('Dimitrios', 'Askounis', 'Jamaican');
+
+-- Malaysian
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Aris', 'Koziris', 'Malaysian'),
+('Nikolaos', 'Giannakakis', 'Malaysian'),
+('Michail', 'Loulakis', 'Malaysian'),
+('Georgios', 'Koletsos', 'Malaysian'),
+('Ioannis', 'Raptis', 'Malaysian'),
+('Giannis', 'polychronopoulos', 'Malaysian');
+
+-- Maltese
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Symeon', 'Papavassileiou', 'Maltese'),
+('Antonis', 'Papavassileiou', 'Maltese'),
+('Ioanna', 'Roussaki', 'Maltese'),
+('Stathis', 'Zachos', 'Maltese'),
+('Antonis', 'Kladas', 'Maltese'),
+('Aris', 'Koziris', 'Maltese');
+
+-- Polish
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('John', 'Tsinias', 'Polish'),
+('Dimitris', 'Papageorgiou', 'Polish'),
+('Ioannis', 'Anastasiou', 'Polish'),
+('Katerina', 'Michou', 'Polish'),
+('Angeliki', 'Ntalapera', 'Polish'),
+('Dora', 'Souliou', 'Polish');
+
+-- Russian
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Verena', 'Kantere', 'Russian'),
+('Gordon', 'Ransey', 'Russian'),
+('Jaime', 'Lannister', 'Russian'),
+('Daenerys', 'Targaryen', 'Russian'),
+('Jon', 'Snow', 'Russian'),
+('Beth', 'March', 'Russian');
+
+-- Scandinavian
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Olga', 'Michou', 'Scandinavian'),
+('Christos', 'Michos', 'Scandinavian'),
+('Eleni', 'Ntalapera', 'Scandinavian'),
+('Miltiades', 'Anagnostou', 'Scandinavian'),
+('Antonios', 'Antonopoulos', 'Scandinavian'),
+('Dimitrios', 'Askounis', 'Scandinavian');
+
+-- Singaporean
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Dimitris', 'Tsoumakos', 'Singaporean'),
+('Dimitris', 'Fotakis', 'Singaporean'),
+('Marios', 'Koniaris', 'Singaporean'),
+('Aris', 'Pagourtzis', 'Singaporean'),
+('Ioanna', 'Roussaki', 'Singaporean'),
+('Stathis', 'Zachos', 'Singaporean');
+
+-- Spanish
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Symeon', 'Papavassileiou', 'Spanish'),
+('Antonis', 'Papavassileiou', 'Spanish'),
+('Marios', 'Koniaris', 'Spanish'),
+('Aris', 'Pagourtzis', 'Spanish'),
+('Ioanna', 'Roussaki', 'Spanish'),
+('Stathis', 'Zachos', 'Spanish');
+
+-- Tibetan
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Dimitris', 'Tsoumakos', 'Tibetan'),
+('Dimitris', 'Fotakis', 'Tibetan'),
+('Marios', 'Koniaris', 'Tibetan'),
+('Aris', 'Pagourtzis', 'Tibetan'),
+('Ioanna', 'Roussaki', 'Tibetan'),
+('Stathis', 'Zachos', 'Tibetan'),
+('Antonis', 'Papavassileiou', 'Tibetan');
+
+-- Israeli Cuisine
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Symeon', 'Papavassileiou', 'Israeli'),
+('Antonis', 'Kladas', 'Israeli'),
+('Aris', 'Koziris', 'Israeli'),
+('John', 'Tsinias', 'Israeli'),
+('Nikolaos', 'Giannakakis', 'Israeli'),
+('Michail', 'Loulakis', 'Israeli'),
+('Georgios', 'Koletsos', 'Israeli'),
+('Ioannis', 'Raptis', 'Israeli'),
+('Giannis', 'polychronopoulos', 'Israeli'),
+('Katerina', 'Michou', 'Israeli');
+
+-- Filipino Cuisine
+INSERT INTO expertise_in (chef_name, chef_surname, cuisine_name) VALUES
+('Angeliki', 'Ntalapera', 'Filipino'),
+('Dora', 'Souliou', 'Filipino'),
+('Verena', 'Kantere', 'Filipino'),
+('Gordon', 'Ransey', 'Filipino'),
+('Jaime', 'Lannister', 'Filipino'),
+('Daenerys', 'Targaryen', 'Filipino'),
+('Jon', 'Snow', 'Filipino'),
+('Joe', 'March', 'Filipino'),
+('Beth', 'March', 'Filipino'),
+('Olga', 'Michou', 'Filipino');
+
+
 
 -- Equipment--
 INSERT INTO equipment (equipment_name, instructions) VALUES
