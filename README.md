@@ -65,9 +65,9 @@ Competition Function: Randomly assigns chefs, cuisines, and judges per episode. 
 [📜 Full SQL Queries & Explanations](https://github.com/JohnnyPol/Database_Project_ECE_NTUA/tree/main/SQL%20Scripts)
 
 ## 👥 User Roles & Permissions
-Admins: Full access to manage the database.
-Chefs: Limited access to add and modify their assigned recipes.
-Permissions implemented using GRANT statements and Views.
+- Admins: Full access to manage the database.
+- Chefs: Limited access to add and modify their assigned recipes.
+- Permissions implemented using GRANT statements and Views.
 
 ## 📜 Full Documentation
 Check the [Full Report](Report.pdf) for a deep dive into the project.
