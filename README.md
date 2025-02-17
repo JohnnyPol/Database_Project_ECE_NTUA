@@ -61,7 +61,7 @@ Open http://localhost:3000 in a browser.
 ## ⚡ Queries & Functionality
 The project includes several optimized queries and a competition function.
 Example Queries: Average chef scores, participation tracking, ingredient stats, etc. <br>
-Competition Function: Randomly assigns chefs, cuisines, and judges per episode.
+Competition Function: Randomly assigns chefs, cuisines, and judges per episode. <br>
 [📜 Full SQL Queries & Explanations](https://github.com/JohnnyPol/Database_Project_ECE_NTUA/tree/main/SQL%20Scripts)
 
 ## 👥 User Roles & Permissions
